@@ -549,6 +549,63 @@ footer:hover .ft-bg-image{transform:translateY(-18px) scale(1.15) rotate(-1deg)}
   .ft-n{font-size:clamp(2.5rem,10vw,4rem) !important}
 }
 
+/* Lightbox Modal Styles */
+.lightbox-modal {
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  inset: 0;
+  background: rgba(3, 8, 13, 0.95);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+}
+.lightbox-modal.show {
+  display: flex;
+  opacity: 1;
+}
+.lightbox-content {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.8), 0 0 40px rgba(6,173,238,0.15);
+  transform: scale(0.95);
+  transition: transform 0.4s var(--ease);
+}
+.lightbox-modal.show .lightbox-content {
+  transform: scale(1);
+}
+.lightbox-close {
+  position: absolute;
+  top: 2rem;
+  right: 2.5rem;
+  color: var(--w55);
+  font-size: 2.5rem;
+  font-weight: 300;
+  cursor: pointer;
+  transition: color 0.25s;
+  z-index: 100000;
+}
+.lightbox-close:hover {
+  color: var(--blue);
+}
+.lightbox-caption {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--w80);
+  font-family: var(--D);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+
 </style>
 </head>
 <body>
@@ -803,10 +860,11 @@ footer:hover .ft-bg-image{transform:translateY(-18px) scale(1.15) rotate(-1deg)}
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
     </button>
     <div class="svc-slider">
-      <div class="svc-slide"><img src="harry4.jpg" alt=""></div>
-      <div class="svc-slide"><img src="harry3.jpg" alt=""></div>
-      <div class="svc-slide"><img src="harry1.jpg" alt=""></div>
-      <div class="svc-slide"><img src="harry2.jpg" alt=""></div>
+      <div class="svc-slide"><img src="photo1.jpg" alt="Child portrait"></div>
+      <div class="svc-slide"><img src="photo2.jpg" alt="Wrist watch details"></div>
+      <div class="svc-slide"><img src="photo3.jpg" alt="Sitting woman portrait"></div>
+      <div class="svc-slide"><img src="photo4.jpg" alt="Girl denim jacket portrait"></div>
+      <div class="svc-slide"><img src="photo5.jpg" alt="Father and baby"></div>
     </div>
     <button class="slider-arrow next" aria-label="Next Slide">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
@@ -942,6 +1000,13 @@ footer:hover .ft-bg-image{transform:translateY(-18px) scale(1.15) rotate(-1deg)}
   <div class="ft-love" style="text-align:center;padding:.2rem 4vw 2rem;font-size:.74rem;color:var(--w55);font-style:italic;position:relative;z-index:3">Designed with love by his wife <strong style="color:var(--blue)">♥</strong></div>
 </footer>
 
+<!-- Fullscreen Lightbox Modal -->
+<div id="lightbox" class="lightbox-modal">
+  <span class="lightbox-close">&times;</span>
+  <img class="lightbox-content" id="lightbox-img" alt="">
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+
 <script>
 // NAVIGATION SCROLL EFFECT
 const navElement = document.querySelector('nav');
@@ -959,7 +1024,7 @@ const cur=document.getElementById('cur'),curo=document.getElementById('curo');
 let mx=innerWidth/2,my=innerHeight/2,ox=mx,oy=my;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
 (function lp(){ox+=(mx-ox)*.1;oy+=(my-oy)*.1;curo.style.left=ox+'px';curo.style.top=oy+'px';requestAnimationFrame(lp)})();
-document.querySelectorAll('a,button,.svc-card,.inst-card,.tool-item,.folder,#photography .svc-head').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'))});
+document.querySelectorAll('a,button,.svc-card,.inst-card,.tool-item,.folder,#photography .svc-head,.lightbox-close,#photography .svc-slide img').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'))});
 addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('gone'),2400));
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.sr,.years-h,.intent-h').forEach(el=>io.observe(el));
@@ -1034,6 +1099,42 @@ document.querySelectorAll('.svc-slider-container').forEach(container => {
     });
   }
 });
+
+// LIGHTBOX MODAL FOR PHOTOGRAPHY
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxCaption = document.getElementById('lightbox-caption');
+const lightboxClose = document.querySelector('.lightbox-close');
+
+if (lightbox && lightboxImg && lightboxClose) {
+  document.querySelectorAll('#photography .svc-slide img').forEach(img => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightboxCaption.textContent = img.alt || 'Photography Asset';
+      lightbox.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  const closeLightbox = () => {
+    lightbox.classList.remove('show');
+    document.body.style.overflow = '';
+  };
+
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox || e.target === lightboxImg) {
+      closeLightbox();
+    }
+  });
+  
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeLightbox();
+    }
+  });
+}
 </script>
 </body>
 </html>
