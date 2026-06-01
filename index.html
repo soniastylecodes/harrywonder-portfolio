@@ -127,16 +127,18 @@ nav *{pointer-events:all}
 .svc-head{text-align:center;margin-bottom:3.5rem}
 .svc-head h3{font-family:var(--D);font-size:clamp(2.2rem,4.5vw,4.5rem);font-weight:700;letter-spacing:-.03em;line-height:1.02;color:var(--w80)}
 .svc-head p{font-size:.92rem;color:var(--w55);max-width:480px;margin:1.2rem auto 0;line-height:1.55}
-.svc-row{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;max-width:1480px;margin:0 auto}
-.svc-card{aspect-ratio:4/3;border-radius:14px;overflow:hidden;position:relative;cursor:none;transition:transform .55s var(--ease);background:var(--dark2);border:1px solid var(--w06)}
-.svc-card:hover{transform:translateY(-6px)}
-.svc-card img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease),filter .5s}
-.svc-card:hover img{transform:scale(1.06)}
-.svc-card-empty{position:absolute;inset:0;background:
-  radial-gradient(ellipse 60% 55% at 45% 40%,rgba(6,173,238,.14) 0%,transparent 55%),
-  linear-gradient(150deg,var(--dark3) 0%,var(--dark2) 60%,var(--dark) 100%)}
-.svc-card-empty::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 32px,rgba(6,173,238,.02) 32px,rgba(6,173,238,.02) 33px)}
-.svc-alt{grid-template-columns:repeat(5,1fr)}.svc-alt .svc-card:nth-child(2),.svc-alt .svc-card:nth-child(4){background:linear-gradient(150deg,rgba(6,173,238,.15),rgba(6,173,238,.05));border-color:rgba(6,173,238,.2)}
+.svc-slider-container{position:relative;max-width:1480px;margin:0 auto;width:100%}
+.svc-slider{display:flex;gap:1.5rem;overflow-x:auto;scroll-behavior:smooth;scroll-snap-type:x mandatory;padding:1rem 0 2rem;scrollbar-width:none;-ms-overflow-style:none}
+.svc-slider::-webkit-scrollbar{display:none}
+.svc-slide{flex:0 0 calc(25% - 1.125rem);min-width:280px;aspect-ratio:4/3;scroll-snap-align:start;border-radius:14px;overflow:hidden;position:relative;border:1px solid var(--w06);background:var(--dark2);transition:transform 0.55s var(--ease),border-color 0.3s;cursor:none}
+.svc-slide img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.svc-slide:hover img{transform:scale(1.05)}
+.svc-slide:hover{border-color:rgba(6,173,238,0.3);transform:translateY(-4px)}
+.slider-arrow{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:rgba(3,8,13,0.6);border:1px solid var(--w12);color:var(--w80);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;transition:background 0.3s,color 0.3s,border-color 0.3s,opacity 0.3s,transform 0.2s;opacity:0;pointer-events:none}
+.svc-slider-container:hover .slider-arrow{opacity:1;pointer-events:all}
+.slider-arrow:hover{background:var(--blue);border-color:var(--blue);color:var(--dark);transform:translateY(-50%) scale(1.1)}
+.slider-arrow.prev{left:-24px}
+.slider-arrow.next{right:-24px}
 
 #sayings{position:relative;overflow:hidden;background:var(--dark)}
 .say-stage{position:relative;height:130vh}
@@ -300,7 +302,10 @@ footer:hover .ft-bg-image{transform:translateY(-18px) scale(1.15) rotate(-1deg)}
 .folder.opened .folder-paper:hover .paper-title{color:var(--paper-accent)}
 
 @media(max-width:1100px){
-  .svc-row,.svc-alt{grid-template-columns:repeat(3,1fr)}
+  .svc-slide{flex:0 0 calc(45% - 0.75rem)}
+  .slider-arrow{opacity:1;pointer-events:all}
+  .slider-arrow.prev{left:-10px}
+  .slider-arrow.next{right:-10px}
   .inst-grid{grid-template-columns:1fr}
 }
 @media(max-width:900px){
@@ -312,7 +317,8 @@ footer:hover .ft-bg-image{transform:translateY(-18px) scale(1.15) rotate(-1deg)}
 @media(max-width:640px){
   body{cursor:auto}
   #cur,#curo{display:none}
-  .svc-row,.svc-alt{grid-template-columns:repeat(2,1fr)}
+  .svc-slide{flex:0 0 calc(80% - 0.5rem)}
+  .slider-arrow{display:none}
   .hero-n{font-size:clamp(4rem,17vw,8rem)}
   .nav-pill a:not(.logo-btn){display:none}
   .ft-sub{flex-direction:column;gap:.3rem}
@@ -365,8 +371,6 @@ footer:hover .ft-bg-image{transform:translateY(-18px) scale(1.15) rotate(-1deg)}
   .hero-bottom-right p{font-size:.9rem}
   #years{padding:9rem 5vw 4rem}
   .svc{padding:4rem 5vw}
-  .svc-row,.svc-alt{grid-template-columns:1fr;gap:1.5rem}
-  .svc-card{aspect-ratio:16/10}
   #tools{padding:4rem 5vw}
   .xp-item{flex-direction:column;gap:.3rem;align-items:flex-start}
   .xp-date{margin-top:.2rem}
@@ -568,67 +572,109 @@ footer:hover .ft-bg-image{transform:translateY(-18px) scale(1.15) rotate(-1deg)}
 
 <section class="svc" id="corp-events">
   <div class="svc-head sr"><h3>Corporate Video<br>&amp; Brand Events</h3><p>Creating high impact cinematic event productions and corporate highlights built to elevate your brand.</p></div>
-  <div class="svc-row sr d2">
-    <div class="svc-card"><img src="harry1.jpg" alt=""></div>
-    <div class="svc-card"><div class="svc-card-empty"></div></div>
-    <div class="svc-card"><img src="harry3.jpg" alt=""></div>
-    <div class="svc-card"><div class="svc-card-empty"></div></div>
-    <div class="svc-card"><img src="harry2.jpg" alt=""></div>
+  <div class="svc-slider-container sr d2">
+    <button class="slider-arrow prev" aria-label="Previous Slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="svc-slider">
+      <div class="svc-slide"><img src="harry1.jpg" alt=""></div>
+      <div class="svc-slide"><img src="harry2.jpg" alt=""></div>
+      <div class="svc-slide"><img src="harry3.jpg" alt=""></div>
+      <div class="svc-slide"><img src="harry4.jpg" alt=""></div>
+    </div>
+    <button class="slider-arrow next" aria-label="Next Slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
   </div>
 </section>
 
 <section class="svc" id="live-broadcasts">
   <div class="svc-head sr"><h3>Live Broadcasts<br>&amp; Multi Camera Direction</h3><p>Directing vMix and OBS live productions for institutional events with cinema grade output.</p></div>
-  <div class="svc-row svc-alt sr d2">
-    <div class="svc-card"><div class="svc-card-empty"></div></div>
-    <div class="svc-card"><img src="harry3.jpg" alt=""></div>
-    <div class="svc-card"><div class="svc-card-empty"></div></div>
-    <div class="svc-card"><img src="harry1.jpg" alt=""></div>
-    <div class="svc-card"><div class="svc-card-empty"></div></div>
+  <div class="svc-slider-container sr d2">
+    <button class="slider-arrow prev" aria-label="Previous Slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="svc-slider">
+      <div class="svc-slide"><img src="harry3.jpg" alt=""></div>
+      <div class="svc-slide"><img src="harry1.jpg" alt=""></div>
+      <div class="svc-slide"><img src="harry4.jpg" alt=""></div>
+      <div class="svc-slide"><img src="harry2.jpg" alt=""></div>
+    </div>
+    <button class="slider-arrow next" aria-label="Next Slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
   </div>
 </section>
 
 <section class="svc" id="documentaries">
   <div class="svc-head sr"><h3>Cinematic<br>&amp; NGO Documentaries</h3><p>Directing moving human-interest stories, advocacy films, and documentaries for global NGOs.</p></div>
-  <div class="svc-row sr d2">
-    <div class="svc-card"><img src="harry1.jpg" alt=""></div>
-    <div class="svc-card"><div class="svc-card-empty"></div></div>
-    <div class="svc-card"><img src="harry2.jpg" alt=""></div>
-    <div class="svc-card"><div class="svc-card-empty"></div></div>
-    <div class="svc-card"><img src="harry3.jpg" alt=""></div>
+  <div class="svc-slider-container sr d2">
+    <button class="slider-arrow prev" aria-label="Previous Slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="svc-slider">
+      <div class="svc-slide"><img src="harry2.jpg" alt=""></div>
+      <div class="svc-slide"><img src="harry4.jpg" alt=""></div>
+      <div class="svc-slide"><img src="harry3.jpg" alt=""></div>
+      <div class="svc-slide"><img src="harry1.jpg" alt=""></div>
+    </div>
+    <button class="slider-arrow next" aria-label="Next Slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
   </div>
 </section>
 
 <section class="svc" id="photography">
   <div class="svc-head sr"><h3>Photography<br>&amp; Creative Assets</h3><p>Event coverage, portraits, and visual asset libraries shot with a cinematographer's eye.</p></div>
-  <div class="svc-row svc-alt sr d2">
-    <div class="svc-card"><div class="svc-card-empty"></div></div>
-    <div class="svc-card"><img src="harry2.jpg" alt=""></div>
-    <div class="svc-card"><div class="svc-card-empty"></div></div>
-    <div class="svc-card"><img src="harry3.jpg" alt=""></div>
-    <div class="svc-card"><div class="svc-card-empty"></div></div>
+  <div class="svc-slider-container sr d2">
+    <button class="slider-arrow prev" aria-label="Previous Slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="svc-slider">
+      <div class="svc-slide"><img src="harry4.jpg" alt=""></div>
+      <div class="svc-slide"><img src="harry3.jpg" alt=""></div>
+      <div class="svc-slide"><img src="harry1.jpg" alt=""></div>
+      <div class="svc-slide"><img src="harry2.jpg" alt=""></div>
+    </div>
+    <button class="slider-arrow next" aria-label="Next Slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
   </div>
 </section>
 
 <section class="svc" id="digital-campaigns">
   <div class="svc-head sr"><h3>Digital Campaigns<br>&amp; Brand Strategy</h3><p>Multi platform campaigns that turn complex causes into shareable, story driven movements.</p></div>
-  <div class="svc-row sr d2">
-    <div class="svc-card"><img src="harry3.jpg" alt=""></div>
-    <div class="svc-card"><div class="svc-card-empty"></div></div>
-    <div class="svc-card"><img src="harry1.jpg" alt=""></div>
-    <div class="svc-card"><div class="svc-card-empty"></div></div>
-    <div class="svc-card"><img src="harry2.jpg" alt=""></div>
+  <div class="svc-slider-container sr d2">
+    <button class="slider-arrow prev" aria-label="Previous Slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="svc-slider">
+      <div class="svc-slide"><img src="harry1.jpg" alt=""></div>
+      <div class="svc-slide"><img src="harry4.jpg" alt=""></div>
+      <div class="svc-slide"><img src="harry2.jpg" alt=""></div>
+      <div class="svc-slide"><img src="harry3.jpg" alt=""></div>
+    </div>
+    <button class="slider-arrow next" aria-label="Next Slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
   </div>
 </section>
 
 <section class="svc" id="drone-services">
   <div class="svc-head sr"><h3>Drone Services<br>&amp; Aerial Cinematography</h3><p>Capturing high-altitude cinematic perspectives, site mapping, and creative assets with cinema grade drone output.</p></div>
-  <div class="svc-row svc-alt sr d2">
-    <div class="svc-card"><div class="svc-card-empty"></div></div>
-    <div class="svc-card"><img src="harry1.jpg" alt=""></div>
-    <div class="svc-card"><div class="svc-card-empty"></div></div>
-    <div class="svc-card"><img src="harry2.jpg" alt=""></div>
-    <div class="svc-card"><div class="svc-card-empty"></div></div>
+  <div class="svc-slider-container sr d2">
+    <button class="slider-arrow prev" aria-label="Previous Slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="svc-slider">
+      <div class="svc-slide"><img src="harry3.jpg" alt=""></div>
+      <div class="svc-slide"><img src="harry2.jpg" alt=""></div>
+      <div class="svc-slide"><img src="harry4.jpg" alt=""></div>
+      <div class="svc-slide"><img src="harry1.jpg" alt=""></div>
+    </div>
+    <button class="slider-arrow next" aria-label="Next Slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
   </div>
 </section>
 
@@ -789,6 +835,25 @@ document.querySelectorAll('.folder-paper').forEach(el => {
 });
 
 // ABOUT EXPANSION CONTROL (Replaced with simple 'Read more' empty anchor link)
+
+// HORIZONTAL CAROUSEL SLIDERS
+document.querySelectorAll('.svc-slider-container').forEach(container => {
+  const slider = container.querySelector('.svc-slider');
+  const prevBtn = container.querySelector('.slider-arrow.prev');
+  const nextBtn = container.querySelector('.slider-arrow.next');
+  
+  if (slider && prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', () => {
+      const slideWidth = slider.querySelector('.svc-slide').offsetWidth;
+      slider.scrollBy({ left: -slideWidth - 24, behavior: 'smooth' });
+    });
+    
+    nextBtn.addEventListener('click', () => {
+      const slideWidth = slider.querySelector('.svc-slide').offsetWidth;
+      slider.scrollBy({ left: slideWidth + 24, behavior: 'smooth' });
+    });
+  }
+});
 </script>
 </body>
 </html>
