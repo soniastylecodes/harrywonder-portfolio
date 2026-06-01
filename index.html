@@ -314,16 +314,14 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
 .paper-cta{font-size:.76rem;font-weight:700;color:var(--paper-accent);letter-spacing:.02em;transition:transform .3s var(--ease)}
 .folder-paper:hover .paper-cta{transform:translateX(3px)}
 
-/* Paper Stack Closed Positions (staircase staircase effect, peeking above cover) */
-.folder-paper.p1{transform:translateY(-40px) scale(0.92);z-index:19}
-.folder-paper.p2{transform:translateY(-35px) scale(0.93);z-index:18}
-.folder-paper.p3{transform:translateY(-30px) scale(0.94);z-index:17}
-.folder-paper.p4{transform:translateY(-25px) scale(0.95);z-index:16}
-.folder-paper.p5{transform:translateY(-20px) scale(0.96);z-index:15}
-.folder-paper.p6{transform:translateY(-15px) scale(0.97);z-index:14}
-.folder-paper.p7{transform:translateY(-10px) scale(0.98);z-index:13}
-.folder-paper.p8{transform:translateY(-5px) scale(0.99);z-index:12}
-.folder-paper.p9{transform:translateY(0px) scale(1.0);z-index:11}
+/* Paper Stack Closed Positions (staircase effect, peeking above cover) */
+.folder-paper.p1{transform:translateY(-30px) scale(0.94);z-index:17}
+.folder-paper.p2{transform:translateY(-25px) scale(0.95);z-index:16}
+.folder-paper.p3{transform:translateY(-20px) scale(0.96);z-index:15}
+.folder-paper.p4{transform:translateY(-15px) scale(0.97);z-index:14}
+.folder-paper.p5{transform:translateY(-10px) scale(0.98);z-index:13}
+.folder-paper.p6{transform:translateY(-5px) scale(0.99);z-index:12}
+.folder-paper.p7{transform:translateY(0px) scale(1.0);z-index:11}
 
 /* Opened Folder Animations (Front Cover & Tab rot down) */
 .folder.opened .folder-front{transform:rotateX(-50deg) skewX(-2deg)}
@@ -331,15 +329,13 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
 .folder.opened + .folder-sub{color:var(--folder-accent)}
 
 /* Opened Folder Paper Stack Positions (fanned out & translated high) */
-.folder.opened .folder-paper.p1{transform:translateY(-210px) rotate(-6deg) scale(1.02);z-index:19}
-.folder.opened .folder-paper.p2{transform:translateY(-184px) rotate(4deg) scale(1.02);z-index:18}
-.folder.opened .folder-paper.p3{transform:translateY(-158px) rotate(-3deg) scale(1.02);z-index:17}
-.folder.opened .folder-paper.p4{transform:translateY(-132px) rotate(5deg) scale(1.02);z-index:16}
-.folder.opened .folder-paper.p5{transform:translateY(-106px) rotate(-2deg) scale(1.02);z-index:15}
-.folder.opened .folder-paper.p6{transform:translateY(-80px) rotate(3deg) scale(1.02);z-index:14}
-.folder.opened .folder-paper.p7{transform:translateY(-54px) rotate(-1deg) scale(1.02);z-index:13}
-.folder.opened .folder-paper.p8{transform:translateY(-28px) rotate(2deg) scale(1.02);z-index:12}
-.folder.opened .folder-paper.p9{transform:translateY(0px) rotate(-1deg) scale(1.02);z-index:11}
+.folder.opened .folder-paper.p1{transform:translateY(-160px) rotate(-5deg) scale(1.02);z-index:17}
+.folder.opened .folder-paper.p2{transform:translateY(-134px) rotate(3deg) scale(1.02);z-index:16}
+.folder.opened .folder-paper.p3{transform:translateY(-108px) rotate(-2deg) scale(1.02);z-index:15}
+.folder.opened .folder-paper.p4{transform:translateY(-82px) rotate(4deg) scale(1.02);z-index:14}
+.folder.opened .folder-paper.p5{transform:translateY(-56px) rotate(-1deg) scale(1.02);z-index:13}
+.folder.opened .folder-paper.p6{transform:translateY(-30px) rotate(2deg) scale(1.02);z-index:12}
+.folder.opened .folder-paper.p7{transform:translateY(0px) rotate(-1deg) scale(1.02);z-index:11}
 
 /* Individual Paper Hover State (Only active when folder is opened) */
 .folder.opened .folder-paper:hover{transform:translateY(-240px) scale(1.07) rotate(0deg) !important;z-index:30 !important;border-color:var(--paper-accent);background:var(--dark2);box-shadow:0 15px 30px rgba(0,0,0,0.5), 0 0 20px rgba(6,173,238,0.15)}
@@ -520,24 +516,20 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
   .folder-paper::before{height:4px}
   .paper-title{font-size:.9rem;margin-bottom:.1rem}
   .paper-desc{font-size:.68rem;line-height:1.2}
-  .folder-paper.p1{transform:translateY(-28px) scale(.92);z-index:19}
-  .folder-paper.p2{transform:translateY(-24.5px) scale(.93);z-index:18}
-  .folder-paper.p3{transform:translateY(-21px) scale(.94);z-index:17}
-  .folder-paper.p4{transform:translateY(-17.5px) scale(.95);z-index:16}
-  .folder-paper.p5{transform:translateY(-14px) scale(.96);z-index:15}
-  .folder-paper.p6{transform:translateY(-10.5px) scale(.97);z-index:14}
-  .folder-paper.p7{transform:translateY(-7px) scale(.98);z-index:13}
-  .folder-paper.p8{transform:translateY(-3.5px) scale(.99);z-index:12}
-  .folder-paper.p9{transform:translateY(0) scale(1);z-index:11}
-  .folder.opened .folder-paper.p1{transform:translateY(-140px) rotate(-4deg) scale(1.02)}
-  .folder.opened .folder-paper.p2{transform:translateY(-122.5px) rotate(3deg) scale(1.02)}
-  .folder.opened .folder-paper.p3{transform:translateY(-105px) rotate(-2deg) scale(1.02)}
-  .folder.opened .folder-paper.p4{transform:translateY(-87.5px) rotate(3deg) scale(1.02)}
-  .folder.opened .folder-paper.p5{transform:translateY(-70px) rotate(-1deg) scale(1.02)}
-  .folder.opened .folder-paper.p6{transform:translateY(-52.5px) rotate(2deg) scale(1.02)}
-  .folder.opened .folder-paper.p7{transform:translateY(-35px) rotate(-2deg) scale(1.02)}
-  .folder.opened .folder-paper.p8{transform:translateY(-17.5px) rotate(1deg) scale(1.02)}
-  .folder.opened .folder-paper.p9{transform:translateY(0) rotate(0deg) scale(1.02)}
+  .folder-paper.p1{transform:translateY(-21px) scale(.94);z-index:17}
+  .folder-paper.p2{transform:translateY(-17.5px) scale(.95);z-index:16}
+  .folder-paper.p3{transform:translateY(-14px) scale(.96);z-index:15}
+  .folder-paper.p4{transform:translateY(-10.5px) scale(.97);z-index:14}
+  .folder-paper.p5{transform:translateY(-7px) scale(.98);z-index:13}
+  .folder-paper.p6{transform:translateY(-3.5px) scale(.99);z-index:12}
+  .folder-paper.p7{transform:translateY(0) scale(1);z-index:11}
+  .folder.opened .folder-paper.p1{transform:translateY(-110px) rotate(-3deg) scale(1.02)}
+  .folder.opened .folder-paper.p2{transform:translateY(-92px) rotate(2deg) scale(1.02)}
+  .folder.opened .folder-paper.p3{transform:translateY(-74px) rotate(-1deg) scale(1.02)}
+  .folder.opened .folder-paper.p4{transform:translateY(-56px) rotate(2deg) scale(1.02)}
+  .folder.opened .folder-paper.p5{transform:translateY(-38px) rotate(-1deg) scale(1.02)}
+  .folder.opened .folder-paper.p6{transform:translateY(-20px) rotate(1deg) scale(1.02)}
+  .folder.opened .folder-paper.p7{transform:translateY(0) rotate(0deg) scale(1.02)}
   .folder.opened .folder-paper:hover{transform:translateY(-165px) scale(1.05) rotate(0deg) !important}
 
   /* PILL (years section) */
@@ -874,45 +866,15 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
           </div>
         </a>
         
-        <!-- PAPER 7: CCTV Surveillance -->
-        <a href="#cctv-surveillance" class="folder-paper p7" style="--paper-accent: #ffb74d;">
+        <!-- PAPER 7: ICT Services -->
+        <a href="#ict-services" class="folder-paper p7" style="--paper-accent: #ffb74d;">
           <div class="paper-header">
             <span class="paper-tag">Service 07</span>
-            <span class="paper-emoji">🛡️</span>
+            <span class="paper-emoji">⚙️</span>
           </div>
           <div class="paper-body">
-            <h3 class="paper-title">CCTV Surveillance</h3>
-            <p class="paper-desc">High-definition IP cameras &amp; remote security monitoring.</p>
-          </div>
-          <div class="paper-footer">
-            <span class="paper-cta">View Projects →</span>
-          </div>
-        </a>
-        
-        <!-- PAPER 8: Smart Home Automation -->
-        <a href="#smart-automation" class="folder-paper p8" style="--paper-accent: #a5d6a7;">
-          <div class="paper-header">
-            <span class="paper-tag">Service 08</span>
-            <span class="paper-emoji">🏠</span>
-          </div>
-          <div class="paper-body">
-            <h3 class="paper-title">Smart Automation</h3>
-            <p class="paper-desc">Integrated lighting, audio, &amp; smart access control systems.</p>
-          </div>
-          <div class="paper-footer">
-            <span class="paper-cta">View Projects →</span>
-          </div>
-        </a>
-        
-        <!-- PAPER 9: Electric Fencing -->
-        <a href="#electric-fencing" class="folder-paper p9" style="--paper-accent: #ef9a9a;">
-          <div class="paper-header">
-            <span class="paper-tag">Service 09</span>
-            <span class="paper-emoji">⚡</span>
-          </div>
-          <div class="paper-body">
-            <h3 class="paper-title">Electric Fencing</h3>
-            <p class="paper-desc">High-voltage shock systems &amp; perimeter intrusion alarms.</p>
+            <h3 class="paper-title">ICT Services</h3>
+            <p class="paper-desc">Smart systems integration, CCTV networks, &amp; security infrastructure.</p>
           </div>
           <div class="paper-footer">
             <span class="paper-cta">View Projects →</span>
@@ -1048,62 +1010,20 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
   </div>
 </section>
 
-<section class="svc" id="cctv-surveillance">
+<section class="svc" id="ict-services">
   <div class="svc-head sr">
-    <h3>CCTV &amp;<br>Security Surveillance</h3>
-    <p>Designing and installing enterprise-grade HD IP camera networks, smart NVRs, and secure remote mobile monitoring solutions.</p>
+    <h3>ICT Systems<br>&amp; Smart Infrastructure</h3>
+    <p>Designing, configuring, and deploying complete smart property networks—integrating high-definition CCTV surveillance, intelligent automation, and electric fencing perimeter security under robust unified control systems.</p>
   </div>
   <div class="svc-slider-container sr d2">
     <button class="slider-arrow prev" aria-label="Previous Slide">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
     </button>
     <div class="svc-slider">
-      <div class="svc-slide"><img src="ict_cctv.png" alt="CCTV Systems Installation" loading="lazy"></div>
-      <div class="svc-slide"><img src="harry1.jpg" alt="Technical network design" loading="lazy"></div>
-      <div class="svc-slide"><img src="harry4.jpg" alt="Security surveillance configuration" loading="lazy"></div>
-      <div class="svc-slide"><img src="harry2.jpg" alt="Enterprise camera setup" loading="lazy"></div>
-    </div>
-    <button class="slider-arrow next" aria-label="Next Slide">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-    </button>
-  </div>
-</section>
-
-<section class="svc" id="smart-automation">
-  <div class="svc-head sr">
-    <h3>Smart Home<br>Automation</h3>
-    <p>Integrating intelligent home networks including smart lighting, multi-room audio, climate control, and voice-assisted ecosystems.</p>
-  </div>
-  <div class="svc-slider-container sr d2">
-    <button class="slider-arrow prev" aria-label="Previous Slide">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-    </button>
-    <div class="svc-slider">
-      <div class="svc-slide"><img src="ict_smart.png" alt="Smart Home Automation Integration" loading="lazy"></div>
-      <div class="svc-slide"><img src="harry2.jpg" alt="Smart lighting control systems" loading="lazy"></div>
-      <div class="svc-slide"><img src="harry3.jpg" alt="Integrated audio and smart panels" loading="lazy"></div>
-      <div class="svc-slide"><img src="harry4.jpg" alt="Smart control configuration" loading="lazy"></div>
-    </div>
-    <button class="slider-arrow next" aria-label="Next Slide">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-    </button>
-  </div>
-</section>
-
-<section class="svc" id="electric-fencing">
-  <div class="svc-head sr">
-    <h3>Electric Fencing<br>&amp; Perimeter Security</h3>
-    <p>Engineering premium high-voltage security energizers, tensioned fence lines, and smart alarm intrusion alerts for absolute perimeter safety.</p>
-  </div>
-  <div class="svc-slider-container sr d2">
-    <button class="slider-arrow prev" aria-label="Previous Slide">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-    </button>
-    <div class="svc-slider">
-      <div class="svc-slide"><img src="ict_fence.png" alt="Electric Fencing Installation" loading="lazy"></div>
-      <div class="svc-slide"><img src="harry4.jpg" alt="High-voltage secure perimeter installation" loading="lazy"></div>
-      <div class="svc-slide"><img src="harry1.jpg" alt="Tensioned perimeter wires" loading="lazy"></div>
-      <div class="svc-slide"><img src="harry3.jpg" alt="Energizer alarm calibration" loading="lazy"></div>
+      <div class="svc-slide"><img src="ict_cctv.png" alt="High-Definition IP CCTV Camera Systems &amp; Monitoring Networks" loading="lazy"></div>
+      <div class="svc-slide"><img src="ict_smart.png" alt="Smart Property Automation, Control Panels, &amp; Smart Lighting Systems" loading="lazy"></div>
+      <div class="svc-slide"><img src="ict_fence.png" alt="High-Voltage Electric Perimeter Security &amp; Intrusion Alarm Systems" loading="lazy"></div>
+      <div class="svc-slide"><img src="harry1.jpg" alt="Enterprise Smart System Network Setup and Infrastructure Calibration" loading="lazy"></div>
     </div>
     <button class="slider-arrow next" aria-label="Next Slide">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
@@ -1401,9 +1321,9 @@ if (lightbox && lightboxImg && lightboxClose) {
 // DYNAMIC HERO TEXT CYCLER ON MOBILE
 const mobileRoles = [
   { w1: "Visual", w2: "Storyteller", w3: "&amp; Media", w4: "Director" },
-  { w1: "ICT", w2: "Engineer", w3: "&amp; Smart", w4: "Systems" },
+  { w1: "ICT", w2: "Director", w3: "&amp; Smart", w4: "Systems" },
   { w1: "Creative", w2: "Filmmaker", w3: "&amp; Drone", w4: "Pilot" },
-  { w1: "CCTV", w2: "Specialist", w3: "&amp; Tech", w4: "Expert" }
+  { w1: "Systems", w2: "Engineer", w3: "&amp; Tech", w4: "Architect" }
 ];
 let roleIndex = 0;
 const heroTitle = document.querySelector('.hero-top-text h1');
