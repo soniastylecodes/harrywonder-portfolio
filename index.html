@@ -350,7 +350,9 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
 }
 @media(max-width:900px){
   .nav-right{display:none}
-  .tools-grid{grid-template-columns:1fr;gap:4rem}
+  .tools-grid{display:flex;flex-direction:column;gap:4rem}
+  .tools-grid > div:first-child{order:2}
+  .tools-grid > div:last-child{order:1}
   .ft-name{padding:0 4vw}
   .cta-bottom{flex-direction:column;align-items:flex-start}
 }
@@ -542,7 +544,9 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
   #work{padding:6rem 5vw;min-height:auto}
   #intent{padding:4rem 5vw}
   #tools{padding:4rem 5vw}
-  .tools-grid{grid-template-columns:1fr;gap:3rem}
+  .tools-grid{display:flex;flex-direction:column;gap:3rem}
+  .tools-grid > div:first-child{order:2}
+  .tools-grid > div:last-child{order:1}
 
   /* Mobile Social Links in About Me styles */
   .about-socials {
@@ -1061,12 +1065,6 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
         <div class="tool-item"><div class="tool-dot"></div><span class="tool-name">Photoshop / Illustrator</span></div>
         <div class="tool-item"><div class="tool-dot"></div><span class="tool-name">Camtasia / Filmora</span></div>
         <div class="tool-item"><div class="tool-dot"></div><span class="tool-name">Canva / InDesign</span></div>
-      </div>
-      <div class="tools-lbl" style="margin-top: 2.5rem;">ICT & Smart Systems:</div>
-      <div class="tool-list">
-        <div class="tool-item"><div class="tool-dot" style="background:#ffb74d"></div><span class="tool-name" style="color:#ffb74d">CCTV & Security Surveillance</span></div>
-        <div class="tool-item"><div class="tool-dot" style="background:#a5d6a7"></div><span class="tool-name" style="color:#a5d6a7">Smart Home Automation</span></div>
-        <div class="tool-item"><div class="tool-dot" style="background:#ef9a9a"></div><span class="tool-name" style="color:#ef9a9a">Electric Fencing & Perimeter Security</span></div>
       </div>
     </div>
     <div class="sr d1">
