@@ -139,6 +139,15 @@ nav *{pointer-events:all}
 .svc-slide img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
 .svc-slide:hover img{transform:scale(1.05)}
 .svc-slide:hover{border-color:rgba(6,173,238,0.3);transform:translateY(-4px)}
+
+.hero-focus{display:inline}
+#photography .svc-slide img {
+  object-fit: cover;
+  object-position: center 15%;
+}
+#photography .svc-slide:nth-child(2) img {
+  object-position: center center;
+}
 .slider-arrow{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:rgba(3,8,13,0.6);border:1px solid var(--w12);color:var(--w80);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;transition:background 0.3s,color 0.3s,border-color 0.3s,opacity 0.3s,transform 0.2s;opacity:0;pointer-events:none}
 .svc-slider-container:hover .slider-arrow{opacity:1;pointer-events:all}
 .slider-arrow:hover{background:var(--blue);border-color:var(--blue);color:var(--dark);transform:translateY(-50%) scale(1.1)}
@@ -372,10 +381,7 @@ footer:hover .ft-bg-image{transform:translateY(-18px) scale(1.15) rotate(-1deg)}
     z-index: 5;
     text-align: center;
     width: 90vw;
-    opacity: 0;
-    transform: translate(-50%, -42%) scale(0.92);
-    filter: blur(12px);
-    animation: lensFocusReveal 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+    transform: translate(-50%, -50%);
   }
   .hero-top-text h1 {
     font-family: var(--D);
@@ -386,20 +392,40 @@ footer:hover .ft-bg-image{transform:translateY(-18px) scale(1.15) rotate(-1deg)}
     letter-spacing: -0.03em;
     text-shadow: 0 4px 25px rgba(3, 8, 13, 0.95);
   }
-  @keyframes lensFocusReveal {
+  .hero-top-text h1 .hero-focus {
+    display: inline-block;
+    opacity: 0;
+    filter: blur(15px);
+    transform: scale(1.12);
+    letter-spacing: 0.12em;
+    animation: cinematicFocusReveal 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .hero-top-text h1 .hero-focus.blue-text {
+    color: var(--blue);
+  }
+  .hero-top-text h1 .hero-focus:nth-child(1) { animation-delay: 0.4s; }
+  .hero-top-text h1 .hero-focus:nth-child(2) { animation-delay: 0.65s; }
+  .hero-top-text h1 .hero-focus:nth-child(3) { animation-delay: 0.9s; }
+  .hero-top-text h1 .hero-focus:nth-child(4) { animation-delay: 1.15s; }
+
+  @keyframes cinematicFocusReveal {
     0% {
       opacity: 0;
-      filter: blur(12px) brightness(1.5);
-      transform: translate(-50%, -42%) scale(0.92);
+      filter: blur(15px) brightness(1.6);
+      transform: scale(1.12);
+      letter-spacing: 0.12em;
+      text-shadow: 0 0 20px rgba(6, 173, 238, 0.6);
     }
-    50% {
-      opacity: 0.85;
-      filter: blur(4px) brightness(1.15);
+    40% {
+      opacity: 0.7;
+      filter: blur(6px) brightness(1.2);
     }
     100% {
       opacity: 1;
       filter: blur(0) brightness(1);
-      transform: translate(-50%, -50%) scale(1);
+      transform: scale(1);
+      letter-spacing: -0.03em;
+      text-shadow: 0 4px 25px rgba(3, 8, 13, 0.95);
     }
   }
 
@@ -430,6 +456,40 @@ footer:hover .ft-bg-image{transform:translateY(-18px) scale(1.15) rotate(-1deg)}
   .svc-slider{display:grid !important;grid-template-columns:1fr 1fr;gap:1rem;overflow-x:visible;scroll-snap-type:none;padding:0;width:100%}
   .svc-slide{flex:none;min-width:0;width:100%;aspect-ratio:4/3}
   .slider-arrow{display:none !important}
+
+  #photography .svc-slider {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 1.2rem !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    padding: 1.5rem 5vw !important;
+    width: 100%;
+    box-sizing: border-box;
+    scrollbar-width: none;
+  }
+  #photography .svc-slider::-webkit-scrollbar {
+    display: none;
+  }
+  #photography .svc-slide {
+    flex: 0 0 72vw !important;
+    min-width: 0 !important;
+    aspect-ratio: 3/4 !important;
+    scroll-snap-align: center !important;
+    border-radius: 18px !important;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 0 15px rgba(6,173,238,0.05);
+    transition: transform 0.4s var(--ease), box-shadow 0.4s;
+  }
+  #photography .svc-slide:nth-child(odd) {
+    transform: translateY(6px) rotate(1.5deg);
+  }
+  #photography .svc-slide:nth-child(even) {
+    transform: translateY(-6px) rotate(-1.5deg);
+  }
+  #photography .svc-slide:hover {
+    transform: scale(1.03) translateY(0) rotate(0deg) !important;
+    box-shadow: 0 15px 30px rgba(6,173,238,0.2) !important;
+  }
 
   /* FOLDER: scaled for mobile */
   .folder{width:280px;height:210px}
@@ -651,7 +711,13 @@ footer:hover .ft-bg-image{transform:translateY(-18px) scale(1.15) rotate(-1deg)}
   <img src="harry2.jpg" alt="" class="hero-img">
   <div class="hero-overlay"></div>
   <div class="hero-grad"></div>
-  <div class="hero-top-text"><h1>Visual Storyteller<br>&amp; Media Director</h1></div>
+  <div class="hero-top-text">
+    <h1>
+      <span class="hero-focus">Visual</span> <span class="hero-focus blue-text">Storyteller</span>
+      <br>
+      <span class="hero-focus">&amp; Media</span> <span class="hero-focus">Director</span>
+    </h1>
+  </div>
   <div class="hero-name">
     <div class="hero-n">
       <span>K</span><span>o</span><span>m</span><span>o</span>
