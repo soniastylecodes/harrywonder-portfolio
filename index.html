@@ -77,8 +77,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
 nav.scrolled{background:rgba(3,8,13,0.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:0.9rem 3vw;border-color:rgba(255,255,255,0.08);mix-blend-mode:normal}
 /* Mobile bottom nav: two separate pills */
 .mob-nav{display:none;position:fixed;bottom:1.8rem;left:0;right:0;z-index:1000;justify-content:center;align-items:center;gap:1rem;mix-blend-mode:normal;pointer-events:none}
-.mob-nav-pill{pointer-events:all;background:rgba(3,8,13,.78);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--w12);border-radius:999px;padding:.55rem 1.6rem;font-size:.82rem;font-weight:600;color:var(--w80);text-decoration:none;transition:background .25s,color .25s,border-color .25s;box-shadow:0 8px 25px rgba(0,0,0,.5)}
-.mob-nav-pill:hover{background:rgba(6,173,238,.12);border-color:rgba(6,173,238,.35);color:var(--w)}
+.mob-nav-pill{pointer-events:all;background:rgba(3,12,20,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(6,173,238,.45);border-radius:999px;padding:.6rem 1.8rem;font-size:.84rem;font-weight:700;color:var(--blue);text-decoration:none;transition:all .25s var(--ease);box-shadow:0 8px 30px rgba(6,173,238,.15), 0 2px 10px rgba(0,0,0,.4)}
+.mob-nav-pill:hover, .mob-nav-pill:active{background:var(--blue);border-color:var(--blue);color:var(--dark);box-shadow:0 12px 36px rgba(6,173,238,.35), 0 2px 8px rgba(0,0,0,.4);transform:translateY(-1px) scale(1.02)}
 nav *{pointer-events:all}
 .nav-logo{font-family:var(--D);font-size:1rem;font-weight:700;letter-spacing:-.02em;color:var(--w);text-decoration:none}
 .nav-logo .hw{color:var(--blue)}
