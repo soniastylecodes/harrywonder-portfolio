@@ -1347,6 +1347,15 @@ if (heroTitle && window.innerWidth <= 640) {
     }, 450);
   }, 3800);
 }
+
+// SERVICE WORKER CACHE REGISTRATION
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js')
+      .then(reg => console.log('Service Worker registered successfully'))
+      .catch(err => console.error('Service Worker registration failed:', err));
+  });
+}
 </script>
 </body>
 </html>
