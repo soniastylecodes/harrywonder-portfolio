@@ -237,13 +237,21 @@ nav *{pointer-events:all}
   border-top: 1px solid var(--w06);
 }
 .showcase-tabs {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto 4rem;
+  padding: 0 1rem;
+  z-index: 15;
+}
+.showcase-mobile-trigger {
+  display: none;
+}
+.tabs-list-wrapper {
   display: flex;
   justify-content: center;
   gap: 0.7rem;
   flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 0 auto 4rem;
-  padding: 0 1rem;
+  width: 100%;
 }
 .tab-btn {
   background: rgba(255,255,255,0.03);
@@ -317,23 +325,106 @@ nav *{pointer-events:all}
 
 @media(max-width:900px) {
   .showcase-tabs {
-    justify-content: flex-start;
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    padding-bottom: 1rem;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    mask-image: linear-gradient(to right, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
-    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
+    margin-bottom: 2.5rem;
   }
-  .showcase-tabs::-webkit-scrollbar {
+  .showcase-mobile-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    padding: 0.75rem 1.35rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--w12);
+    border-radius: 12px;
+    color: var(--w);
+    font-family: var(--D);
+    font-size: 0.92rem;
+    font-weight: 600;
+    cursor: pointer;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition: all 0.3s var(--ease);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+  .showcase-mobile-trigger:hover, .showcase-mobile-trigger:active {
+    border-color: rgba(6, 173, 238, 0.45);
+    background: rgba(6, 173, 238, 0.05);
+  }
+  .showcase-mobile-trigger .chevron-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--blue);
+    transition: transform 0.3s var(--ease);
+  }
+  .showcase-tabs.open .showcase-mobile-trigger .chevron-icon {
+    transform: rotate(180deg);
+  }
+  .showcase-tabs.open .showcase-mobile-trigger {
+    border-color: var(--blue);
+    box-shadow: 0 0 15px rgba(6, 173, 238, 0.15);
+  }
+  .tabs-list-wrapper {
     display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 320px;
+    background: rgba(7, 19, 29, 0.96);
+    border: 1px solid var(--w12);
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(6, 173, 238, 0.05);
+    z-index: 100;
+    flex-direction: column;
+    gap: 2px;
+    overflow: hidden;
+    padding: 0.45rem;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+  .showcase-tabs.open .tabs-list-wrapper {
+    display: flex;
+    animation: dropdownFadeIn 0.3s var(--ease) forwards;
   }
   .tab-btn {
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+    background: transparent;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    color: var(--w55);
+    font-size: 0.88rem;
+    font-weight: 500;
+    justify-content: flex-start;
     flex-shrink: 0;
+  }
+  .tab-btn:hover {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--w);
+  }
+  .tab-btn.active {
+    background: rgba(6, 173, 238, 0.1);
+    color: var(--blue);
+    border-color: transparent;
+    font-weight: 600;
+    box-shadow: none;
   }
   .panel-head {
     margin-bottom: 1.8rem;
+  }
+}
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translate3d(-50%, -8px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
@@ -1039,14 +1130,20 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
   </div>
 
   <!-- Showcase Navigation Tabs -->
-  <div class="showcase-tabs sr d1">
-    <button class="tab-btn active" data-tab="corp-events">Corporate Video</button>
-    <button class="tab-btn" data-tab="live-broadcasts">Live Production</button>
-    <button class="tab-btn" data-tab="documentaries">Documentaries</button>
-    <button class="tab-btn" data-tab="photography">Photography</button>
-    <button class="tab-btn" data-tab="digital-campaigns">Digital Campaigns</button>
-    <button class="tab-btn" data-tab="drone-services">Drone Services</button>
-    <button class="tab-btn" data-tab="ict-services">ICT Services</button>
+  <div class="showcase-tabs sr d1" id="showcase-tabs-container">
+    <button class="showcase-mobile-trigger" id="showcase-mobile-trigger" aria-label="Select Showcase Portfolio Section">
+      <span id="mobile-trigger-text">Corporate Video</span>
+      <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="tabs-list-wrapper" id="tabs-list-wrapper">
+      <button class="tab-btn active" data-tab="corp-events">Corporate Video</button>
+      <button class="tab-btn" data-tab="live-broadcasts">Live Production</button>
+      <button class="tab-btn" data-tab="documentaries">Documentaries</button>
+      <button class="tab-btn" data-tab="photography">Photography</button>
+      <button class="tab-btn" data-tab="digital-campaigns">Digital Campaigns</button>
+      <button class="tab-btn" data-tab="drone-services">Drone Services</button>
+      <button class="tab-btn" data-tab="ict-services">ICT Services</button>
+    </div>
   </div>
 
   <!-- Showcase Panels Viewport -->
@@ -1425,13 +1522,21 @@ function switchShowcaseTab(tabId) {
   
   if (activeTab) {
     activeTab.classList.add('active');
-    // Scroll mobile tabs horizontally to center the active button
-    if (window.innerWidth <= 900) {
-      activeTab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    
+    // Update mobile trigger label
+    const triggerText = document.getElementById('mobile-trigger-text');
+    if (triggerText) {
+      triggerText.textContent = activeTab.textContent;
     }
   }
   if (activePanel) {
     activePanel.classList.add('active');
+  }
+
+  // Close dropdown on select
+  const tabsContainer = document.getElementById('showcase-tabs-container');
+  if (tabsContainer) {
+    tabsContainer.classList.remove('open');
   }
 }
 
@@ -1444,6 +1549,24 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
     }
   });
 });
+
+// Mobile dropdown toggle handlers
+const mobTrigger = document.getElementById('showcase-mobile-trigger');
+const tabsContainer = document.getElementById('showcase-tabs-container');
+
+if (mobTrigger && tabsContainer) {
+  mobTrigger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    tabsContainer.classList.toggle('open');
+  });
+
+  // Close dropdown when tapping anywhere outside the container
+  document.addEventListener('click', (e) => {
+    if (!tabsContainer.contains(e.target)) {
+      tabsContainer.classList.remove('open');
+    }
+  });
+}
 
 // Attach interactive cursor hover states for custom papers
 document.querySelectorAll('.folder-paper').forEach(el => {
