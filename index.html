@@ -230,6 +230,113 @@ nav *{pointer-events:all}
 .xp-org{font-size:.82rem;color:var(--w30)}
 .xp-date{font-size:.72rem;font-weight:600;letter-spacing:.1em;color:var(--blue);white-space:nowrap}
 
+/* SHOWCASE CENTRALIZED TABBED PORTFOLIO STYLING */
+#services-showcase {
+  padding: 8rem 4vw 7rem;
+  background: var(--dark);
+  border-top: 1px solid var(--w06);
+}
+.showcase-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto 4rem;
+  padding: 0 1rem;
+}
+.tab-btn {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--w12);
+  border-radius: 999px;
+  padding: 0.65rem 1.45rem;
+  color: var(--w55);
+  font-family: var(--D);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s var(--ease);
+}
+.tab-btn:hover {
+  border-color: rgba(6,173,238,0.3);
+  color: var(--w);
+  background: var(--blueFaint);
+}
+.tab-btn.active {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: var(--dark);
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(6,173,238,0.25);
+}
+.showcase-viewport {
+  max-width: 1480px;
+  margin: 0 auto;
+  width: 100%;
+}
+.showcase-panel {
+  display: none;
+  opacity: 0;
+  width: 100%;
+}
+.showcase-panel.active {
+  display: block;
+  animation: panelFadeIn 0.55s var(--ease) forwards;
+}
+.panel-head {
+  text-align: center;
+  margin-bottom: 2.8rem;
+}
+.panel-head h3 {
+  font-family: var(--D);
+  font-size: clamp(1.8rem,3.8vw,3.6rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  color: var(--w80);
+  margin-bottom: 0.8rem;
+}
+.panel-head p {
+  font-size: 0.92rem;
+  color: var(--w55);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.55;
+}
+
+@keyframes panelFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media(max-width:900px) {
+  .showcase-tabs {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 1rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    mask-image: linear-gradient(to right, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
+  }
+  .showcase-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .tab-btn {
+    flex-shrink: 0;
+  }
+  .panel-head {
+    margin-bottom: 1.8rem;
+  }
+}
+
 #instinct{padding:7rem 4vw;background:var(--dark);border-top:1px solid var(--w06)}
 .instinct-h{font-family:var(--D);font-size:clamp(2rem,4.5vw,4.5rem);font-weight:700;letter-spacing:-.03em;line-height:1.06;color:var(--w30);max-width:1280px;margin:0 auto 3.5rem}
 .instinct-h em{font-style:italic;font-weight:300;color:var(--blue)}
@@ -801,7 +908,7 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
       <div class="folder-papers" id="folder-papers">
         
         <!-- PAPER 1: Corporate Events -->
-        <a href="#corp-events" class="folder-paper p1" style="--paper-accent: #06ADEE;">
+        <a href="#services-showcase" data-service="corp-events" class="folder-paper p1" style="--paper-accent: #06ADEE;">
           <div class="paper-header">
             <span class="paper-tag">Service 01</span>
             <span class="paper-emoji">🎥</span>
@@ -816,7 +923,7 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
         </a>
         
         <!-- PAPER 2: Live Broadcasts -->
-        <a href="#live-broadcasts" class="folder-paper p2" style="--paper-accent: #00e5ff;">
+        <a href="#services-showcase" data-service="live-broadcasts" class="folder-paper p2" style="--paper-accent: #00e5ff;">
           <div class="paper-header">
             <span class="paper-tag">Service 02</span>
             <span class="paper-emoji">📡</span>
@@ -831,7 +938,7 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
         </a>
         
         <!-- PAPER 3: Documentaries -->
-        <a href="#documentaries" class="folder-paper p3" style="--paper-accent: #ff8f00;">
+        <a href="#services-showcase" data-service="documentaries" class="folder-paper p3" style="--paper-accent: #ff8f00;">
           <div class="paper-header">
             <span class="paper-tag">Service 03</span>
             <span class="paper-emoji">📽️</span>
@@ -846,7 +953,7 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
         </a>
         
         <!-- PAPER 4: Photography -->
-        <a href="#photography" class="folder-paper p4" style="--paper-accent: #b388ff;">
+        <a href="#services-showcase" data-service="photography" class="folder-paper p4" style="--paper-accent: #b388ff;">
           <div class="paper-header">
             <span class="paper-tag">Service 04</span>
             <span class="paper-emoji">📷</span>
@@ -861,7 +968,7 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
         </a>
         
         <!-- PAPER 5: Digital Campaigns -->
-        <a href="#digital-campaigns" class="folder-paper p5" style="--paper-accent: #ff5252;">
+        <a href="#services-showcase" data-service="digital-campaigns" class="folder-paper p5" style="--paper-accent: #ff5252;">
           <div class="paper-header">
             <span class="paper-tag">Service 05</span>
             <span class="paper-emoji">📣</span>
@@ -876,7 +983,7 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
         </a>
         
         <!-- PAPER 6: Drone Services -->
-        <a href="#drone-services" class="folder-paper p6" style="--paper-accent: #81c784;">
+        <a href="#services-showcase" data-service="drone-services" class="folder-paper p6" style="--paper-accent: #81c784;">
           <div class="paper-header">
             <span class="paper-tag">Service 06</span>
             <span class="paper-emoji">🛸</span>
@@ -891,7 +998,7 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
         </a>
         
         <!-- PAPER 7: ICT Services -->
-        <a href="#ict-services" class="folder-paper p7" style="--paper-accent: #ffb74d;">
+        <a href="#services-showcase" data-service="ict-services" class="folder-paper p7" style="--paper-accent: #ffb74d;">
           <div class="paper-header">
             <span class="paper-tag">Service 07</span>
             <span class="paper-emoji">⚙️</span>
@@ -925,133 +1032,181 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
   </div>
 </section>
 
-<section class="svc" id="corp-events">
-  <div class="svc-head sr"><h3>Corporate Video<br>&amp; Brand Events</h3><p>Creating high impact cinematic event productions and corporate highlights built to elevate your brand.</p></div>
-  <div class="svc-slider-container sr d2">
-    <button class="slider-arrow prev" aria-label="Previous Slide">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-    </button>
-    <div class="svc-slider">
-      <div class="svc-slide"><img src="harry1.jpg" alt=""></div>
-      <div class="svc-slide"><img src="harry2.jpg" alt=""></div>
-      <div class="svc-slide"><img src="harry3.jpg" alt=""></div>
-      <div class="svc-slide"><img src="harry4.jpg" alt=""></div>
-    </div>
-    <button class="slider-arrow next" aria-label="Next Slide">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-    </button>
+<section class="svc" id="services-showcase">
+  <div class="svc-head sr" style="margin-bottom:2rem">
+    <h3>Portfolio Showcase</h3>
+    <p>Explore my multi-disciplinary work across creative media production and advanced smart system networks.</p>
   </div>
-</section>
 
-<section class="svc" id="live-broadcasts">
-  <div class="svc-head sr"><h3>Live Broadcasts<br>&amp; Multi Camera Direction</h3><p>Directing vMix and OBS live productions for institutional events with cinema grade output.</p></div>
-  <div class="svc-slider-container sr d2">
-    <button class="slider-arrow prev" aria-label="Previous Slide">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-    </button>
-    <div class="svc-slider">
-      <div class="svc-slide"><img src="harry3.jpg" alt=""></div>
-      <div class="svc-slide"><img src="harry1.jpg" alt=""></div>
-      <div class="svc-slide"><img src="harry4.jpg" alt=""></div>
-      <div class="svc-slide"><img src="harry2.jpg" alt=""></div>
-    </div>
-    <button class="slider-arrow next" aria-label="Next Slide">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-    </button>
+  <!-- Showcase Navigation Tabs -->
+  <div class="showcase-tabs sr d1">
+    <button class="tab-btn active" data-tab="corp-events">Corporate Video</button>
+    <button class="tab-btn" data-tab="live-broadcasts">Live Production</button>
+    <button class="tab-btn" data-tab="documentaries">Documentaries</button>
+    <button class="tab-btn" data-tab="photography">Photography</button>
+    <button class="tab-btn" data-tab="digital-campaigns">Digital Campaigns</button>
+    <button class="tab-btn" data-tab="drone-services">Drone Services</button>
+    <button class="tab-btn" data-tab="ict-services">ICT Services</button>
   </div>
-</section>
 
-<section class="svc" id="documentaries">
-  <div class="svc-head sr"><h3>Cinematic<br>&amp; NGO Documentaries</h3><p>Directing moving human-interest stories, advocacy films, and documentaries for global NGOs.</p></div>
-  <div class="svc-slider-container sr d2">
-    <button class="slider-arrow prev" aria-label="Previous Slide">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-    </button>
-    <div class="svc-slider">
-      <div class="svc-slide"><img src="harry2.jpg" alt=""></div>
-      <div class="svc-slide"><img src="harry4.jpg" alt=""></div>
-      <div class="svc-slide"><img src="harry3.jpg" alt=""></div>
-      <div class="svc-slide"><img src="harry1.jpg" alt=""></div>
+  <!-- Showcase Panels Viewport -->
+  <div class="showcase-viewport sr d2">
+    
+    <!-- PANEL 1: Corporate Events -->
+    <div class="showcase-panel active" id="panel-corp-events">
+      <div class="svc-head panel-head">
+        <h3>Corporate Video<br>&amp; Brand Events</h3>
+        <p>Creating high impact cinematic event productions and corporate highlights built to elevate your brand.</p>
+      </div>
+      <div class="svc-slider-container">
+        <button class="slider-arrow prev" aria-label="Previous Slide">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="svc-slider">
+          <div class="svc-slide"><img src="harry1.jpg" alt="" loading="lazy"></div>
+          <div class="svc-slide"><img src="harry2.jpg" alt="" loading="lazy"></div>
+          <div class="svc-slide"><img src="harry3.jpg" alt="" loading="lazy"></div>
+          <div class="svc-slide"><img src="harry4.jpg" alt="" loading="lazy"></div>
+        </div>
+        <button class="slider-arrow next" aria-label="Next Slide">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
     </div>
-    <button class="slider-arrow next" aria-label="Next Slide">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-    </button>
-  </div>
-</section>
 
-<section class="svc" id="photography">
-  <div class="svc-head sr"><h3>Photography<br>&amp; Creative Assets</h3><p>Event coverage, portraits, and visual asset libraries shot with a cinematographer's eye.</p></div>
-  <div class="svc-slider-container sr d2">
-    <button class="slider-arrow prev" aria-label="Previous Slide">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-    </button>
-    <div class="svc-slider">
-      <div class="svc-slide"><img src="photo1.jpg" alt="Child portrait"></div>
-      <div class="svc-slide"><img src="photo2.jpg" alt="Wrist watch details"></div>
-      <div class="svc-slide"><img src="photo3.jpg" alt="Sitting woman portrait"></div>
-      <div class="svc-slide"><img src="photo4.jpg" alt="Girl denim jacket portrait"></div>
-      <div class="svc-slide"><img src="photo5.jpg" alt="Father and baby"></div>
+    <!-- PANEL 2: Live Broadcasts -->
+    <div class="showcase-panel" id="panel-live-broadcasts">
+      <div class="svc-head panel-head">
+        <h3>Live Broadcasts<br>&amp; Multi Camera Direction</h3>
+        <p>Directing vMix and OBS live productions for institutional events with cinema grade output.</p>
+      </div>
+      <div class="svc-slider-container">
+        <button class="slider-arrow prev" aria-label="Previous Slide">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="svc-slider">
+          <div class="svc-slide"><img src="harry3.jpg" alt="" loading="lazy"></div>
+          <div class="svc-slide"><img src="harry1.jpg" alt="" loading="lazy"></div>
+          <div class="svc-slide"><img src="harry4.jpg" alt="" loading="lazy"></div>
+          <div class="svc-slide"><img src="harry2.jpg" alt="" loading="lazy"></div>
+        </div>
+        <button class="slider-arrow next" aria-label="Next Slide">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
     </div>
-    <button class="slider-arrow next" aria-label="Next Slide">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-    </button>
-  </div>
-</section>
 
-<section class="svc" id="digital-campaigns">
-  <div class="svc-head sr"><h3>Digital Campaigns<br>&amp; Brand Strategy</h3><p>Multi platform campaigns that turn complex causes into shareable, story driven movements.</p></div>
-  <div class="svc-slider-container sr d2">
-    <button class="slider-arrow prev" aria-label="Previous Slide">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-    </button>
-    <div class="svc-slider">
-      <div class="svc-slide"><img src="harry1.jpg" alt=""></div>
-      <div class="svc-slide"><img src="harry4.jpg" alt=""></div>
-      <div class="svc-slide"><img src="harry2.jpg" alt=""></div>
-      <div class="svc-slide"><img src="harry3.jpg" alt=""></div>
+    <!-- PANEL 3: Documentaries -->
+    <div class="showcase-panel" id="panel-documentaries">
+      <div class="svc-head panel-head">
+        <h3>Cinematic<br>&amp; NGO Documentaries</h3>
+        <p>Directing moving human-interest stories, advocacy films, and documentaries for global NGOs.</p>
+      </div>
+      <div class="svc-slider-container">
+        <button class="slider-arrow prev" aria-label="Previous Slide">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="svc-slider">
+          <div class="svc-slide"><img src="harry2.jpg" alt="" loading="lazy"></div>
+          <div class="svc-slide"><img src="harry4.jpg" alt="" loading="lazy"></div>
+          <div class="svc-slide"><img src="harry3.jpg" alt="" loading="lazy"></div>
+          <div class="svc-slide"><img src="harry1.jpg" alt="" loading="lazy"></div>
+        </div>
+        <button class="slider-arrow next" aria-label="Next Slide">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
     </div>
-    <button class="slider-arrow next" aria-label="Next Slide">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-    </button>
-  </div>
-</section>
 
-<section class="svc" id="drone-services">
-  <div class="svc-head sr"><h3>Drone Services<br>&amp; Aerial Cinematography</h3><p>Capturing high-altitude cinematic perspectives, site mapping, and creative assets with cinema grade drone output.</p></div>
-  <div class="svc-slider-container sr d2">
-    <button class="slider-arrow prev" aria-label="Previous Slide">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-    </button>
-    <div class="svc-slider">
-      <div class="svc-slide"><img src="harry3.jpg" alt=""></div>
-      <div class="svc-slide"><img src="harry2.jpg" alt=""></div>
-      <div class="svc-slide"><img src="harry4.jpg" alt=""></div>
-      <div class="svc-slide"><img src="harry1.jpg" alt=""></div>
+    <!-- PANEL 4: Photography -->
+    <div class="showcase-panel" id="panel-photography">
+      <div class="svc-head panel-head">
+        <h3>Photography<br>&amp; Creative Assets</h3>
+        <p>Event coverage, portraits, and visual asset libraries shot with a cinematographer's eye.</p>
+      </div>
+      <div class="svc-slider-container">
+        <button class="slider-arrow prev" aria-label="Previous Slide">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="svc-slider">
+          <div class="svc-slide"><img src="photo1.jpg" alt="Child portrait" loading="lazy"></div>
+          <div class="svc-slide"><img src="photo2.jpg" alt="Wrist watch details" loading="lazy"></div>
+          <div class="svc-slide"><img src="photo3.jpg" alt="Sitting woman portrait" loading="lazy"></div>
+          <div class="svc-slide"><img src="photo4.jpg" alt="Girl denim jacket portrait" loading="lazy"></div>
+          <div class="svc-slide"><img src="photo5.jpg" alt="Father and baby" loading="lazy"></div>
+        </div>
+        <button class="slider-arrow next" aria-label="Next Slide">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
     </div>
-    <button class="slider-arrow next" aria-label="Next Slide">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-    </button>
-  </div>
-</section>
 
-<section class="svc" id="ict-services">
-  <div class="svc-head sr">
-    <h3>ICT Systems<br>&amp; Smart Infrastructure</h3>
-    <p>Designing, configuring, and deploying complete smart property networks—integrating high-definition CCTV surveillance, intelligent automation, and electric fencing perimeter security under robust unified control systems.</p>
-  </div>
-  <div class="svc-slider-container sr d2">
-    <button class="slider-arrow prev" aria-label="Previous Slide">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-    </button>
-    <div class="svc-slider">
-      <div class="svc-slide"><img src="ict_cctv.png" alt="High-Definition IP CCTV Camera Systems &amp; Monitoring Networks" loading="lazy"></div>
-      <div class="svc-slide"><img src="ict_smart.png" alt="Smart Property Automation, Control Panels, &amp; Smart Lighting Systems" loading="lazy"></div>
-      <div class="svc-slide"><img src="ict_fence.png" alt="High-Voltage Electric Perimeter Security &amp; Intrusion Alarm Systems" loading="lazy"></div>
-      <div class="svc-slide"><img src="harry1.jpg" alt="Enterprise Smart System Network Setup and Infrastructure Calibration" loading="lazy"></div>
+    <!-- PANEL 5: Digital Campaigns -->
+    <div class="showcase-panel" id="panel-digital-campaigns">
+      <div class="svc-head panel-head">
+        <h3>Digital Campaigns<br>&amp; Brand Strategy</h3>
+        <p>Multi platform campaigns that turn complex causes into shareable, story driven movements.</p>
+      </div>
+      <div class="svc-slider-container">
+        <button class="slider-arrow prev" aria-label="Previous Slide">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="svc-slider">
+          <div class="svc-slide"><img src="harry1.jpg" alt="" loading="lazy"></div>
+          <div class="svc-slide"><img src="harry4.jpg" alt="" loading="lazy"></div>
+          <div class="svc-slide"><img src="harry2.jpg" alt="" loading="lazy"></div>
+          <div class="svc-slide"><img src="harry3.jpg" alt="" loading="lazy"></div>
+        </div>
+        <button class="slider-arrow next" aria-label="Next Slide">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
     </div>
-    <button class="slider-arrow next" aria-label="Next Slide">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-    </button>
+
+    <!-- PANEL 6: Drone Services -->
+    <div class="showcase-panel" id="panel-drone-services">
+      <div class="svc-head panel-head">
+        <h3>Drone Services<br>&amp; Aerial Cinematography</h3>
+        <p>Capturing high-altitude cinematic perspectives, site mapping, and creative assets with cinema grade drone output.</p>
+      </div>
+      <div class="svc-slider-container">
+        <button class="slider-arrow prev" aria-label="Previous Slide">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="svc-slider">
+          <div class="svc-slide"><img src="harry3.jpg" alt="" loading="lazy"></div>
+          <div class="svc-slide"><img src="harry2.jpg" alt="" loading="lazy"></div>
+          <div class="svc-slide"><img src="harry4.jpg" alt="" loading="lazy"></div>
+          <div class="svc-slide"><img src="harry1.jpg" alt="" loading="lazy"></div>
+        </div>
+        <button class="slider-arrow next" aria-label="Next Slide">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- PANEL 7: ICT Services -->
+    <div class="showcase-panel" id="panel-ict-services">
+      <div class="svc-head panel-head">
+        <h3>ICT Systems<br>&amp; Smart Infrastructure</h3>
+        <p>Designing, configuring, and deploying complete smart property networks—integrating high-definition CCTV surveillance, intelligent automation, and electric fencing perimeter security under robust unified control systems.</p>
+      </div>
+      <div class="svc-slider-container">
+        <button class="slider-arrow prev" aria-label="Previous Slide">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="svc-slider">
+          <div class="svc-slide"><img src="ict_cctv.png" alt="High-Definition IP CCTV Camera Systems &amp; Monitoring Networks" loading="lazy"></div>
+          <div class="svc-slide"><img src="ict_smart.png" alt="Smart Property Automation, Control Panels, &amp; Smart Lighting Systems" loading="lazy"></div>
+          <div class="svc-slide"><img src="ict_fence.png" alt="High-Voltage Electric Perimeter Security &amp; Intrusion Alarm Systems" loading="lazy"></div>
+          <div class="svc-slide"><img src="harry1.jpg" alt="Enterprise Smart System Network Setup and Infrastructure Calibration" loading="lazy"></div>
+        </div>
+        <button class="slider-arrow next" aria-label="Next Slide">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1238,8 +1393,15 @@ if (folder) {
     } else {
       // If already open
       if (clickedPaper) {
-        // Allow the anchor link to navigate normally to the targeted service section
-        return;
+        e.preventDefault();
+        const serviceId = clickedPaper.getAttribute('data-service');
+        if (serviceId) {
+          switchShowcaseTab(serviceId);
+          const target = document.getElementById('services-showcase');
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
       } else {
         // Clicked on folder cover or back background, close the folder!
         this.classList.remove('opened');
@@ -1247,6 +1409,41 @@ if (folder) {
     }
   });
 }
+
+// SHOWCASE TAB SWITCHER LOGIC
+function switchShowcaseTab(tabId) {
+  const tabs = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.showcase-panel');
+  
+  // Deactivate all tabs and panels
+  tabs.forEach(tab => tab.classList.remove('active'));
+  panels.forEach(panel => panel.classList.remove('active'));
+  
+  // Activate selected tab and panel
+  const activeTab = document.querySelector(`.tab-btn[data-tab="${tabId}"]`);
+  const activePanel = document.getElementById(`panel-${tabId}`);
+  
+  if (activeTab) {
+    activeTab.classList.add('active');
+    // Scroll mobile tabs horizontally to center the active button
+    if (window.innerWidth <= 900) {
+      activeTab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
+  }
+  if (activePanel) {
+    activePanel.classList.add('active');
+  }
+}
+
+// Attach click events to tab buttons
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const tabId = btn.getAttribute('data-tab');
+    if (tabId) {
+      switchShowcaseTab(tabId);
+    }
+  });
+});
 
 // Attach interactive cursor hover states for custom papers
 document.querySelectorAll('.folder-paper').forEach(el => {
@@ -1296,6 +1493,10 @@ document.querySelectorAll('.svc-slider-container').forEach(container => {
     const startAutoplay = () => {
       if (window.innerWidth <= 640) return; // Skip autoplay on mobile/touch screens
       autoplayTimer = setInterval(() => {
+        // ONLY scroll if the container is part of the active panel
+        const activePanel = container.closest('.showcase-panel');
+        if (activePanel && !activePanel.classList.contains('active')) return;
+
         const step = getScrollStep();
         if (Math.ceil(slider.scrollLeft + slider.clientWidth) >= slider.scrollWidth - 10) {
           slider.scrollTo({ left: 0, behavior: 'smooth' });
