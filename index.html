@@ -389,11 +389,16 @@ footer:hover .ft-bg-image{transform:translateY(-18px) scale(1.15) rotate(-1deg)}
   .hero-top-text h1 {
     font-family: var(--D);
     font-size: clamp(1.4rem, 7vw, 2.1rem) !important;
-    font-weight: 800;
+    font-weight: 900;
     line-height: 1.25;
     color: var(--w);
     letter-spacing: -0.03em;
     text-shadow: 0 4px 25px rgba(3, 8, 13, 0.95);
+    transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+  }
+  .hero-top-text h1.fade-out {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.96);
   }
   .hero-top-text h1 .hero-focus {
     display: inline-block;
@@ -1137,22 +1142,47 @@ document.querySelectorAll('.folder-paper').forEach(el => {
 
 // ABOUT EXPANSION CONTROL (Replaced with simple 'Read more' empty anchor link)
 
-// HORIZONTAL CAROUSEL SLIDERS
+// HORIZONTAL CAROUSEL SLIDERS WITH DESKTOP AUTOPLAY
 document.querySelectorAll('.svc-slider-container').forEach(container => {
   const slider = container.querySelector('.svc-slider');
   const prevBtn = container.querySelector('.slider-arrow.prev');
   const nextBtn = container.querySelector('.slider-arrow.next');
   
   if (slider && prevBtn && nextBtn) {
+    const getScrollStep = () => {
+      const slide = slider.querySelector('.svc-slide');
+      return slide ? slide.offsetWidth + 24 : 300;
+    };
+
     prevBtn.addEventListener('click', () => {
-      const slideWidth = slider.querySelector('.svc-slide').offsetWidth;
-      slider.scrollBy({ left: -slideWidth - 24, behavior: 'smooth' });
+      slider.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
     });
     
     nextBtn.addEventListener('click', () => {
-      const slideWidth = slider.querySelector('.svc-slide').offsetWidth;
-      slider.scrollBy({ left: slideWidth + 24, behavior: 'smooth' });
+      slider.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
     });
+
+    // Autoplay on desktop viewports (min-width: 641px)
+    let autoplayTimer;
+    const startAutoplay = () => {
+      if (window.innerWidth <= 640) return; // Skip autoplay on mobile/touch screens
+      autoplayTimer = setInterval(() => {
+        const step = getScrollStep();
+        if (Math.ceil(slider.scrollLeft + slider.clientWidth) >= slider.scrollWidth - 10) {
+          slider.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          slider.scrollBy({ left: step, behavior: 'smooth' });
+        }
+      }, 3500);
+    };
+
+    const stopAutoplay = () => clearInterval(autoplayTimer);
+
+    startAutoplay();
+
+    // Pause autoplay on mouse enter, resume on mouse leave
+    container.addEventListener('mouseenter', stopAutoplay);
+    container.addEventListener('mouseleave', startAutoplay);
   }
 });
 
@@ -1190,6 +1220,34 @@ if (lightbox && lightboxImg && lightboxClose) {
       closeLightbox();
     }
   });
+}
+
+// DYNAMIC HERO TEXT CYCLER ON MOBILE
+const mobileRoles = [
+  { w1: "Visual", w2: "Storyteller", w3: "&amp; Media", w4: "Director" },
+  { w1: "Creative", w2: "Filmmaker", w3: "&amp; Drone", w4: "Pilot" },
+  { w1: "Live", w2: "Director", w3: "&amp; Comms", w4: "Lead" }
+];
+let roleIndex = 0;
+const heroTitle = document.querySelector('.hero-top-text h1');
+
+if (heroTitle && window.innerWidth <= 640) {
+  setInterval(() => {
+    heroTitle.classList.add('fade-out');
+    
+    setTimeout(() => {
+      roleIndex = (roleIndex + 1) % mobileRoles.length;
+      const role = mobileRoles[roleIndex];
+      heroTitle.innerHTML = `
+        <span class="hero-focus">${role.w1}</span> <span class="hero-focus blue-text">${role.w2}</span>
+        <br>
+        <span class="hero-focus">${role.w3}</span> <span class="hero-focus">${role.w4}</span>
+      `;
+      
+      // Remove fade-out class to trigger clean staggered span enter animation
+      heroTitle.classList.remove('fade-out');
+    }, 450);
+  }, 3800);
 }
 </script>
 </body>
