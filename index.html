@@ -33,8 +33,8 @@
 html{scroll-behavior:smooth;width:100%;max-width:100vw;overflow-x:hidden}
 body{background:var(--dark);color:var(--w);font-family:var(--F);font-weight:400;overflow-x:hidden;max-width:100%;cursor:none}
 ::selection{background:var(--blue);color:var(--dark)}
-#cur{position:fixed;width:8px;height:8px;background:var(--blue);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:screen;transition:width .25s var(--ease),height .25s var(--ease),opacity .2s}
-#curo{position:fixed;width:38px;height:38px;border:1px solid rgba(6,173,238,.45);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .35s var(--ease),height .35s var(--ease)}
+#cur{position:fixed;top:0;left:0;width:8px;height:8px;background:var(--blue);border-radius:50%;pointer-events:none;z-index:9999;transform:translate3d(0,0,0) translate(-50%,-50%);mix-blend-mode:screen;transition:width .25s var(--ease),height .25s var(--ease),opacity .2s;will-change:transform}
+#curo{position:fixed;top:0;left:0;width:38px;height:38px;border:1px solid rgba(6,173,238,.45);border-radius:50%;pointer-events:none;z-index:9998;transform:translate3d(0,0,0) translate(-50%,-50%);transition:width .35s var(--ease),height .35s var(--ease);will-change:transform}
 body.hov #cur{width:0;height:0;opacity:0}
 body.hov #curo{width:72px;height:72px;background:rgba(6,173,238,.06);border-color:rgba(6,173,238,.25)}
 
@@ -214,9 +214,9 @@ footer{background:var(--dark);position:relative;overflow:hidden;border-top:1px s
 .ft-name{position:relative;display:flex;justify-content:space-between;align-items:flex-end;padding:0 3vw;line-height:.82;border-top:1px solid var(--w06);z-index:3}
 .ft-n{font-family:var(--D);font-size:clamp(5rem,14.5vw,17.5rem);font-weight:800;letter-spacing:-.055em;color:var(--w);opacity:0.95;text-shadow:0 4px 20px rgba(3,8,13,0.5);position:relative;z-index:3}
 .ft-bg-container{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;overflow:hidden;background:linear-gradient(to top, rgba(6,173,238,0.05) 0%, transparent 100%)}
-.ft-bg-image{width:100%;height:100%;object-fit:cover;object-position:center 60%;mask-image:linear-gradient(to top, rgba(0,0,0,1) 25%, rgba(0,0,0,0) 100%);-webkit-mask-image:linear-gradient(to top, rgba(0,0,0,1) 25%, rgba(0,0,0,0) 100%);transition:transform .8s var(--ease),filter .8s var(--ease);animation:ft-bg-float 9s ease-in-out infinite}
-@keyframes ft-bg-float{0%,100%{transform:translateY(0) scale(1.02) rotate(0deg);filter:brightness(.58) saturate(.85) sepia(.15) contrast(1.05)}50%{transform:translateY(-12px) scale(1.1) rotate(1.5deg);filter:brightness(.68) saturate(.98) sepia(.1) contrast(1.1)}}
-footer:hover .ft-bg-image{transform:translateY(-18px) scale(1.15) rotate(-1deg)}
+.ft-bg-image{width:100%;height:100%;object-fit:cover;object-position:center 60%;mask-image:linear-gradient(to top, rgba(0,0,0,1) 25%, rgba(0,0,0,0) 100%);-webkit-mask-image:linear-gradient(to top, rgba(0,0,0,1) 25%, rgba(0,0,0,0) 100%);transition:transform .8s var(--ease);animation:ft-bg-float 9s ease-in-out infinite;filter:brightness(.58) saturate(.85) sepia(.15) contrast(1.05);will-change:transform}
+@keyframes ft-bg-float{0%,100%{transform:translate3d(0,0,0) scale(1.02) rotate(0deg)}50%{transform:translate3d(0,-12px,0) scale(1.1) rotate(1.5deg)}}
+footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1deg)}
 .ft-sub{display:flex;justify-content:space-between;padding:1.5rem 4vw 0;flex-wrap:wrap;gap:1rem}
 .ft-sub span{font-family:var(--D);font-size:.9rem;font-weight:600;color:var(--w30)}
 .ft-sub span:last-child{color:var(--w12)}
@@ -293,12 +293,15 @@ footer:hover .ft-bg-image{transform:translateY(-18px) scale(1.15) rotate(-1deg)}
 .folder-paper:hover .paper-cta{transform:translateX(3px)}
 
 /* Paper Stack Closed Positions (staircase staircase effect, peeking above cover) */
-.folder-paper.p1{transform:translateY(-30px) scale(0.95);z-index:15}
-.folder-paper.p2{transform:translateY(-24px) scale(0.96);z-index:14}
-.folder-paper.p3{transform:translateY(-18px) scale(0.97);z-index:13}
-.folder-paper.p4{transform:translateY(-12px) scale(0.98);z-index:12}
-.folder-paper.p5{transform:translateY(-6px) scale(0.99);z-index:11}
-.folder-paper.p6{transform:translateY(0px) scale(1.0);z-index:10}
+.folder-paper.p1{transform:translateY(-40px) scale(0.92);z-index:19}
+.folder-paper.p2{transform:translateY(-35px) scale(0.93);z-index:18}
+.folder-paper.p3{transform:translateY(-30px) scale(0.94);z-index:17}
+.folder-paper.p4{transform:translateY(-25px) scale(0.95);z-index:16}
+.folder-paper.p5{transform:translateY(-20px) scale(0.96);z-index:15}
+.folder-paper.p6{transform:translateY(-15px) scale(0.97);z-index:14}
+.folder-paper.p7{transform:translateY(-10px) scale(0.98);z-index:13}
+.folder-paper.p8{transform:translateY(-5px) scale(0.99);z-index:12}
+.folder-paper.p9{transform:translateY(0px) scale(1.0);z-index:11}
 
 /* Opened Folder Animations (Front Cover & Tab rot down) */
 .folder.opened .folder-front{transform:rotateX(-50deg) skewX(-2deg)}
@@ -306,15 +309,18 @@ footer:hover .ft-bg-image{transform:translateY(-18px) scale(1.15) rotate(-1deg)}
 .folder.opened + .folder-sub{color:var(--folder-accent)}
 
 /* Opened Folder Paper Stack Positions (fanned out & translated high) */
-.folder.opened .folder-paper.p1{transform:translateY(-140px) rotate(-6deg) scale(1.02);z-index:15}
-.folder.opened .folder-paper.p2{transform:translateY(-112px) rotate(4deg) scale(1.02);z-index:14}
-.folder.opened .folder-paper.p3{transform:translateY(-84px) rotate(-3deg) scale(1.02);z-index:13}
-.folder.opened .folder-paper.p4{transform:translateY(-56px) rotate(5deg) scale(1.02);z-index:12}
-.folder.opened .folder-paper.p5{transform:translateY(-28px) rotate(-2deg) scale(1.02);z-index:11}
-.folder.opened .folder-paper.p6{transform:translateY(0px) rotate(2deg) scale(1.02);z-index:10}
+.folder.opened .folder-paper.p1{transform:translateY(-210px) rotate(-6deg) scale(1.02);z-index:19}
+.folder.opened .folder-paper.p2{transform:translateY(-184px) rotate(4deg) scale(1.02);z-index:18}
+.folder.opened .folder-paper.p3{transform:translateY(-158px) rotate(-3deg) scale(1.02);z-index:17}
+.folder.opened .folder-paper.p4{transform:translateY(-132px) rotate(5deg) scale(1.02);z-index:16}
+.folder.opened .folder-paper.p5{transform:translateY(-106px) rotate(-2deg) scale(1.02);z-index:15}
+.folder.opened .folder-paper.p6{transform:translateY(-80px) rotate(3deg) scale(1.02);z-index:14}
+.folder.opened .folder-paper.p7{transform:translateY(-54px) rotate(-1deg) scale(1.02);z-index:13}
+.folder.opened .folder-paper.p8{transform:translateY(-28px) rotate(2deg) scale(1.02);z-index:12}
+.folder.opened .folder-paper.p9{transform:translateY(0px) rotate(-1deg) scale(1.02);z-index:11}
 
 /* Individual Paper Hover State (Only active when folder is opened) */
-.folder.opened .folder-paper:hover{transform:translateY(-175px) scale(1.07) rotate(0deg) !important;z-index:30 !important;border-color:var(--paper-accent);background:var(--dark2);box-shadow:0 15px 30px rgba(0,0,0,0.5), 0 0 20px rgba(6,173,238,0.15)}
+.folder.opened .folder-paper:hover{transform:translateY(-240px) scale(1.07) rotate(0deg) !important;z-index:30 !important;border-color:var(--paper-accent);background:var(--dark2);box-shadow:0 15px 30px rgba(0,0,0,0.5), 0 0 20px rgba(6,173,238,0.15)}
 .folder.opened .folder-paper:hover .paper-title{color:var(--paper-accent)}
 
 @media(max-width:1100px){
@@ -492,19 +498,25 @@ footer:hover .ft-bg-image{transform:translateY(-18px) scale(1.15) rotate(-1deg)}
   .folder-paper::before{height:4px}
   .paper-title{font-size:.9rem;margin-bottom:.1rem}
   .paper-desc{font-size:.68rem;line-height:1.2}
-  .folder-paper.p1{transform:translateY(-22px) scale(.95);z-index:15}
-  .folder-paper.p2{transform:translateY(-17px) scale(.96);z-index:14}
-  .folder-paper.p3{transform:translateY(-12px) scale(.97);z-index:13}
-  .folder-paper.p4{transform:translateY(-7px) scale(.98);z-index:12}
-  .folder-paper.p5{transform:translateY(-2px) scale(.99);z-index:11}
-  .folder-paper.p6{transform:translateY(0) scale(1);z-index:10}
-  .folder.opened .folder-paper.p1{transform:translateY(-100px) rotate(-4deg) scale(1.02)}
-  .folder.opened .folder-paper.p2{transform:translateY(-80px) rotate(3deg) scale(1.02)}
-  .folder.opened .folder-paper.p3{transform:translateY(-60px) rotate(-2deg) scale(1.02)}
-  .folder.opened .folder-paper.p4{transform:translateY(-40px) rotate(3deg) scale(1.02)}
-  .folder.opened .folder-paper.p5{transform:translateY(-20px) rotate(-1deg) scale(1.02)}
-  .folder.opened .folder-paper.p6{transform:translateY(0) rotate(1deg) scale(1.02)}
-  .folder.opened .folder-paper:hover{transform:translateY(-120px) scale(1.05) rotate(0deg) !important}
+  .folder-paper.p1{transform:translateY(-28px) scale(.92);z-index:19}
+  .folder-paper.p2{transform:translateY(-24.5px) scale(.93);z-index:18}
+  .folder-paper.p3{transform:translateY(-21px) scale(.94);z-index:17}
+  .folder-paper.p4{transform:translateY(-17.5px) scale(.95);z-index:16}
+  .folder-paper.p5{transform:translateY(-14px) scale(.96);z-index:15}
+  .folder-paper.p6{transform:translateY(-10.5px) scale(.97);z-index:14}
+  .folder-paper.p7{transform:translateY(-7px) scale(.98);z-index:13}
+  .folder-paper.p8{transform:translateY(-3.5px) scale(.99);z-index:12}
+  .folder-paper.p9{transform:translateY(0) scale(1);z-index:11}
+  .folder.opened .folder-paper.p1{transform:translateY(-140px) rotate(-4deg) scale(1.02)}
+  .folder.opened .folder-paper.p2{transform:translateY(-122.5px) rotate(3deg) scale(1.02)}
+  .folder.opened .folder-paper.p3{transform:translateY(-105px) rotate(-2deg) scale(1.02)}
+  .folder.opened .folder-paper.p4{transform:translateY(-87.5px) rotate(3deg) scale(1.02)}
+  .folder.opened .folder-paper.p5{transform:translateY(-70px) rotate(-1deg) scale(1.02)}
+  .folder.opened .folder-paper.p6{transform:translateY(-52.5px) rotate(2deg) scale(1.02)}
+  .folder.opened .folder-paper.p7{transform:translateY(-35px) rotate(-2deg) scale(1.02)}
+  .folder.opened .folder-paper.p8{transform:translateY(-17.5px) rotate(1deg) scale(1.02)}
+  .folder.opened .folder-paper.p9{transform:translateY(0) rotate(0deg) scale(1.02)}
+  .folder.opened .folder-paper:hover{transform:translateY(-165px) scale(1.05) rotate(0deg) !important}
 
   /* PILL (years section) */
   .pill{width:120px;height:2.5rem;font-size:1.2rem;padding:0;top:-.05em}
@@ -840,6 +852,51 @@ footer:hover .ft-bg-image{transform:translateY(-18px) scale(1.15) rotate(-1deg)}
           </div>
         </a>
         
+        <!-- PAPER 7: CCTV Surveillance -->
+        <a href="#cctv-surveillance" class="folder-paper p7" style="--paper-accent: #ffb74d;">
+          <div class="paper-header">
+            <span class="paper-tag">Service 07</span>
+            <span class="paper-emoji">🛡️</span>
+          </div>
+          <div class="paper-body">
+            <h3 class="paper-title">CCTV Surveillance</h3>
+            <p class="paper-desc">High-definition IP cameras &amp; remote security monitoring.</p>
+          </div>
+          <div class="paper-footer">
+            <span class="paper-cta">View Projects →</span>
+          </div>
+        </a>
+        
+        <!-- PAPER 8: Smart Home Automation -->
+        <a href="#smart-automation" class="folder-paper p8" style="--paper-accent: #a5d6a7;">
+          <div class="paper-header">
+            <span class="paper-tag">Service 08</span>
+            <span class="paper-emoji">🏠</span>
+          </div>
+          <div class="paper-body">
+            <h3 class="paper-title">Smart Automation</h3>
+            <p class="paper-desc">Integrated lighting, audio, &amp; smart access control systems.</p>
+          </div>
+          <div class="paper-footer">
+            <span class="paper-cta">View Projects →</span>
+          </div>
+        </a>
+        
+        <!-- PAPER 9: Electric Fencing -->
+        <a href="#electric-fencing" class="folder-paper p9" style="--paper-accent: #ef9a9a;">
+          <div class="paper-header">
+            <span class="paper-tag">Service 09</span>
+            <span class="paper-emoji">⚡</span>
+          </div>
+          <div class="paper-body">
+            <h3 class="paper-title">Electric Fencing</h3>
+            <p class="paper-desc">High-voltage shock systems &amp; perimeter intrusion alarms.</p>
+          </div>
+          <div class="paper-footer">
+            <span class="paper-cta">View Projects →</span>
+          </div>
+        </a>
+        
       </div>
       
       <div class="folder-back"></div>
@@ -969,6 +1026,69 @@ footer:hover .ft-bg-image{transform:translateY(-18px) scale(1.15) rotate(-1deg)}
   </div>
 </section>
 
+<section class="svc" id="cctv-surveillance">
+  <div class="svc-head sr">
+    <h3>CCTV &amp;<br>Security Surveillance</h3>
+    <p>Designing and installing enterprise-grade HD IP camera networks, smart NVRs, and secure remote mobile monitoring solutions.</p>
+  </div>
+  <div class="svc-slider-container sr d2">
+    <button class="slider-arrow prev" aria-label="Previous Slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="svc-slider">
+      <div class="svc-slide"><img src="ict_cctv.png" alt="CCTV Systems Installation" loading="lazy"></div>
+      <div class="svc-slide"><img src="harry1.jpg" alt="Technical network design" loading="lazy"></div>
+      <div class="svc-slide"><img src="harry4.jpg" alt="Security surveillance configuration" loading="lazy"></div>
+      <div class="svc-slide"><img src="harry2.jpg" alt="Enterprise camera setup" loading="lazy"></div>
+    </div>
+    <button class="slider-arrow next" aria-label="Next Slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+</section>
+
+<section class="svc" id="smart-automation">
+  <div class="svc-head sr">
+    <h3>Smart Home<br>Automation</h3>
+    <p>Integrating intelligent home networks including smart lighting, multi-room audio, climate control, and voice-assisted ecosystems.</p>
+  </div>
+  <div class="svc-slider-container sr d2">
+    <button class="slider-arrow prev" aria-label="Previous Slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="svc-slider">
+      <div class="svc-slide"><img src="ict_smart.png" alt="Smart Home Automation Integration" loading="lazy"></div>
+      <div class="svc-slide"><img src="harry2.jpg" alt="Smart lighting control systems" loading="lazy"></div>
+      <div class="svc-slide"><img src="harry3.jpg" alt="Integrated audio and smart panels" loading="lazy"></div>
+      <div class="svc-slide"><img src="harry4.jpg" alt="Smart control configuration" loading="lazy"></div>
+    </div>
+    <button class="slider-arrow next" aria-label="Next Slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+</section>
+
+<section class="svc" id="electric-fencing">
+  <div class="svc-head sr">
+    <h3>Electric Fencing<br>&amp; Perimeter Security</h3>
+    <p>Engineering premium high-voltage security energizers, tensioned fence lines, and smart alarm intrusion alerts for absolute perimeter safety.</p>
+  </div>
+  <div class="svc-slider-container sr d2">
+    <button class="slider-arrow prev" aria-label="Previous Slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="svc-slider">
+      <div class="svc-slide"><img src="ict_fence.png" alt="Electric Fencing Installation" loading="lazy"></div>
+      <div class="svc-slide"><img src="harry4.jpg" alt="High-voltage secure perimeter installation" loading="lazy"></div>
+      <div class="svc-slide"><img src="harry1.jpg" alt="Tensioned perimeter wires" loading="lazy"></div>
+      <div class="svc-slide"><img src="harry3.jpg" alt="Energizer alarm calibration" loading="lazy"></div>
+    </div>
+    <button class="slider-arrow next" aria-label="Next Slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+</section>
+
 <section id="sayings">
   <div class="say-stage">
     <div class="say-sticky">
@@ -999,12 +1119,22 @@ footer:hover .ft-bg-image{transform:translateY(-18px) scale(1.15) rotate(-1deg)}
         <div class="tool-item"><div class="tool-dot"></div><span class="tool-name">Camtasia / Filmora</span></div>
         <div class="tool-item"><div class="tool-dot"></div><span class="tool-name">Canva / InDesign</span></div>
       </div>
+      <div class="tools-lbl" style="margin-top: 2.5rem;">ICT & Smart Systems:</div>
+      <div class="tool-list">
+        <div class="tool-item"><div class="tool-dot" style="background:#ffb74d"></div><span class="tool-name" style="color:#ffb74d">CCTV & Security Surveillance</span></div>
+        <div class="tool-item"><div class="tool-dot" style="background:#a5d6a7"></div><span class="tool-name" style="color:#a5d6a7">Smart Home Automation</span></div>
+        <div class="tool-item"><div class="tool-dot" style="background:#ef9a9a"></div><span class="tool-name" style="color:#ef9a9a">Electric Fencing & Perimeter Security</span></div>
+      </div>
     </div>
     <div class="sr d1">
-      <div class="tools-lbl">About me:</div>
-      <p class="about-text">I'm <strong>Komo Haruna Dauda</strong> — a strategic media professional based in Abuja, Nigeria. I build brands through the power of <strong>cinematic film, motion graphics, drone imagery, and live broadcast direction.</strong></p>
-      <p class="about-text">From heading <strong>1045 Pixels Studios</strong> to leading communications at <strong>FIDA Nigeria</strong> and driving advocacy campaigns at <strong>ACET</strong>, I've spent 7+ years turning complex messages into unforgettable visual experiences.</p>
-      <!-- Read More Button (Link for now is empty) -->
+      <p class="about-text">I'm <strong>Komo Haruna Dauda</strong> — a multi-disciplinary media director and ICT systems engineer based in Abuja, Nigeria. I specialize in creative cinematic productions and advanced **smart systems integration (CCTV surveillance, automation, and perimeter security)**.</p>
+      <p class="about-text">From heading <strong>1045 Pixels Studios</strong> and leading communications at <strong>FIDA Nigeria</strong> to designing high-end automated security networks, I've spent 7+ years delivering cinematic films and technical infrastructure.</p>
+      <!-- Expandable About Me Content -->
+      <div class="about-more-content" id="about-more">
+        <p class="about-text">Driven by a passion for both creative storytelling and advanced technology, I bridge the gap between media art and systems engineering. Whether I'm operating drone systems for aerial cinematography or configuring smart automation networks for high-end properties, my goal is always to deliver precision, reliability, and visual excellence.</p>
+        <p class="about-text">My systems engineering expertise covers: designing and installing high-definition IP CCTV networks with secure remote access, programming automated lighting and climate scenes, and engineering high-voltage electric perimeter security with active alarm integrations.</p>
+      </div>
+      <!-- Read More Button -->
       <a href="#" class="btn-more" style="text-decoration:none">
         <span>Read more</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
@@ -1083,8 +1213,17 @@ handleNavScroll();
 
 const cur=document.getElementById('cur'),curo=document.getElementById('curo');
 let mx=innerWidth/2,my=innerHeight/2,ox=mx,oy=my;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
-(function lp(){ox+=(mx-ox)*.1;oy+=(my-oy)*.1;curo.style.left=ox+'px';curo.style.top=oy+'px';requestAnimationFrame(lp)})();
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;
+  my=e.clientY;
+  cur.style.transform='translate3d('+mx+'px,'+my+'px,0) translate(-50%,-50%)';
+});
+(function lp(){
+  ox+=(mx-ox)*.15;
+  oy+=(my-oy)*.15;
+  curo.style.transform='translate3d('+ox+'px,'+oy+'px,0) translate(-50%,-50%)';
+  requestAnimationFrame(lp);
+})();
 document.querySelectorAll('a,button,.svc-card,.inst-card,.tool-item,.folder,#photography .svc-head,.lightbox-close,#photography .svc-slide img').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'))});
 addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('gone'),2400));
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}}),{threshold:.12});
@@ -1140,7 +1279,22 @@ document.querySelectorAll('.folder-paper').forEach(el => {
   el.addEventListener('mouseleave', () => document.body.classList.remove('hov'));
 });
 
-// ABOUT EXPANSION CONTROL (Replaced with simple 'Read more' empty anchor link)
+// ABOUT EXPANSION CONTROL
+const btnMore = document.querySelector('.btn-more');
+const aboutMore = document.getElementById('about-more');
+if (btnMore && aboutMore) {
+  btnMore.addEventListener('click', (e) => {
+    e.preventDefault();
+    aboutMore.classList.toggle('expanded');
+    btnMore.classList.toggle('active');
+    const span = btnMore.querySelector('span');
+    if (aboutMore.classList.contains('expanded')) {
+      span.textContent = 'Read less';
+    } else {
+      span.textContent = 'Read more';
+    }
+  });
+}
 
 // HORIZONTAL CAROUSEL SLIDERS WITH DESKTOP AUTOPLAY
 document.querySelectorAll('.svc-slider-container').forEach(container => {
@@ -1225,8 +1379,9 @@ if (lightbox && lightboxImg && lightboxClose) {
 // DYNAMIC HERO TEXT CYCLER ON MOBILE
 const mobileRoles = [
   { w1: "Visual", w2: "Storyteller", w3: "&amp; Media", w4: "Director" },
+  { w1: "ICT", w2: "Engineer", w3: "&amp; Smart", w4: "Systems" },
   { w1: "Creative", w2: "Filmmaker", w3: "&amp; Drone", w4: "Pilot" },
-  { w1: "Live", w2: "Director", w3: "&amp; Comms", w4: "Lead" }
+  { w1: "CCTV", w2: "Specialist", w3: "&amp; Tech", w4: "Expert" }
 ];
 let roleIndex = 0;
 const heroTitle = document.querySelector('.hero-top-text h1');
