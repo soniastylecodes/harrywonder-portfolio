@@ -129,7 +129,8 @@ nav *{pointer-events:all}
 
 .svc{padding:5rem 4vw 6rem;background:var(--dark);border-top:1px solid var(--w06)}
 .svc-head{text-align:center;margin-bottom:3.5rem}
-.svc-head h3{font-family:var(--D);font-size:clamp(2.2rem,4.5vw,4.5rem);font-weight:700;letter-spacing:-.03em;line-height:1.02;color:var(--w80)}
+.svc-head h3{font-family:var(--D);font-size:clamp(2.2rem,4.5vw,4.5rem);font-weight:700;letter-spacing:-.03em;line-height:1.02;color:var(--w80);transition:font-weight 0.3s var(--ease), color 0.3s var(--ease)}
+#photography .svc-head:hover h3{font-weight:800;color:var(--w)}
 .svc-head p{font-size:.92rem;color:var(--w55);max-width:480px;margin:1.2rem auto 0;line-height:1.55}
 .svc-slider-container{position:relative;max-width:1480px;margin:0 auto;width:100%}
 .svc-slider{display:flex;gap:1.5rem;overflow-x:auto;scroll-behavior:smooth;scroll-snap-type:x mandatory;padding:1rem 0 2rem;scrollbar-width:none;-ms-overflow-style:none}
@@ -172,6 +173,7 @@ nav *{pointer-events:all}
 .btn-more:hover{background:var(--blueFaint);border-color:rgba(6,173,238,.3);color:var(--blue);transform:translateY(-1px)}
 .btn-more svg{width:14px;height:14px;transition:transform .3s var(--ease)}
 .btn-more.active svg{transform:rotate(180deg)}
+.about-socials{display:none}
 .xp-item{padding:1rem 0;border-bottom:1px solid var(--w06);display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
 .xp-item:last-child{border-bottom:none}
 .xp-role{font-family:var(--D);font-size:1rem;font-weight:600;color:var(--w80)}
@@ -362,17 +364,18 @@ footer:hover .ft-bg-image{transform:translateY(-18px) scale(1.15) rotate(-1deg)}
     display: block !important;
   }
 
-  /* Centered Professional Subtitle in the exact middle of the screen */
+  /* Centered Professional Subtitle in the exact middle of the screen with Lens Focus Animation */
   .hero-top-text {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90vw;
     z-index: 5;
     text-align: center;
-    opacity: 1 !important;
-    animation: none !important;
+    width: 90vw;
+    opacity: 0;
+    transform: translate(-50%, -42%) scale(0.92);
+    filter: blur(12px);
+    animation: lensFocusReveal 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
   }
   .hero-top-text h1 {
     font-family: var(--D);
@@ -381,7 +384,23 @@ footer:hover .ft-bg-image{transform:translateY(-18px) scale(1.15) rotate(-1deg)}
     line-height: 1.25;
     color: var(--w);
     letter-spacing: -0.03em;
-    text-shadow: 0 4px 20px rgba(3, 8, 13, 0.9);
+    text-shadow: 0 4px 25px rgba(3, 8, 13, 0.95);
+  }
+  @keyframes lensFocusReveal {
+    0% {
+      opacity: 0;
+      filter: blur(12px) brightness(1.5);
+      transform: translate(-50%, -42%) scale(0.92);
+    }
+    50% {
+      opacity: 0.85;
+      filter: blur(4px) brightness(1.15);
+    }
+    100% {
+      opacity: 1;
+      filter: blur(0) brightness(1);
+      transform: translate(-50%, -50%) scale(1);
+    }
   }
 
   /* Hide other elements to keep layout clean and focused */
@@ -445,6 +464,36 @@ footer:hover .ft-bg-image{transform:translateY(-18px) scale(1.15) rotate(-1deg)}
   #intent{padding:4rem 5vw}
   #tools{padding:4rem 5vw}
   .tools-grid{grid-template-columns:1fr;gap:3rem}
+
+  /* Mobile Social Links in About Me styles */
+  .about-socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+  .about-social-link {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--w12);
+    border-radius: 999px;
+    padding: 0.45rem 0.95rem;
+    font-size: 0.76rem;
+    color: var(--w80);
+    text-decoration: none;
+    font-weight: 600;
+    font-family: var(--D);
+    letter-spacing: -0.01em;
+    transition: all 0.25s var(--ease);
+  }
+  .about-social-link:hover, .about-social-link:active {
+    background: rgba(6, 173, 238, 0.08);
+    border-color: rgba(6, 173, 238, 0.35);
+    color: var(--blue);
+    transform: translateY(-1px);
+  }
 
   /* Staggered tools entrance animation on mobile */
   .tools-grid .sr.vis .tool-item {
@@ -841,6 +890,14 @@ footer:hover .ft-bg-image{transform:translateY(-18px) scale(1.15) rotate(-1deg)}
         <span>Read more</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
+      <!-- Mobile Social Links in About Me -->
+      <div class="about-socials">
+        <a href="mailto:hello@harrywonder.studio" class="about-social-link">Email</a>
+        <a href="https://www.linkedin.com/in/haruna-dauda-komo" target="_blank" rel="noopener" class="about-social-link">LinkedIn</a>
+        <a href="https://www.instagram.com/harrywondercraft" target="_blank" rel="noopener" class="about-social-link">Instagram</a>
+        <a href="https://facebook.com/harrydone" target="_blank" rel="noopener" class="about-social-link">Facebook</a>
+        <a href="https://wa.me/2347063226792" target="_blank" rel="noopener" class="about-social-link">WhatsApp</a>
+      </div>
       <div class="tools-lbl" style="margin-top:2.5rem">Experience:</div>
       <div class="xp-item"><div><div class="xp-role">Lead Strategist / MD</div><div class="xp-org">1045 Pixels Studios, Abuja</div></div><div class="xp-date">2024 — NOW</div></div>
       <div class="xp-item"><div><div class="xp-role">Communications & IT Lead</div><div class="xp-org">FIDA Nigeria, Abuja</div></div><div class="xp-date">2022 — 2024</div></div>
@@ -902,7 +959,7 @@ const cur=document.getElementById('cur'),curo=document.getElementById('curo');
 let mx=innerWidth/2,my=innerHeight/2,ox=mx,oy=my;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
 (function lp(){ox+=(mx-ox)*.1;oy+=(my-oy)*.1;curo.style.left=ox+'px';curo.style.top=oy+'px';requestAnimationFrame(lp)})();
-document.querySelectorAll('a,button,.svc-card,.inst-card,.tool-item,.folder').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'))});
+document.querySelectorAll('a,button,.svc-card,.inst-card,.tool-item,.folder,#photography .svc-head').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'))});
 addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('gone'),2400));
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.sr,.years-h,.intent-h').forEach(el=>io.observe(el));
