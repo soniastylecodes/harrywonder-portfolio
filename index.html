@@ -1699,15 +1699,50 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
         <h3>ICT Systems<br>&amp; Smart Infrastructure</h3>
         <p>Designing, configuring, and deploying complete smart property networks—integrating high-definition CCTV surveillance, intelligent automation, and electric fencing perimeter security under robust unified control systems.</p>
       </div>
-      <div class="svc-slider-container">
+
+      <!-- CCTV Featured Video Section -->
+      <div class="showcase-single-container">
+        <div class="svc-single-item">
+          <div class="video-wrapper" id="cctv-video-wrapper">
+            <iframe id="featured-cctv-iframe" src="https://drive.google.com/file/d/1HTdXxTzTOuepMVq_5lMnr7AvhpqQXE5J/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+          <div class="single-item-meta" style="margin-bottom: 2rem;">
+            <h4 id="featured-cctv-title">Featured: High-Definition IP CCTV Camera Systems &amp; Monitoring Networks</h4>
+            <p id="featured-cctv-desc">Enterprise-grade IP surveillance camera networks configured with remote access, smart analytics, and high-capacity storage calibration.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CCTV & Smart Systems Videos Slider -->
+      <div class="svc-slider-container" style="margin-top: 1rem; margin-bottom: 4rem;">
+        <div class="svc-head panel-head" style="margin-bottom: 2rem;">
+          <h4 style="font-family: var(--D); font-size: 1.4rem; color: var(--w80);">Smart Systems &amp; Security Highlights</h4>
+        </div>
         <button class="slider-arrow prev" aria-label="Previous Slide">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
         </button>
-        <div class="svc-slider">
-          <div class="svc-slide"><img src="ict_cctv.png" alt="High-Definition IP CCTV Camera Systems &amp; Monitoring Networks" loading="lazy"></div>
-          <div class="svc-slide"><img src="ict_smart.png" alt="Smart Property Automation, Control Panels, &amp; Smart Lighting Systems" loading="lazy"></div>
-          <div class="svc-slide"><img src="ict_fence.png" alt="High-Voltage Electric Perimeter Security &amp; Intrusion Alarm Systems" loading="lazy"></div>
-          <div class="svc-slide"><img src="harry1.jpg" alt="Enterprise Smart System Network Setup and Infrastructure Calibration" loading="lazy"></div>
+        <div class="svc-slider" id="cctv-videos-slider">
+          <div class="svc-slide video-slide active" data-video-id="1HTdXxTzTOuepMVq_5lMnr7AvhpqQXE5J" data-title="Featured: High-Definition IP CCTV Camera Systems &amp; Monitoring Networks" data-desc="Enterprise-grade IP surveillance camera networks configured with remote access, smart analytics, and high-capacity storage calibration.">
+            <img src="ict_cctv.png" alt="" loading="lazy">
+            <div class="slide-video-overlay">
+              <span class="slide-video-tag">ACTIVE</span>
+              <span class="slide-video-title">IP CCTV Systems</span>
+            </div>
+          </div>
+          <div class="svc-slide video-slide" data-video-id="1CmRLNFZJa7YVIATEb49c9CDqqegJvz-K" data-title="Featured: Smart Property Automation &amp; Central Control Integration" data-desc="Smart home systems incorporating automated lighting, climate scenes, intelligent voice control, and unified property dashboard configuration.">
+            <img src="ict_smart.png" alt="" loading="lazy">
+            <div class="slide-video-overlay">
+              <span class="slide-video-tag">AUTOMATION</span>
+              <span class="slide-video-title">Smart Integration</span>
+            </div>
+          </div>
+          <div class="svc-slide video-slide" data-video-id="1hdDjHyaX5k8ZokNEYD6KyGtv1HXz_g5A" data-title="Featured: High-Voltage Electric Perimeter Security &amp; Alarms" data-desc="Advanced perimeter security systems featuring high-voltage fencing, active zone alarms, intrusion alerts, and real-time smart app integration.">
+            <img src="ict_fence.png" alt="" loading="lazy">
+            <div class="slide-video-overlay">
+              <span class="slide-video-tag">SECURITY</span>
+              <span class="slide-video-title">Electric Fencing</span>
+            </div>
+          </div>
         </div>
         <button class="slider-arrow next" aria-label="Next Slide">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
@@ -2276,6 +2311,41 @@ document.querySelectorAll('#corp-videos-slider .video-slide').forEach(slide => {
         corpVideoWrapper.classList.remove('highlight-focus');
         void corpVideoWrapper.offsetWidth; // trigger reflow
         corpVideoWrapper.classList.add('highlight-focus');
+      }
+    }
+  });
+});
+
+// FEATURED CCTV & SECURITY VIDEO CAROUSEL LOGIC
+const cctvIframe = document.getElementById('featured-cctv-iframe');
+const cctvVideoWrapper = document.getElementById('cctv-video-wrapper');
+const featuredCctvTitle = document.getElementById('featured-cctv-title');
+const featuredCctvDesc = document.getElementById('featured-cctv-desc');
+
+document.querySelectorAll('#cctv-videos-slider .video-slide').forEach(slide => {
+  slide.addEventListener('click', () => {
+    const videoId = slide.getAttribute('data-video-id');
+    const title = slide.getAttribute('data-title');
+    const desc = slide.getAttribute('data-desc');
+    
+    if (cctvIframe && videoId) {
+      // Update iframe source
+      cctvIframe.src = `https://drive.google.com/file/d/${videoId}/preview`;
+      
+      // Update metadata text
+      if (featuredCctvTitle && title) featuredCctvTitle.textContent = title;
+      if (featuredCctvDesc && desc) featuredCctvDesc.textContent = desc;
+      
+      // Update active state class in carousel slides
+      document.querySelectorAll('#cctv-videos-slider .video-slide').forEach(s => s.classList.remove('active'));
+      slide.classList.add('active');
+      
+      // Scroll to video smoothly and trigger focus highlight flash
+      if (cctvVideoWrapper) {
+        cctvVideoWrapper.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        cctvVideoWrapper.classList.remove('highlight-focus');
+        void cctvVideoWrapper.offsetWidth; // trigger reflow
+        cctvVideoWrapper.classList.add('highlight-focus');
       }
     }
   });
