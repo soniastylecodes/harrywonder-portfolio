@@ -313,7 +313,7 @@ nav *{pointer-events:all}
 }
 
 .showcase-single-container {
-  max-width: 960px;
+  max-width: 1480px;
   margin: 0 auto;
   width: 100%;
   padding: 0 1rem;
@@ -761,8 +761,13 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
 }
 
 /* Individual Paper Hover State (Only active when folder is opened) */
-.folder.opened .folder-paper:hover{transform:translateY(-240px) scale(1.07) rotate(0deg) !important;z-index:30 !important;border-color:var(--paper-accent);background:var(--dark2);box-shadow:0 15px 30px rgba(0,0,0,0.5), 0 0 20px rgba(6,173,238,0.15)}
-.folder.opened .folder-paper:hover .paper-title{color:var(--paper-accent)}
+.folder.opened .folder-paper:hover {
+  border-color: var(--paper-accent) !important;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.5), 0 0 25px var(--paper-accent) !important;
+}
+.folder.opened .folder-paper:hover .paper-title {
+  color: var(--paper-accent) !important;
+}
 
 @media(max-width:1100px){
   .svc-slide{flex:0 0 calc(45% - 0.75rem)}
