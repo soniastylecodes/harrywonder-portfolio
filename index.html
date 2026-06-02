@@ -607,6 +607,159 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
 .folder.opened .folder-paper.p6{transform:translateY(-30px) rotate(2deg) scale(1.02);z-index:12}
 .folder.opened .folder-paper.p7{transform:translateY(0px) rotate(-1deg) scale(1.02);z-index:11}
 
+/* Folder navigation buttons */
+.folder-nav-btn {
+  position: absolute;
+  top: calc(50% + 20px);
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(3, 8, 13, 0.85);
+  border: 1px solid var(--w12);
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  transition: all 0.3s var(--ease);
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+.folder-nav-btn.prev {
+  left: -80px;
+}
+.folder-nav-btn.next {
+  right: -80px;
+}
+.folder-container.opened-folder-active .folder-nav-btn {
+  opacity: 1;
+  pointer-events: all;
+}
+.folder-nav-btn:hover {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: var(--dark);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 0 20px rgba(6, 173, 238, 0.45);
+}
+.folder-nav-btn svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 3;
+}
+
+/* Folder Carousel Paper Position Animations */
+.folder.opened .folder-paper[data-pos="0"] {
+  transform: translateY(-165px) scale(1.08) rotate(0deg) !important;
+  z-index: 35 !important;
+  border-color: var(--paper-accent) !important;
+  background: var(--dark2) !important;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 25px rgba(6, 173, 238, 0.15) !important;
+}
+.folder.opened .folder-paper[data-pos="-1"] {
+  transform: translateY(-110px) translateX(-50px) rotate(-7deg) scale(0.96) !important;
+  z-index: 28 !important;
+  opacity: 0.85;
+}
+.folder.opened .folder-paper[data-pos="1"] {
+  transform: translateY(-110px) translateX(50px) rotate(7deg) scale(0.96) !important;
+  z-index: 28 !important;
+  opacity: 0.85;
+}
+.folder.opened .folder-paper[data-pos="-2"] {
+  transform: translateY(-70px) translateX(-95px) rotate(-13deg) scale(0.91) !important;
+  z-index: 20 !important;
+  opacity: 0.6;
+}
+.folder.opened .folder-paper[data-pos="2"] {
+  transform: translateY(-70px) translateX(95px) rotate(13deg) scale(0.91) !important;
+  z-index: 20 !important;
+  opacity: 0.6;
+}
+.folder.opened .folder-paper[data-pos="-3"],
+.folder.opened .folder-paper[data-pos="-4"],
+.folder.opened .folder-paper[data-pos="-5"],
+.folder.opened .folder-paper[data-pos="-6"] {
+  transform: translateY(-35px) translateX(-130px) rotate(-18deg) scale(0.86) !important;
+  z-index: 15 !important;
+  opacity: 0;
+  pointer-events: none;
+}
+.folder.opened .folder-paper[data-pos="3"],
+.folder.opened .folder-paper[data-pos="4"],
+.folder.opened .folder-paper[data-pos="5"],
+.folder.opened .folder-paper[data-pos="6"] {
+  transform: translateY(-35px) translateX(130px) rotate(18deg) scale(0.86) !important;
+  z-index: 15 !important;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Mobile Media Queries for Folder Navigation Buttons & Carousel */
+@media(max-width:980px) {
+  .folder-nav-btn.prev {
+    left: -40px;
+  }
+  .folder-nav-btn.next {
+    right: -40px;
+  }
+}
+
+@media(max-width:640px) {
+  .folder-nav-btn {
+    width: 40px;
+    height: 40px;
+    top: calc(50% + 10px);
+  }
+  .folder-nav-btn.prev {
+    left: -32px;
+  }
+  .folder-nav-btn.next {
+    right: -32px;
+  }
+  .folder.opened .folder-paper[data-pos="0"] {
+    transform: translateY(-115px) scale(1.05) rotate(0deg) !important;
+    z-index: 35 !important;
+  }
+  .folder.opened .folder-paper[data-pos="-1"] {
+    transform: translateY(-80px) translateX(-35px) rotate(-6deg) scale(0.95) !important;
+    z-index: 28 !important;
+    opacity: 0.8;
+  }
+  .folder.opened .folder-paper[data-pos="1"] {
+    transform: translateY(-80px) translateX(35px) rotate(6deg) scale(0.95) !important;
+    z-index: 28 !important;
+    opacity: 0.8;
+  }
+  .folder.opened .folder-paper[data-pos="-2"] {
+    transform: translateY(-50px) translateX(-65px) rotate(-11deg) scale(0.9) !important;
+    z-index: 20 !important;
+    opacity: 0.5;
+  }
+  .folder.opened .folder-paper[data-pos="2"] {
+    transform: translateY(-50px) translateX(65px) rotate(11deg) scale(0.9) !important;
+    z-index: 20 !important;
+    opacity: 0.5;
+  }
+  .folder.opened .folder-paper[data-pos="-3"],
+  .folder.opened .folder-paper[data-pos="-4"] {
+    transform: translateY(-30px) translateX(-90px) rotate(-15deg) scale(0.85) !important;
+    z-index: 15 !important;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .folder.opened .folder-paper[data-pos="3"],
+  .folder.opened .folder-paper[data-pos="4"] {
+    transform: translateY(-30px) translateX(90px) rotate(15deg) scale(0.85) !important;
+    z-index: 15 !important;
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
 /* Individual Paper Hover State (Only active when folder is opened) */
 .folder.opened .folder-paper:hover{transform:translateY(-240px) scale(1.07) rotate(0deg) !important;z-index:30 !important;border-color:var(--paper-accent);background:var(--dark2);box-shadow:0 15px 30px rgba(0,0,0,0.5), 0 0 20px rgba(6,173,238,0.15)}
 .folder.opened .folder-paper:hover .paper-title{color:var(--paper-accent)}
@@ -1048,6 +1201,11 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
   <div class="folder-container sr d1">
     <p class="folder-ey">Curious?... Check out my</p>
     
+    <!-- Navigation Buttons for Opened Folder Carousel -->
+    <button class="folder-nav-btn prev" aria-label="Previous Service">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    
     <div class="folder" id="portfolio-folder">
       <!-- Stack of papers stacked inside the single folder -->
       <div class="folder-papers" id="folder-papers">
@@ -1067,15 +1225,15 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
           </div>
         </a>
         
-        <!-- PAPER 2: Live Broadcasts -->
+        <!-- PAPER 2: Live Streaming -->
         <a href="#services-showcase" data-service="live-broadcasts" class="folder-paper p2" style="--paper-accent: #00e5ff;">
           <div class="paper-header">
             <span class="paper-tag">Service 02</span>
             <span class="paper-emoji">📡</span>
           </div>
           <div class="paper-body">
-            <h3 class="paper-title">Live Broadcasts</h3>
-            <p class="paper-desc">vMix &amp; OBS multi-camera live productions.</p>
+            <h3 class="paper-title">Live Streaming</h3>
+            <p class="paper-desc">vMix &amp; OBS live streaming productions.</p>
           </div>
           <div class="paper-footer">
             <span class="paper-cta">View Projects →</span>
@@ -1173,6 +1331,10 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
       </div>
     </div>
     
+    <button class="folder-nav-btn next" aria-label="Next Service">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+    
     <p class="folder-sub">Click the outer folder to open, then click sub-folders inside!</p>
   </div>
 </section>
@@ -1191,7 +1353,7 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
     </button>
     <div class="tabs-list-wrapper" id="tabs-list-wrapper">
       <button class="tab-btn active" data-tab="corp-digital-campaigns">Corp &amp; Campaigns</button>
-      <button class="tab-btn" data-tab="live-broadcasts">Live Production</button>
+      <button class="tab-btn" data-tab="live-broadcasts">Live Streaming</button>
       <button class="tab-btn" data-tab="documentaries">Documentaries</button>
       <button class="tab-btn" data-tab="photography">Photography</button>
       <button class="tab-btn" data-tab="animation">2D/3D Animation</button>
@@ -1243,11 +1405,11 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
       </div>
     </div>
 
-    <!-- PANEL 2: Live Broadcasts -->
+    <!-- PANEL 2: Live Streaming -->
     <div class="showcase-panel" id="panel-live-broadcasts">
       <div class="svc-head panel-head">
-        <h3>Live Broadcasts<br>&amp; Multi Camera Direction</h3>
-        <p>Directing vMix and OBS live productions for institutional events with cinema grade output.</p>
+        <h3>Live Streaming</h3>
+        <p>Directing vMix and OBS live streaming productions for institutional events with cinema grade output.</p>
       </div>
       <div class="svc-slider-container">
         <button class="slider-arrow prev" aria-label="Previous Slide">
@@ -1268,7 +1430,7 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
     <!-- PANEL 3: Documentaries -->
     <div class="showcase-panel" id="panel-documentaries">
       <div class="svc-head panel-head">
-        <h3>Cinematic<br>&amp; NGO Documentaries</h3>
+        <h3>Documentaries</h3>
         <p>Directing moving human-interest stories, advocacy films, and documentaries for global NGOs.</p>
       </div>
       <div class="showcase-single-container">
@@ -1287,7 +1449,7 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
     <!-- PANEL 4: Photography -->
     <div class="showcase-panel" id="panel-photography">
       <div class="svc-head panel-head">
-        <h3>Photography<br>&amp; Creative Assets</h3>
+        <h3>Photography</h3>
         <p>Event coverage, portraits, and visual asset libraries shot with a cinematographer's eye.</p>
       </div>
       <div class="svc-slider-container">
@@ -1541,36 +1703,128 @@ addEventListener('scroll',updateSay,{passive:true});
 addEventListener('resize',updateSay);
 updateSay();
 
-// PORTFOLIO FOLDER INTERACTION
+// PORTFOLIO FOLDER INTERACTION WITH CAROUSEL
 const folder = document.getElementById('portfolio-folder');
+const folderContainer = document.querySelector('.folder-container');
+const papers = document.querySelectorAll('.folder-paper');
+const folderSub = document.querySelector('.folder-sub');
 
-if (folder) {
+let activePaperIndex = 0;
+
+function updateFolderCarousel() {
+  if (!folder.classList.contains('opened')) return;
+  
+  papers.forEach((paper, i) => {
+    let diff = i - activePaperIndex;
+    paper.setAttribute('data-pos', diff);
+  });
+  
+  // Update cover label
+  const activePaper = papers[activePaperIndex];
+  if (activePaper) {
+    const activeTitle = activePaper.querySelector('.paper-title').textContent;
+    const coverLabel = document.getElementById('folder-label-text');
+    if (coverLabel) {
+      coverLabel.textContent = activeTitle.toUpperCase();
+    }
+  }
+  
+  if (folderSub) {
+    folderSub.innerHTML = 'Click the active paper to view its portfolio, or use arrows to cycle.';
+  }
+}
+
+function resetFolderCarousel() {
+  papers.forEach(paper => {
+    paper.removeAttribute('data-pos');
+  });
+  const coverLabel = document.getElementById('folder-label-text');
+  if (coverLabel) {
+    coverLabel.textContent = 'PORTFOLIO';
+  }
+  if (folderSub) {
+    folderSub.innerHTML = 'Click the outer folder to open, then click sub-folders inside!';
+  }
+}
+
+if (folder && folderContainer) {
+  // Folder click handler
   folder.addEventListener('click', function(e) {
     const clickedPaper = e.target.closest('.folder-paper');
     
     if (!this.classList.contains('opened')) {
-      // If closed, open it and prevent navigation on this initial click
       e.preventDefault();
       e.stopPropagation();
       this.classList.add('opened');
+      folderContainer.classList.add('opened-folder-active');
+      activePaperIndex = 0;
+      updateFolderCarousel();
     } else {
-      // If already open
       if (clickedPaper) {
         e.preventDefault();
-        const serviceId = clickedPaper.getAttribute('data-service');
-        if (serviceId) {
-          switchShowcaseTab(serviceId);
-          const target = document.getElementById('services-showcase');
-          if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
+        e.stopPropagation();
+        
+        // Find index of clicked paper
+        const clickedIndex = Array.from(papers).indexOf(clickedPaper);
+        
+        if (clickedIndex === activePaperIndex) {
+          // If already active, navigate!
+          const serviceId = clickedPaper.getAttribute('data-service');
+          if (serviceId) {
+            switchShowcaseTab(serviceId);
+            const target = document.getElementById('services-showcase');
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
           }
+        } else {
+          // Make active and update carousel
+          activePaperIndex = clickedIndex;
+          updateFolderCarousel();
         }
       } else {
-        // Clicked on folder cover or back background, close the folder!
+        // Clicked outside papers on folder, close it!
         this.classList.remove('opened');
+        folderContainer.classList.remove('opened-folder-active');
+        resetFolderCarousel();
       }
     }
   });
+  
+  // Close folder if user clicks anywhere else outside the folder container
+  document.addEventListener('click', (e) => {
+    if (!folderContainer.contains(e.target) && folder.classList.contains('opened')) {
+      folder.classList.remove('opened');
+      folderContainer.classList.remove('opened-folder-active');
+      resetFolderCarousel();
+    }
+  });
+
+  // Navigation arrows event listeners
+  const prevBtn = folderContainer.querySelector('.folder-nav-btn.prev');
+  const nextBtn = folderContainer.querySelector('.folder-nav-btn.next');
+
+  if (prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      activePaperIndex = (activePaperIndex - 1 + papers.length) % papers.length;
+      updateFolderCarousel();
+    });
+    
+    nextBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      activePaperIndex = (activePaperIndex + 1) % papers.length;
+      updateFolderCarousel();
+    });
+    
+    // Add hover states
+    prevBtn.addEventListener('mouseenter', () => document.body.classList.add('hov'));
+    prevBtn.addEventListener('mouseleave', () => document.body.classList.remove('hov'));
+    nextBtn.addEventListener('mouseenter', () => document.body.classList.add('hov'));
+    nextBtn.addEventListener('mouseleave', () => document.body.classList.remove('hov'));
+  }
 }
 
 // SHOWCASE TAB SWITCHER LOGIC
