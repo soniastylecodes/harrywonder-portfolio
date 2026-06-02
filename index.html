@@ -93,7 +93,7 @@ nav *{pointer-events:all}
 .nav-made{font-size:.62rem;color:var(--w30);letter-spacing:.02em}
 
 #hero{position:relative;height:100vh;min-height:640px;width:100%;overflow:hidden;background:var(--dark)}
-.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;filter:brightness(.65) saturate(.85) contrast(1.05) sepia(0.08)}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;filter:brightness(0.7) saturate(1.15) contrast(1.05)}
 .hero-overlay{position:absolute;inset:0;background:radial-gradient(circle at 50% 40%, rgba(3,8,13,0.2) 0%, rgba(3,8,13,0.72) 80%), linear-gradient(to bottom, rgba(3,8,13,0.4) 0%, transparent 40%, rgba(3,8,13,0.85) 90%);z-index:2;pointer-events:none}
 .hero-grad{position:absolute;inset:0;z-index:3;background:linear-gradient(to bottom,rgba(3,8,13,.2) 0%,rgba(3,8,13,0) 30%,rgba(3,8,13,.7) 85%,rgba(3,8,13,1) 100%);pointer-events:none}
 .hero-top-text{position:absolute;top:8.5rem;left:3vw;z-index:5;pointer-events:none}
@@ -310,6 +310,60 @@ nav *{pointer-events:all}
   max-width: 480px;
   margin: 0 auto;
   line-height: 1.55;
+}
+
+.showcase-single-container {
+  max-width: 960px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 1rem;
+}
+.svc-single-item {
+  display: flex;
+  flex-direction: column;
+}
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--w12);
+  background: var(--dark2);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+  margin-bottom: 1.5rem;
+  transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.video-wrapper:hover {
+  border-color: rgba(6, 173, 238, 0.4);
+  box-shadow: 0 20px 45px rgba(6, 173, 238, 0.15);
+}
+.single-item-meta {
+  margin-top: 1rem;
+  text-align: center;
+}
+.single-item-meta h4 {
+  font-family: var(--D);
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 700;
+  color: var(--w);
+  margin-bottom: 0.5rem;
+}
+.single-item-meta p {
+  font-size: 0.9rem;
+  color: var(--w55);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
 @keyframes panelFadeIn {
@@ -599,7 +653,7 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
     object-position: 65% 15%; /* perfectly positions to show Haruna's face */
     border-radius: 0 !important;
     z-index: 1;
-    filter: brightness(0.55) saturate(0.85) contrast(1.05);
+    filter: brightness(0.65) saturate(1.15) contrast(1.05);
   }
   .hero-overlay {
     position: absolute;
@@ -998,15 +1052,15 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
       <!-- Stack of papers stacked inside the single folder -->
       <div class="folder-papers" id="folder-papers">
         
-        <!-- PAPER 1: Corporate Events -->
-        <a href="#services-showcase" data-service="corp-events" class="folder-paper p1" style="--paper-accent: #06ADEE;">
+        <!-- PAPER 1: Corporate & Digital Campaigns -->
+        <a href="#services-showcase" data-service="corp-digital-campaigns" class="folder-paper p1" style="--paper-accent: #06ADEE;">
           <div class="paper-header">
             <span class="paper-tag">Service 01</span>
             <span class="paper-emoji">🎥</span>
           </div>
           <div class="paper-body">
-            <h3 class="paper-title">Corporate Events</h3>
-            <p class="paper-desc">High-impact brand videos &amp; event highlights.</p>
+            <h3 class="paper-title">Corp &amp; Campaigns</h3>
+            <p class="paper-desc">Cinematic brand campaigns, documentaries &amp; highlights.</p>
           </div>
           <div class="paper-footer">
             <span class="paper-cta">View Projects →</span>
@@ -1058,15 +1112,15 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
           </div>
         </a>
         
-        <!-- PAPER 5: Digital Campaigns -->
-        <a href="#services-showcase" data-service="digital-campaigns" class="folder-paper p5" style="--paper-accent: #ff5252;">
+        <!-- PAPER 5: 2D/3D Animation -->
+        <a href="#services-showcase" data-service="animation" class="folder-paper p5" style="--paper-accent: #ff5252;">
           <div class="paper-header">
             <span class="paper-tag">Service 05</span>
-            <span class="paper-emoji">📣</span>
+            <span class="paper-emoji">🎬</span>
           </div>
           <div class="paper-body">
-            <h3 class="paper-title">Digital Campaigns</h3>
-            <p class="paper-desc">Strategic causes turned into media movements.</p>
+            <h3 class="paper-title">2D/3D Animation</h3>
+            <p class="paper-desc">Premium 2D/3D visual processes, CGI rendering &amp; motion graphics.</p>
           </div>
           <div class="paper-footer">
             <span class="paper-cta">View Projects →</span>
@@ -1132,15 +1186,15 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
   <!-- Showcase Navigation Tabs -->
   <div class="showcase-tabs sr d1" id="showcase-tabs-container">
     <button class="showcase-mobile-trigger" id="showcase-mobile-trigger" aria-label="Select Showcase Portfolio Section">
-      <span id="mobile-trigger-text">Corporate Video</span>
+      <span id="mobile-trigger-text">Corp &amp; Campaigns</span>
       <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
     </button>
     <div class="tabs-list-wrapper" id="tabs-list-wrapper">
-      <button class="tab-btn active" data-tab="corp-events">Corporate Video</button>
+      <button class="tab-btn active" data-tab="corp-digital-campaigns">Corp &amp; Campaigns</button>
       <button class="tab-btn" data-tab="live-broadcasts">Live Production</button>
       <button class="tab-btn" data-tab="documentaries">Documentaries</button>
       <button class="tab-btn" data-tab="photography">Photography</button>
-      <button class="tab-btn" data-tab="digital-campaigns">Digital Campaigns</button>
+      <button class="tab-btn" data-tab="animation">2D/3D Animation</button>
       <button class="tab-btn" data-tab="drone-services">Drone Services</button>
       <button class="tab-btn" data-tab="ict-services">ICT Services</button>
     </div>
@@ -1149,13 +1203,31 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
   <!-- Showcase Panels Viewport -->
   <div class="showcase-viewport sr d2">
     
-    <!-- PANEL 1: Corporate Events -->
-    <div class="showcase-panel active" id="panel-corp-events">
+    <!-- PANEL 1: Corporate & Digital Campaigns -->
+    <div class="showcase-panel active" id="panel-corp-digital-campaigns">
       <div class="svc-head panel-head">
-        <h3>Corporate Video<br>&amp; Brand Events</h3>
-        <p>Creating high impact cinematic event productions and corporate highlights built to elevate your brand.</p>
+        <h3>Corporate &amp; Digital Campaigns</h3>
+        <p>Cinematic brand productions, corporate event highlights, and high-impact digital campaign movements.</p>
       </div>
+      
+      <!-- Video Campaign Featured Section -->
+      <div class="showcase-single-container">
+        <div class="svc-single-item">
+          <div class="video-wrapper">
+            <iframe src="https://drive.google.com/file/d/1nMxRloUxBkYGIhf2TI4y1A7SSLHltwY5/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+          <div class="single-item-meta" style="margin-bottom: 3.5rem;">
+            <h4>Featured: Terra 1 — Brand Campaign</h4>
+            <p>A high-impact cinematic campaign built to deliver dramatic visual storytelling and highlight premium brand values.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Photo highlights from event productions -->
       <div class="svc-slider-container">
+        <div class="svc-head panel-head" style="margin-bottom: 2rem;">
+          <h4 style="font-family: var(--D); font-size: 1.4rem; color: var(--w80);">Production Highlights</h4>
+        </div>
         <button class="slider-arrow prev" aria-label="Previous Slide">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
         </button>
@@ -1199,19 +1271,16 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
         <h3>Cinematic<br>&amp; NGO Documentaries</h3>
         <p>Directing moving human-interest stories, advocacy films, and documentaries for global NGOs.</p>
       </div>
-      <div class="svc-slider-container">
-        <button class="slider-arrow prev" aria-label="Previous Slide">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <div class="svc-slider">
-          <div class="svc-slide"><img src="harry2.jpg" alt="" loading="lazy"></div>
-          <div class="svc-slide"><img src="harry4.jpg" alt="" loading="lazy"></div>
-          <div class="svc-slide"><img src="harry3.jpg" alt="" loading="lazy"></div>
-          <div class="svc-slide"><img src="harry1.jpg" alt="" loading="lazy"></div>
+      <div class="showcase-single-container">
+        <div class="svc-single-item">
+          <div class="video-wrapper">
+            <iframe src="https://drive.google.com/file/d/1aIY9wwvJGMpxdXXy3fQ8sUaW5qcKGrvD/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+          <div class="single-item-meta">
+            <h4>SUWA — NGO Documentary</h4>
+            <p>A cinematic, moving human-interest documentary highlighting community impact and advocacy causes.</p>
+          </div>
         </div>
-        <button class="slider-arrow next" aria-label="Next Slide">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
       </div>
     </div>
 
@@ -1238,25 +1307,22 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
       </div>
     </div>
 
-    <!-- PANEL 5: Digital Campaigns -->
-    <div class="showcase-panel" id="panel-digital-campaigns">
+    <!-- PANEL 5: 2D/3D Animation -->
+    <div class="showcase-panel" id="panel-animation">
       <div class="svc-head panel-head">
-        <h3>Digital Campaigns<br>&amp; Brand Strategy</h3>
-        <p>Multi platform campaigns that turn complex causes into shareable, story driven movements.</p>
+        <h3>2D &amp; 3D Animation<br>&amp; CGI Rendering</h3>
+        <p>Premium architectural walkthroughs, CGI creative design processes, and concept animations.</p>
       </div>
-      <div class="svc-slider-container">
-        <button class="slider-arrow prev" aria-label="Previous Slide">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <div class="svc-slider">
-          <div class="svc-slide"><img src="harry1.jpg" alt="" loading="lazy"></div>
-          <div class="svc-slide"><img src="harry4.jpg" alt="" loading="lazy"></div>
-          <div class="svc-slide"><img src="harry2.jpg" alt="" loading="lazy"></div>
-          <div class="svc-slide"><img src="harry3.jpg" alt="" loading="lazy"></div>
+      <div class="showcase-single-container">
+        <div class="svc-single-item">
+          <div class="video-wrapper">
+            <iframe src="https://drive.google.com/file/d/1ZVgA7epyemujV4M8R92oKO4d27AaN_jG/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+          <div class="single-item-meta">
+            <h4>Happily Together — 3D Animation Process</h4>
+            <p>A comprehensive showcase of creative 3D design pipelines, character rendering, and animated motion graphics.</p>
+          </div>
         </div>
-        <button class="slider-arrow next" aria-label="Next Slide">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
       </div>
     </div>
 
