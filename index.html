@@ -350,7 +350,7 @@ nav *{pointer-events:all}
   background: var(--dark2);
   box-shadow: 0 15px 35px rgba(0,0,0,0.5);
   margin-bottom: 1.5rem;
-  transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease), transform 0.3s var(--ease);
 }
 .video-wrapper iframe {
   position: absolute;
@@ -359,10 +359,37 @@ nav *{pointer-events:all}
   width: 100%;
   height: 100%;
   border: none;
+  transition: transform 0.3s var(--ease);
 }
 .video-wrapper:hover {
   border-color: rgba(6, 173, 238, 0.4);
   box-shadow: 0 20px 45px rgba(6, 173, 238, 0.15);
+}
+.video-wrapper.highlight-focus {
+  animation: borderGlowPulse 1.8s var(--ease) forwards;
+  border-color: var(--blue) !important;
+}
+@keyframes borderGlowPulse {
+  0% {
+    box-shadow: 0 0 0 0px rgba(6, 173, 238, 0.8), 0 15px 35px rgba(0,0,0,0.5);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 15px rgba(6, 173, 238, 0.45), 0 0 35px rgba(6, 173, 238, 0.7);
+    transform: scale(1.02);
+  }
+  100% {
+    box-shadow: 0 0 0 30px rgba(6, 173, 238, 0), 0 15px 35px rgba(0,0,0,0.5);
+    transform: scale(1);
+  }
+}
+/* Widescreen crop utility to eliminate black letterbox bars from cinematic drone embeds */
+.video-wrapper.crop-widescreen {
+  padding-bottom: 42.5%; /* Cinematic 2.39:1 widescreen aspect ratio container */
+}
+.video-wrapper.crop-widescreen iframe {
+  height: 134%;
+  top: -17%;
 }
 .single-item-meta {
   margin-top: 1rem;
@@ -611,8 +638,10 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
 .folder-paper.p7{transform:translateY(0px) scale(1.0);z-index:11}
 
 /* Opened Folder Animations (Front Cover & Tab rot down) */
-.folder.opened .folder-front{transform:rotateX(-50deg) skewX(-2deg)}
-.folder.opened .folder-tab{transform:rotateX(-50deg) skewX(-2deg)}
+.folder.opened .folder-front{transform:rotateX(-50deg) skewX(-2deg);pointer-events:none}
+.folder.opened .folder-front .folder-arrow-btn,
+.folder.opened .folder-front .folder-label {pointer-events:auto}
+.folder.opened .folder-tab{transform:rotateX(-50deg) skewX(-2deg);pointer-events:none}
 .folder.opened + .folder-sub{color:var(--folder-accent)}
 
 /* Opened Folder Paper Stack Positions (fanned out & translated high) */
@@ -1163,8 +1192,8 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
   </div>
   <div class="nav-right">
     <div class="nav-social">
-      <a href="mailto:hello@harrywonder.studio">Email</a>
-      <a href="https://www.linkedin.com/in/haruna-dauda-komo" target="_blank" rel="noopener">in</a>
+      <a href="mailto:harunadkomo@gmail.com">Email</a>
+      <a href="https://linkedin.com/in/harunadauda" target="_blank" rel="noopener">in</a>
       <a href="https://www.instagram.com/harrywondercraft" target="_blank" rel="noopener">ig</a>
       <a href="https://facebook.com/harrydone" target="_blank" rel="noopener">fb</a>
       <a href="https://wa.me/2347063226792" target="_blank" rel="noopener">wa</a>
@@ -1398,32 +1427,13 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
       <div class="showcase-single-container">
         <div class="svc-single-item">
           <div class="video-wrapper">
-            <iframe src="https://drive.google.com/file/d/1nMxRloUxBkYGIhf2TI4y1A7SSLHltwY5/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <iframe src="https://drive.google.com/file/d/1oV13NyaRV8r2F5glpzpMA590HAgAhi8q/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           </div>
-          <div class="single-item-meta" style="margin-bottom: 3.5rem;">
-            <h4>Featured: Terra 1 — Brand Campaign</h4>
-            <p>A high-impact cinematic campaign built to deliver dramatic visual storytelling and highlight premium brand values.</p>
+          <div class="single-item-meta" style="margin-bottom: 1rem;">
+            <h4>Featured: Corporate Identity &amp; Cinematic Brand Showcase</h4>
+            <p>Premium brand storytelling and cinema-grade corporate productions designed to communicate identity and impact.</p>
           </div>
         </div>
-      </div>
-
-      <!-- Photo highlights from event productions -->
-      <div class="svc-slider-container">
-        <div class="svc-head panel-head" style="margin-bottom: 2rem;">
-          <h4 style="font-family: var(--D); font-size: 1.4rem; color: var(--w80);">Production Highlights</h4>
-        </div>
-        <button class="slider-arrow prev" aria-label="Previous Slide">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <div class="svc-slider">
-          <div class="svc-slide"><img src="harry1.jpg" alt="" loading="lazy"></div>
-          <div class="svc-slide"><img src="harry2.jpg" alt="" loading="lazy"></div>
-          <div class="svc-slide"><img src="harry3.jpg" alt="" loading="lazy"></div>
-          <div class="svc-slide"><img src="harry4.jpg" alt="" loading="lazy"></div>
-        </div>
-        <button class="slider-arrow next" aria-label="Next Slide">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
       </div>
     </div>
 
@@ -1516,7 +1526,24 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
         <h3>Drone Services<br>&amp; Aerial Cinematography</h3>
         <p>Capturing high-altitude cinematic perspectives, site mapping, and creative assets with cinema grade drone output.</p>
       </div>
+      
+      <!-- Video Campaign Featured Section -->
+      <div class="showcase-single-container" style="margin-bottom: 4rem;">
+        <div class="svc-single-item">
+          <div class="video-wrapper crop-widescreen">
+            <iframe src="https://drive.google.com/file/d/1OYgwHH77jphA3gKV-PUzFr1_hq2oIRfP/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+          <div class="single-item-meta">
+            <h4>Featured: Cinematic Drone Services &amp; Aerial Videography</h4>
+            <p>High-altitude cinematic perspectives, dynamic tracking, and high-fidelity drone capture—custom-cropped to eliminate black letterbox bars.</p>
+          </div>
+        </div>
+      </div>
+
       <div class="svc-slider-container">
+        <div class="svc-head panel-head" style="margin-bottom: 2rem;">
+          <h4 style="font-family: var(--D); font-size: 1.4rem; color: var(--w80);">Aerial Asset Gallery</h4>
+        </div>
         <button class="slider-arrow prev" aria-label="Previous Slide">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
         </button>
@@ -1603,11 +1630,11 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
       </a>
       <!-- Mobile Social Links in About Me -->
       <div class="about-socials">
-        <a href="mailto:hello@harrywonder.studio" class="about-social-link">
+        <a href="mailto:harunadkomo@gmail.com" class="about-social-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 14px; height: 14px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
           Email
         </a>
-        <a href="https://www.linkedin.com/in/haruna-dauda-komo" target="_blank" rel="noopener" class="about-social-link">
+        <a href="https://linkedin.com/in/harunadauda" target="_blank" rel="noopener" class="about-social-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 14px; height: 14px;"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
           LinkedIn
         </a>
@@ -1647,8 +1674,8 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
   <h2 class="cta-h sr">Let's build <span class="accent">something people</span> remember</h2>
   <p class="cta-sub sr d1">from global NGOs and corporate brands to growing studios.</p>
   <div class="cta-bottom sr d2">
-    <a href="mailto:hello@harrywonder.studio?subject=Hey Harry!" class="cta-arrow">→</a>
-    <a href="mailto:hello@harrywonder.studio?subject=Hey Harry!" class="cta-talk">Let's talk hello@harrywonder.studio</a>
+    <a href="mailto:harunadkomo@gmail.com?subject=Hey Harry, I have a project!" class="cta-arrow">→</a>
+    <a href="mailto:harunadkomo@gmail.com?subject=Hey Harry, I have a project!" class="cta-talk">Let's talk harunadkomo@gmail.com</a>
   </div>
 </section>
 
@@ -1664,7 +1691,7 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
     <span>Freelance Media Director 2023 / 2030</span>
     <span>1045 Pixels Studio</span>
   </div>
-  <div class="ft-copy" style="text-align:center;padding:1.5rem 4vw .8rem;font-size:.72rem;letter-spacing:.04em;color:var(--w55);border-top:1px solid var(--w06);margin-top:1.5rem;position:relative;z-index:3">© 2023 / 2030 Komo Haruna Dauda · hello@harrywonder.studio · Abuja, Nigeria</div>
+  <div class="ft-copy" style="text-align:center;padding:1.5rem 4vw .8rem;font-size:.72rem;letter-spacing:.04em;color:var(--w55);border-top:1px solid var(--w06);margin-top:1.5rem;position:relative;z-index:3">© 2023 / 2030 Komo Haruna Dauda · harunadkomo@gmail.com · Abuja, Nigeria</div>
   <div class="ft-love" style="text-align:center;padding:.2rem 4vw 2rem;font-size:.74rem;color:var(--w55);font-style:italic;position:relative;z-index:3">Designed with love by his wife <strong style="color:var(--blue)">♥</strong></div>
 </footer>
 
@@ -1789,20 +1816,34 @@ if (folder && folderContainer) {
         // Find index of clicked paper
         const clickedIndex = Array.from(papers).indexOf(clickedPaper);
         
-        if (clickedIndex === activePaperIndex) {
-          // If already active, navigate!
-          const serviceId = clickedPaper.getAttribute('data-service');
-          if (serviceId) {
-            switchShowcaseTab(serviceId);
-            const target = document.getElementById('services-showcase');
-            if (target) {
-              target.scrollIntoView({ behavior: 'smooth' });
+        // Make active and update carousel
+        activePaperIndex = clickedIndex;
+        updateFolderCarousel();
+        
+        // Immediately navigate and pulse highlight the corresponding video showcase!
+        const serviceId = clickedPaper.getAttribute('data-service');
+        if (serviceId) {
+          switchShowcaseTab(serviceId);
+          setTimeout(() => {
+            const activePanel = document.getElementById(`panel-${serviceId}`);
+            if (activePanel) {
+              const videoWrap = activePanel.querySelector('.video-wrapper');
+              const sliderWrap = activePanel.querySelector('.svc-slider-container');
+              if (videoWrap) {
+                videoWrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                videoWrap.classList.remove('highlight-focus');
+                void videoWrap.offsetWidth; // trigger reflow
+                videoWrap.classList.add('highlight-focus');
+              } else if (sliderWrap) {
+                sliderWrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                sliderWrap.classList.remove('highlight-focus');
+                void sliderWrap.offsetWidth; // trigger reflow
+                sliderWrap.classList.add('highlight-focus');
+              } else {
+                activePanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              }
             }
-          }
-        } else {
-          // Make active and update carousel
-          activePaperIndex = clickedIndex;
-          updateFolderCarousel();
+          }, 350); // delay to allow paper centering and tab stabilization
         }
       } else {
         // Clicked outside papers on folder, close it!
