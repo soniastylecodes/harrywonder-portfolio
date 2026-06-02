@@ -391,6 +391,93 @@ nav *{pointer-events:all}
   height: 134%;
   top: -17%;
 }
+.video-thumbnail-overlay {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: opacity 0.5s var(--ease), visibility 0.5s;
+}
+.video-thumbnail-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.video-play-btn {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(3, 8, 13, 0.75);
+  border: 2px solid var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue);
+  box-shadow: 0 0 30px rgba(6, 173, 238, 0.4), inset 0 0 15px rgba(6, 173, 238, 0.2);
+  transition: all 0.3s var(--ease);
+}
+.video-thumbnail-overlay:hover .video-play-btn {
+  transform: scale(1.1);
+  background: var(--blue);
+  color: var(--dark);
+  box-shadow: 0 0 50px rgba(6, 173, 238, 0.7);
+}
+.video-play-btn svg {
+  width: 32px;
+  height: 32px;
+  transform: translateX(3px);
+}
+.slide-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(3, 8, 13, 0.95) 0%, rgba(3, 8, 13, 0.4) 60%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.2rem;
+  transition: background 0.3s;
+}
+.svc-slide:hover .slide-video-overlay {
+  background: linear-gradient(to top, rgba(6, 173, 238, 0.95) 0%, rgba(3, 8, 13, 0.5) 60%, transparent 100%);
+}
+.slide-video-tag {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--blue);
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+.svc-slide:hover .slide-video-tag {
+  color: var(--w);
+}
+.slide-video-title {
+  font-family: var(--D);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--w80);
+  letter-spacing: -0.01em;
+}
+.svc-slide:hover .slide-video-title {
+  color: var(--w);
+}
+.svc-slide.video-slide.active {
+  border-color: var(--blue);
+  box-shadow: 0 0 20px rgba(6, 173, 238, 0.3);
+}
+.svc-slide.video-slide.active .slide-video-tag {
+  color: #fff;
+  background: var(--blue);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  align-self: flex-start;
+  font-weight: 800;
+}
 .single-item-meta {
   margin-top: 1rem;
   text-align: center;
@@ -1426,14 +1513,62 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
       <!-- Video Campaign Featured Section -->
       <div class="showcase-single-container">
         <div class="svc-single-item">
-          <div class="video-wrapper">
-            <iframe src="https://drive.google.com/file/d/1oV13NyaRV8r2F5glpzpMA590HAgAhi8q/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          <div class="video-wrapper" id="corp-video-wrapper">
+            <iframe id="featured-corp-iframe" src="https://drive.google.com/file/d/1oV13NyaRV8r2F5glpzpMA590HAgAhi8q/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <div class="video-thumbnail-overlay" id="corp-thumbnail-overlay" style="background-image: url('corp_thumbnail.png');">
+              <div class="video-play-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
           </div>
-          <div class="single-item-meta" style="margin-bottom: 1rem;">
-            <h4>Featured: Corporate Identity &amp; Cinematic Brand Showcase</h4>
-            <p>Premium brand storytelling and cinema-grade corporate productions designed to communicate identity and impact.</p>
+          <div class="single-item-meta" style="margin-bottom: 2rem;">
+            <h4 id="featured-corp-title">Featured: Corporate Identity &amp; Cinematic Brand Showcase</h4>
+            <p id="featured-corp-desc">Premium brand storytelling and cinema-grade corporate productions designed to communicate identity and impact.</p>
           </div>
         </div>
+      </div>
+
+      <!-- Corporate Videos Slider -->
+      <div class="svc-slider-container" style="margin-top: 1rem; margin-bottom: 4rem;">
+        <div class="svc-head panel-head" style="margin-bottom: 2rem;">
+          <h4 style="font-family: var(--D); font-size: 1.4rem; color: var(--w80);">More Corporate &amp; Campaign Films</h4>
+        </div>
+        <button class="slider-arrow prev" aria-label="Previous Slide">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="svc-slider" id="corp-videos-slider">
+          <div class="svc-slide video-slide active" data-video-id="1oV13NyaRV8r2F5glpzpMA590HAgAhi8q" data-thumbnail="corp_thumbnail.png" data-title="Featured: Corporate Identity &amp; Cinematic Brand Showcase" data-desc="Premium brand storytelling and cinema-grade corporate productions designed to communicate identity and impact.">
+            <img src="corp_thumbnail.png" alt="" loading="lazy">
+            <div class="slide-video-overlay">
+              <span class="slide-video-tag">ACTIVE</span>
+              <span class="slide-video-title">Corporate Identity Reel</span>
+            </div>
+          </div>
+          <div class="svc-slide video-slide" data-video-id="1nMxRloUxBkYGIhf2TI4y1A7SSLHltwY5" data-thumbnail="harry1.jpg" data-title="Featured: Terra 1 — Brand Campaign" data-desc="A high-impact cinematic campaign built to deliver dramatic visual storytelling and highlight premium brand values.">
+            <img src="harry1.jpg" alt="" loading="lazy">
+            <div class="slide-video-overlay">
+              <span class="slide-video-tag">CAMPAIGN</span>
+              <span class="slide-video-title">Terra 1 Film</span>
+            </div>
+          </div>
+          <div class="svc-slide video-slide" data-video-id="1aIY9wwvJGMpxdXXy3fQ8sUaW5qcKGrvD" data-thumbnail="harry2.jpg" data-title="Featured: FIDA Nigeria NGO Documentary" data-desc="A cinematic, moving human-interest documentary highlighting community impact and women advocacy causes.">
+            <img src="harry2.jpg" alt="" loading="lazy">
+            <div class="slide-video-overlay">
+              <span class="slide-video-tag">DOCUMENTARY</span>
+              <span class="slide-video-title">FIDA NGO Story</span>
+            </div>
+          </div>
+          <div class="svc-slide video-slide" data-video-id="1ZVgA7epyemujV4M8R92oKO4d27AaN_jG" data-thumbnail="harry3.jpg" data-title="Featured: Happily Together — 3D Animation Process" data-desc="A comprehensive showcase of creative 3D design pipelines, character rendering, and animated motion graphics.">
+            <img src="harry3.jpg" alt="" loading="lazy">
+            <div class="slide-video-overlay">
+              <span class="slide-video-tag">ANIMATION</span>
+              <span class="slide-video-title">3D Animation Reel</span>
+            </div>
+          </div>
+        </div>
+        <button class="slider-arrow next" aria-label="Next Slide">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
       </div>
     </div>
 
@@ -2092,6 +2227,60 @@ if (heroTitle) {
     }, 4500); // cycles every 4.5 seconds
   }, 5000); // starts 5 seconds after load
 }
+
+// FEATURED CORPORATE VIDEO PLAY & CAROUSEL LOGIC
+const corpOverlay = document.getElementById('corp-thumbnail-overlay');
+const corpIframe = document.getElementById('featured-corp-iframe');
+const corpVideoWrapper = document.getElementById('corp-video-wrapper');
+const featuredTitle = document.getElementById('featured-corp-title');
+const featuredDesc = document.getElementById('featured-corp-desc');
+
+if (corpOverlay && corpIframe) {
+  corpOverlay.addEventListener('click', () => {
+    corpOverlay.classList.add('hidden');
+    // Start playback immediately on overlay click
+    const src = corpIframe.src;
+    if (!src.includes('autoplay=1')) {
+      corpIframe.src = src + (src.includes('?') ? '&' : '?') + 'autoplay=1';
+    }
+  });
+}
+
+document.querySelectorAll('#corp-videos-slider .video-slide').forEach(slide => {
+  slide.addEventListener('click', () => {
+    const videoId = slide.getAttribute('data-video-id');
+    const thumbnail = slide.getAttribute('data-thumbnail');
+    const title = slide.getAttribute('data-title');
+    const desc = slide.getAttribute('data-desc');
+    
+    if (corpIframe && videoId) {
+      // Update iframe source
+      corpIframe.src = `https://drive.google.com/file/d/${videoId}/preview`;
+      
+      // Update metadata text
+      if (featuredTitle && title) featuredTitle.textContent = title;
+      if (featuredDesc && desc) featuredDesc.textContent = desc;
+      
+      // Show custom overlay with the new thumbnail
+      if (corpOverlay && thumbnail) {
+        corpOverlay.style.backgroundImage = `url('${thumbnail}')`;
+        corpOverlay.classList.remove('hidden');
+      }
+      
+      // Update active state class in carousel slides
+      document.querySelectorAll('#corp-videos-slider .video-slide').forEach(s => s.classList.remove('active'));
+      slide.classList.add('active');
+      
+      // Scroll to video smoothly and trigger focus highlight flash
+      if (corpVideoWrapper) {
+        corpVideoWrapper.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        corpVideoWrapper.classList.remove('highlight-focus');
+        void corpVideoWrapper.offsetWidth; // trigger reflow
+        corpVideoWrapper.classList.add('highlight-focus');
+      }
+    }
+  });
+});
 
 // SERVICE WORKER CACHE REGISTRATION
 if ('serviceWorker' in navigator) {

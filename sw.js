@@ -1,19 +1,20 @@
-const CACHE_NAME = 'hw-portfolio-v8';
+const CACHE_NAME = 'hw-portfolio-v9';
 const ASSETS = [
-  './',
-  './index.html',
-  './harry1.jpg',
-  './harry2.jpg',
-  './harry3.jpg',
-  './harry4.jpg',
-  './photo1.jpg',
-  './photo2.jpg',
-  './photo3.jpg',
-  './photo4.jpg',
-  './photo5.jpg',
-  './ict_cctv.png',
-  './ict_smart.png',
-  './ict_fence.png'
+   './',
+   './index.html',
+   './harry1.jpg',
+   './harry2.jpg',
+   './harry3.jpg',
+   './harry4.jpg',
+   './photo1.jpg',
+   './photo2.jpg',
+   './photo3.jpg',
+   './photo4.jpg',
+   './photo5.jpg',
+   './ict_cctv.png',
+   './ict_smart.png',
+   './ict_fence.png',
+   './corp_thumbnail.png'
 ];
 
 // Install Event
