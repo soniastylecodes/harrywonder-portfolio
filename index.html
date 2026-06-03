@@ -1319,7 +1319,7 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
 
 <section id="years">
   <h2 class="years-h">
-    <span class="row"><span>7+ years</span></span>
+    <span class="row"><span><span class="counter-num">0</span>+ years</span></span>
     <span class="row"><span>making audiences</span></span>
     <span class="row"><span><a href="#work" class="pill"><span class="pill-track"><span class="pill-text">click</span><span class="pill-text hover-text">Who is a little curious?</span></span></a> and <span class="glow-word">feel<span class="feel-waves"><span></span><span></span><span></span></span></span></span></span>
     <span class="row"><span>every frame.</span></span>
@@ -1886,21 +1886,144 @@ handleNavScroll();
 
 const cur=document.getElementById('cur'),curo=document.getElementById('curo');
 let mx=innerWidth/2,my=innerHeight/2,ox=mx,oy=my;
+let lastX = mx, lastY = my;
+let speedX = 0, speedY = 0;
+
 document.addEventListener('mousemove',e=>{
   mx=e.clientX;
   my=e.clientY;
   cur.style.transform='translate3d('+mx+'px,'+my+'px,0) translate(-50%,-50%)';
+  speedX = e.clientX - lastX;
+  speedY = e.clientY - lastY;
+  lastX = e.clientX;
+  lastY = e.clientY;
 });
-(function lp(){
-  ox+=(mx-ox)*.15;
-  oy+=(my-oy)*.15;
-  curo.style.transform='translate3d('+ox+'px,'+oy+'px,0) translate(-50%,-50%)';
-  requestAnimationFrame(lp);
+
+(function animateCursorBlob(){
+  ox += (mx - ox) * 0.12;
+  oy += (my - oy) * 0.12;
+  
+  // Calculate speed and stretch factor
+  const velocity = Math.min(Math.sqrt(speedX*speedX + speedY*speedY), 100);
+  const scale = 1 + velocity * 0.0035;
+  const scaleOpposite = 1 - velocity * 0.0035;
+  const rotation = Math.atan2(speedY, speedX) * (180 / Math.PI);
+  
+  curo.style.transform = `translate3d(${ox}px, ${oy}px, 0) translate(-50%, -50%) rotate(${rotation}deg) scale(${scale}, ${scaleOpposite})`;
+  
+  speedX *= 0.85;
+  speedY *= 0.85;
+  
+  requestAnimationFrame(animateCursorBlob);
 })();
+
 document.querySelectorAll('a,button,.svc-card,.inst-card,.tool-item,.folder,#photography .svc-head,.lightbox-close,#photography .svc-slide img').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'))});
 addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('gone'),2400));
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}}),{threshold:.12});
+
+// Dynamic Years Counter Animation
+const yearsHeader = document.querySelector('.years-h');
+const counterNum = document.querySelector('.counter-num');
+let counterStarted = false;
+
+function startCounter() {
+  if (!counterNum || counterStarted) return;
+  counterStarted = true;
+  let current = 0;
+  const target = 7;
+  const duration = 1200; // 1.2s
+  const stepTime = Math.floor(duration / target);
+  
+  const timer = setInterval(() => {
+    current += 1;
+    counterNum.textContent = current;
+    if (current >= target) {
+      clearInterval(timer);
+    }
+  }, stepTime);
+}
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){
+    e.target.classList.add('vis');
+    if (e.target.classList.contains('years-h')) {
+      startCounter();
+    }
+    io.unobserve(e.target);
+  }
+}),{threshold:.12});
+
 document.querySelectorAll('.sr,.years-h,.intent-h').forEach(el=>io.observe(el));
+
+// 3D Parallax Mouse Move on Hero
+const heroSection = document.getElementById('hero');
+const heroImg = document.querySelector('.hero-img');
+const heroText = document.querySelector('.hero-top-text');
+const heroName = document.querySelector('.hero-name');
+
+if (heroSection && window.innerWidth > 640) {
+  heroSection.addEventListener('mousemove', (e) => {
+    const { width, height } = heroSection.getBoundingClientRect();
+    const offX = (e.clientX / width - 0.5) * 35; 
+    const offY = (e.clientY / height - 0.5) * 35;
+    
+    if (heroImg) {
+      heroImg.style.transform = `scale(1.08) translate3d(${-offX}px, ${-offY}px, 0)`;
+    }
+    if (heroText) {
+      heroText.style.transform = `translate3d(${offX * 0.7}px, ${offY * 0.7}px, 0)`;
+    }
+    if (heroName) {
+      heroName.style.transform = `translate3d(${offX * 0.4}px, ${offY * 0.4}px, 0)`;
+    }
+  });
+  
+  heroSection.addEventListener('mouseleave', () => {
+    if (heroImg) heroImg.style.transform = 'scale(1.05) translate3d(0, 0, 0)';
+    if (heroText) heroText.style.transform = 'translate3d(0, 0, 0)';
+    if (heroName) heroName.style.transform = 'translate3d(0, 0, 0)';
+  });
+}
+
+// 3D Perspective Card Hover Tilt
+function apply3DTilt(elements) {
+  if (window.innerWidth <= 640) return;
+  elements.forEach(el => {
+    el.addEventListener('mousemove', (e) => {
+      const rect = el.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const xc = rect.width / 2;
+      const yc = rect.height / 2;
+      const angleX = (yc - y) / 10; 
+      const angleY = (x - xc) / 10; 
+      el.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) scale3d(1.02, 1.02, 1.02)`;
+    });
+    
+    el.addEventListener('mouseleave', () => {
+      el.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+    });
+  });
+}
+
+setTimeout(() => {
+  apply3DTilt(document.querySelectorAll('.svc-slide, .inst-card, .tool-item'));
+}, 2500);
+
+// Magnetic Pull for Action Buttons
+const magneticElements = document.querySelectorAll('.logo-btn, .folder-nav-btn, .video-play-btn, .about-link, .btn-more');
+magneticElements.forEach(el => {
+  if (window.innerWidth > 640) {
+    el.addEventListener('mousemove', (e) => {
+      const rect = el.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      el.style.transform = `translate3d(${x * 0.4}px, ${y * 0.4}px, 0) scale(1.06)`;
+    });
+    el.addEventListener('mouseleave', () => {
+      el.style.transform = 'translate3d(0, 0, 0) scale(1)';
+    });
+  }
+});
 
 const stage=document.querySelector('.say-stage');
 const sl1=document.getElementById('sl1'),sl2=document.getElementById('sl2'),sl3=document.getElementById('sl3');

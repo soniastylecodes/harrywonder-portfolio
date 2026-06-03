@@ -1,4 +1,4 @@
-const CACHE_NAME = 'hw-portfolio-v11';
+const CACHE_NAME = 'hw-portfolio-v12';
 const ASSETS = [
    './',
    './index.html',
