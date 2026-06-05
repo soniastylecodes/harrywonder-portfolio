@@ -1294,8 +1294,6 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
   <div class="hero-top-text">
     <h1>
       <span class="hero-focus">Visual</span> <span class="hero-focus blue-text">Storyteller</span>
-      <br>
-      <span class="hero-focus">&amp; Media</span> <span class="hero-focus">Director</span>
     </h1>
   </div>
   <div class="hero-name">
@@ -2264,9 +2262,9 @@ if (lightbox && lightboxImg && lightboxClose) {
 
 // DYNAMIC HERO TEXT CYCLER FOR DESKTOP & MOBILE
 const heroRoles = [
-  { w1: "Visual", w2: "Storyteller", w3: "&amp; Media", w4: "Director" },
-  { w1: "Cinematic", w2: "Filmmaker", w3: "&amp; NGO", w4: "Documentarist" },
-  { w1: "Advanced", w2: "Surveillance", w3: "&amp; Security", w4: "Architect" }
+  { w1: "Visual", w2: "Storyteller" },
+  { w1: "Documentary" },
+  { w1: "ICT", w2: "Expert" }
 ];
 let roleIndex = 0;
 const heroTitle = document.querySelector('.hero-top-text h1');
@@ -2283,11 +2281,16 @@ if (heroTitle) {
       setTimeout(() => {
         roleIndex = (roleIndex + 1) % heroRoles.length;
         const role = heroRoles[roleIndex];
-        heroTitle.innerHTML = `
-          <span class="hero-focus">${role.w1}</span> <span class="hero-focus blue-text">${role.w2}</span>
-          <br>
-          <span class="hero-focus">${role.w3}</span> <span class="hero-focus">${role.w4}</span>
-        `;
+        let htmlContent = `<span class="hero-focus">${role.w1}</span>`;
+        if (role.w2) {
+          htmlContent += ` <span class="hero-focus blue-text">${role.w2}</span>`;
+        }
+        if (role.w3 || role.w4) {
+          htmlContent += `<br>`;
+          if (role.w3) htmlContent += `<span class="hero-focus">${role.w3}</span>`;
+          if (role.w4) htmlContent += ` <span class="hero-focus">${role.w4}</span>`;
+        }
+        heroTitle.innerHTML = htmlContent;
         
         // Remove fade-out class to trigger the clean entering animation
         heroTitle.classList.remove('fade-out');
