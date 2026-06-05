@@ -149,7 +149,7 @@ nav *{pointer-events:all}
 .svc{padding:5rem 4vw 6rem;background:var(--dark);border-top:1px solid var(--w06)}
 .svc-head{text-align:center;margin-bottom:3.5rem}
 .svc-head h3{font-family:var(--D);font-size:clamp(2.2rem,4.5vw,4.5rem);font-weight:700;letter-spacing:-.03em;line-height:1.02;color:var(--w80);transition:font-weight 0.3s var(--ease), color 0.3s var(--ease)}
-#photography .svc-head:hover h3{font-weight:800;color:var(--w)}
+#panel-photography .svc-head:hover h3{font-weight:800;color:var(--w)}
 .svc-head p{font-size:.92rem;color:var(--w55);max-width:480px;margin:1.2rem auto 0;line-height:1.55}
 .svc-slider-container{position:relative;max-width:1480px;margin:0 auto;width:100%}
 .svc-slider{display:flex;gap:1.5rem;overflow-x:auto;scroll-behavior:smooth;scroll-snap-type:x mandatory;padding:1rem 0 2rem;scrollbar-width:none;-ms-overflow-style:none}
@@ -199,11 +199,11 @@ nav *{pointer-events:all}
 .hero-top-text h1.cycle-active .hero-focus:nth-child(2) { animation-delay: 0.15s !important; }
 .hero-top-text h1.cycle-active .hero-focus:nth-child(3) { animation-delay: 0.25s !important; }
 .hero-top-text h1.cycle-active .hero-focus:nth-child(4) { animation-delay: 0.35s !important; }
-#photography .svc-slide img {
+#panel-photography .svc-slide img {
   object-fit: cover;
   object-position: center 15%;
 }
-#photography .svc-slide:nth-child(2) img {
+#panel-photography .svc-slide:nth-child(2) img {
   object-position: center center;
 }
 .slider-arrow{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:rgba(3,8,13,0.6);border:1px solid var(--w12);color:var(--w80);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;transition:background 0.3s,color 0.3s,border-color 0.3s,opacity 0.3s,transform 0.2s;opacity:0;pointer-events:none}
@@ -1033,7 +1033,7 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
   .svc-slide{flex:none;min-width:0;width:100%;aspect-ratio:4/3}
   .slider-arrow{display:none !important}
 
-  #photography .svc-slider {
+  #panel-photography .svc-slider {
     display: flex !important;
     flex-direction: row !important;
     gap: 1.2rem !important;
@@ -1044,10 +1044,10 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
     box-sizing: border-box;
     scrollbar-width: none;
   }
-  #photography .svc-slider::-webkit-scrollbar {
+  #panel-photography .svc-slider::-webkit-scrollbar {
     display: none;
   }
-  #photography .svc-slide {
+  #panel-photography .svc-slide {
     flex: 0 0 72vw !important;
     min-width: 0 !important;
     aspect-ratio: 3/4 !important;
@@ -1056,13 +1056,13 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
     box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 0 15px rgba(6,173,238,0.05);
     transition: transform 0.4s var(--ease), box-shadow 0.4s;
   }
-  #photography .svc-slide:nth-child(odd) {
+  #panel-photography .svc-slide:nth-child(odd) {
     transform: translateY(6px) rotate(1.5deg);
   }
-  #photography .svc-slide:nth-child(even) {
+  #panel-photography .svc-slide:nth-child(even) {
     transform: translateY(-6px) rotate(-1.5deg);
   }
-  #photography .svc-slide:hover {
+  #panel-photography .svc-slide:hover {
     transform: scale(1.03) translateY(0) rotate(0deg) !important;
     box-shadow: 0 15px 30px rgba(6,173,238,0.2) !important;
   }
@@ -1470,53 +1470,30 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
         <p>Cinematic brand productions, corporate event highlights, and high-impact digital campaign movements.</p>
       </div>
       
-      <!-- Video Campaign Featured Section -->
-      <div class="showcase-single-container">
-        <div class="svc-single-item">
-          <div class="video-wrapper" id="corp-video-wrapper">
-            <iframe id="featured-corp-iframe" src="https://drive.google.com/file/d/1oV13NyaRV8r2F5glpzpMA590HAgAhi8q/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-          <div class="single-item-meta" style="margin-bottom: 2rem;">
-            <h4 id="featured-corp-title">Featured: Asset Nigeria</h4>
-            <p id="featured-corp-desc">Premium brand storytelling and cinema-grade corporate productions designed to communicate identity and impact.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Corporate Videos Slider -->
-      <div class="svc-slider-container" style="margin-top: 1rem; margin-bottom: 4rem;">
-        <div class="svc-head panel-head" style="margin-bottom: 2rem;">
-          <h4 style="font-family: var(--D); font-size: 1.4rem; color: var(--w80);">More Corporate &amp; Campaign Films</h4>
-        </div>
-        <button class="slider-arrow prev" aria-label="Previous Slide">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <div class="svc-slider" id="corp-videos-slider">
-          <div class="svc-slide video-slide active" data-video-id="1oV13NyaRV8r2F5glpzpMA590HAgAhi8q" data-title="Featured: Asset Nigeria" data-desc="Premium brand storytelling and cinema-grade corporate productions designed to communicate identity and impact.">
-            <img src="corp_thumbnail.png" alt="" loading="lazy">
-            <div class="slide-video-overlay">
-              <span class="slide-video-tag">ACTIVE</span>
-              <span class="slide-video-title">Asset Nigeria</span>
+      <!-- Video Campaign Grid (No thumbnails/slider, direct videos) -->
+      <div class="showcase-single-container" style="margin-top: 2rem;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(1.2rem, 3vw, 2.5rem); max-width: 1200px; margin: 0 auto;">
+          <!-- Video 1: Clap Product Launch -->
+          <div class="svc-single-item">
+            <div class="video-wrapper">
+              <iframe src="https://drive.google.com/file/d/1oV13NyaRV8r2F5glpzpMA590HAgAhi8q/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+            <div class="single-item-meta" style="text-align: left;">
+              <h4>Clap Product Launch</h4>
+              <p>Premium brand storytelling and cinema-grade corporate productions designed to communicate identity and impact.</p>
             </div>
           </div>
-          <div class="svc-slide video-slide" data-video-id="1nMxRloUxBkYGIhf2TI4y1A7SSLHltwY5" data-title="Featured: Tera digital campaign" data-desc="A high-impact cinematic campaign built to deliver dramatic visual storytelling and highlight premium brand values.">
-            <img src="harry1.jpg" alt="" loading="lazy">
-            <div class="slide-video-overlay">
-              <span class="slide-video-tag">CAMPAIGN</span>
-              <span class="slide-video-title">Tera digital campaign</span>
+          <!-- Video 2: Tera digital campaign -->
+          <div class="svc-single-item">
+            <div class="video-wrapper">
+              <iframe src="https://drive.google.com/file/d/1nMxRloUxBkYGIhf2TI4y1A7SSLHltwY5/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
-          </div>
-          <div class="svc-slide video-slide" data-video-id="1aIY9wwvJGMpxdXXy3fQ8sUaW5qcKGrvD" data-title="Featured: FIDA Nigeria NGO Documentary" data-desc="A cinematic, moving human-interest documentary highlighting community impact and women advocacy causes.">
-            <img src="harry2.jpg" alt="" loading="lazy">
-            <div class="slide-video-overlay">
-              <span class="slide-video-tag">DOCUMENTARY</span>
-              <span class="slide-video-title">FIDA NGO Story</span>
+            <div class="single-item-meta" style="text-align: left;">
+              <h4>Tera digital campaign</h4>
+              <p>A high-impact cinematic campaign built to deliver dramatic visual storytelling and highlight premium brand values.</p>
             </div>
           </div>
         </div>
-        <button class="slider-arrow next" aria-label="Next Slide">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
       </div>
     </div>
 
@@ -1555,7 +1532,7 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
               <iframe src="https://drive.google.com/file/d/1L_FD8-gLpligvjAr3_gQfv8wXDzC8y6o/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
             <div class="single-item-meta" style="text-align: left;">
-              <h4>Featured: Cinematic NGO Documentary &amp; Human-Interest Story</h4>
+              <h4>Abraham Story</h4>
               <p>Moving brand stories, community impact features, and NGO advocacy campaigns designed to capture real human emotion and drive change.</p>
             </div>
           </div>
@@ -1565,8 +1542,8 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
               <iframe src="https://drive.google.com/file/d/1aIY9wwvJGMpxdXXy3fQ8sUaW5qcKGrvD/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
             <div class="single-item-meta" style="text-align: left;">
-              <h4>FIDA Nigeria NGO Documentary</h4>
-              <p>A cinematic, moving human-interest documentary highlighting community impact and women advocacy causes in Nigeria.</p>
+              <h4>ACET Nigeria</h4>
+              <p>A cinematic, moving human-interest documentary highlighting community impact and health advocacy causes in Nigeria.</p>
             </div>
           </div>
         </div>
@@ -1611,29 +1588,17 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
             <div class="video-wrapper">
               <iframe src="https://drive.google.com/file/d/1HTdXxTzTOuepMVq_5lMnr7AvhpqQXE5J/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
-            <div class="single-item-meta" style="text-align: left;">
-              <h4>High-Definition IP CCTV Camera Systems &amp; Monitoring Networks</h4>
-              <p>Enterprise-grade IP surveillance camera networks configured with remote access, smart analytics, and high-capacity storage calibration.</p>
-            </div>
           </div>
           <!-- Video 2: Smart Integration -->
           <div class="svc-single-item">
             <div class="video-wrapper">
               <iframe src="https://drive.google.com/file/d/1CmRLNFZJa7YVIATEb49c9CDqqegJvz-K/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
-            <div class="single-item-meta" style="text-align: left;">
-              <h4>Smart Property Automation &amp; Central Control Integration</h4>
-              <p>Smart home systems incorporating automated lighting, climate scenes, intelligent voice control, and unified property dashboard configuration.</p>
-            </div>
           </div>
           <!-- Video 3: Electric Fencing -->
           <div class="svc-single-item">
             <div class="video-wrapper">
               <iframe src="https://drive.google.com/file/d/1hdDjHyaX5k8ZokNEYD6KyGtv1HXz_g5A/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            </div>
-            <div class="single-item-meta" style="text-align: left;">
-              <h4>High-Voltage Electric Perimeter Security &amp; Alarms</h4>
-              <p>Advanced perimeter security systems featuring high-voltage fencing, active zone alarms, intrusion alerts, and real-time smart app integration.</p>
             </div>
           </div>
         </div>
@@ -1807,7 +1772,7 @@ document.addEventListener('mousemove',e=>{
   requestAnimationFrame(animateCursorBlob);
 })();
 
-document.querySelectorAll('a,button,.svc-card,.inst-card,.tool-item,.folder,#photography .svc-head,.lightbox-close,#photography .svc-slide img').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'))});
+document.querySelectorAll('a,button,.svc-card,.inst-card,.tool-item,.folder,#panel-photography .svc-head,.lightbox-close,#panel-photography .svc-slide img').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'))});
 addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('gone'),600));
 
 // Dynamic Years Counter Animation
@@ -2211,7 +2176,7 @@ const lightboxCaption = document.getElementById('lightbox-caption');
 const lightboxClose = document.querySelector('.lightbox-close');
 
 if (lightbox && lightboxImg && lightboxClose) {
-  document.querySelectorAll('#photography .svc-slide img').forEach(img => {
+  document.querySelectorAll('#panel-photography .svc-slide img').forEach(img => {
     img.style.cursor = 'zoom-in';
     img.addEventListener('click', () => {
       lightboxImg.src = img.src;
@@ -2274,40 +2239,8 @@ if (heroTitle) {
   }, 5000); // starts 5 seconds after load
 }
 
-// FEATURED CORPORATE VIDEO PLAY & CAROUSEL LOGIC
-const corpIframe = document.getElementById('featured-corp-iframe');
-const corpVideoWrapper = document.getElementById('corp-video-wrapper');
-const featuredTitle = document.getElementById('featured-corp-title');
-const featuredDesc = document.getElementById('featured-corp-desc');
-
-document.querySelectorAll('#corp-videos-slider .video-slide').forEach(slide => {
-  slide.addEventListener('click', () => {
-    const videoId = slide.getAttribute('data-video-id');
-    const title = slide.getAttribute('data-title');
-    const desc = slide.getAttribute('data-desc');
-    
-    if (corpIframe && videoId) {
-      // Update iframe source
-      corpIframe.src = `https://drive.google.com/file/d/${videoId}/preview`;
-      
-      // Update metadata text
-      if (featuredTitle && title) featuredTitle.textContent = title;
-      if (featuredDesc && desc) featuredDesc.textContent = desc;
-      
-      // Update active state class in carousel slides
-      document.querySelectorAll('#corp-videos-slider .video-slide').forEach(s => s.classList.remove('active'));
-      slide.classList.add('active');
-      
-      // Scroll to video smoothly and trigger focus highlight flash
-      if (corpVideoWrapper) {
-        corpVideoWrapper.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        corpVideoWrapper.classList.remove('highlight-focus');
-        void corpVideoWrapper.offsetWidth; // trigger reflow
-        corpVideoWrapper.classList.add('highlight-focus');
-      }
-    }
-  });
-});
+// FEATURED CORPORATE VIDEO PLAY LOGIC
+// (Corporate slider and thumbnails removed; direct embeds loaded in grid)
 
 // SERVICE WORKER CACHE REGISTRATION
 if ('serviceWorker' in navigator) {
