@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HarryWonder | Media Director &amp; ICT Systems Engineer</title>
-<meta name="description" content="HarryWonder is the elite creative portfolio of Komo Haruna Dauda, a premier Media Director &amp; ICT Systems Engineer based in Abuja, Nigeria. Delivering high-impact cinematic film production, smart home automation, and IP CCTV surveillance systems.">
-<meta name="keywords" content="media director abuja, visual storyteller nigeria, cinematic film production, smart home systems abuja, cctv surveillance networks nigeria, electric fencing perimeter security, Haruna Dauda Komo, 1045 pixels studios, drone aerial photography nigeria">
+<title>HarryWonder | Media Director &amp; Security Systems Expert</title>
+<meta name="description" content="HarryWonder is the elite creative portfolio of Komo Haruna Dauda, a premier Media Director &amp; Security Systems Expert based in Abuja, Nigeria. Delivering high-impact cinematic film production, smart home automation, and IP CCTV surveillance systems.">
+<meta name="keywords" content="media director abuja, visual storyteller nigeria, cinematic film production, smart home systems abuja, cctv surveillance networks nigeria, electric fencing perimeter security, Haruna Dauda Komo, 1045 pixels studios">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://soniastylecodes.github.io/harrywonder-portfolio/">
 
@@ -56,7 +56,7 @@ body{background:var(--dark);color:var(--w);font-family:var(--F);font-weight:400;
 body.hov #cur{width:0;height:0;opacity:0}
 body.hov #curo{width:72px;height:72px;background:rgba(6,173,238,.06);border-color:rgba(6,173,238,.25)}
 
-#loader{position:fixed;inset:0;z-index:9000;background:var(--dark);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 1.2s var(--ease),visibility 1.2s}
+#loader{position:fixed;inset:0;z-index:9000;background:var(--dark);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.6s var(--ease),visibility 0.6s}
 #loader.gone{opacity:0;visibility:hidden;pointer-events:none}
 .l-ring{width:120px;height:120px;border-radius:50%;border:2px solid var(--w12);position:relative;animation:lspin 2.5s linear infinite;margin-bottom:2.5rem}
 .l-ring::before{content:'';position:absolute;top:-2px;left:50%;width:8px;height:8px;border-radius:50%;background:var(--blue);transform:translateX(-50%);box-shadow:0 0 18px var(--blue),0 0 40px rgba(6,173,238,.4)}
@@ -70,7 +70,7 @@ body.hov #curo{width:72px;height:72px;background:rgba(6,173,238,.06);border-colo
 .l-sub{font-size:.65rem;letter-spacing:.35em;text-transform:uppercase;color:var(--blue);margin-top:1rem;opacity:0;animation:lfade .6s var(--ease) .7s forwards}
 @keyframes lfade{to{opacity:1}}
 .l-bar{width:200px;height:1px;background:var(--w06);overflow:hidden;margin-top:1.5rem}
-.l-fill{height:100%;background:var(--blue);width:0;animation:lbar 2s var(--ease2) .3s forwards;box-shadow:0 0 10px var(--blue)}
+.l-fill{height:100%;background:var(--blue);width:0;animation:lbar 0.5s var(--ease2) .1s forwards;box-shadow:0 0 10px var(--blue)}
 @keyframes lbar{to{width:100%}}
 
 nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:1.5rem 3vw;pointer-events:none;mix-blend-mode:difference;border-bottom:1px solid transparent;transition:padding 0.4s var(--ease), background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease}
@@ -716,13 +716,11 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
 .folder-paper:hover .paper-cta{transform:translateX(3px)}
 
 /* Paper Stack Closed Positions (staircase effect, peeking above cover) */
-.folder-paper.p1{transform:translateY(-30px) scale(0.94);z-index:17}
-.folder-paper.p2{transform:translateY(-25px) scale(0.95);z-index:16}
-.folder-paper.p3{transform:translateY(-20px) scale(0.96);z-index:15}
-.folder-paper.p4{transform:translateY(-15px) scale(0.97);z-index:14}
-.folder-paper.p5{transform:translateY(-10px) scale(0.98);z-index:13}
-.folder-paper.p6{transform:translateY(-5px) scale(0.99);z-index:12}
-.folder-paper.p7{transform:translateY(0px) scale(1.0);z-index:11}
+.folder-paper.p1{transform:translateY(-20px) scale(0.96);z-index:15}
+.folder-paper.p2{transform:translateY(-15px) scale(0.97);z-index:14}
+.folder-paper.p3{transform:translateY(-10px) scale(0.98);z-index:13}
+.folder-paper.p4{transform:translateY(-5px) scale(0.99);z-index:12}
+.folder-paper.p5{transform:translateY(0px) scale(1.0);z-index:11}
 
 /* Opened Folder Animations (Front Cover & Tab rot down) */
 .folder.opened .folder-front{transform:rotateX(-50deg) skewX(-2deg);pointer-events:none}
@@ -732,13 +730,11 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
 .folder.opened + .folder-sub{color:var(--folder-accent)}
 
 /* Opened Folder Paper Stack Positions (fanned out & translated high) */
-.folder.opened .folder-paper.p1{transform:translateY(-160px) rotate(-5deg) scale(1.02);z-index:17}
-.folder.opened .folder-paper.p2{transform:translateY(-134px) rotate(3deg) scale(1.02);z-index:16}
-.folder.opened .folder-paper.p3{transform:translateY(-108px) rotate(-2deg) scale(1.02);z-index:15}
-.folder.opened .folder-paper.p4{transform:translateY(-82px) rotate(4deg) scale(1.02);z-index:14}
-.folder.opened .folder-paper.p5{transform:translateY(-56px) rotate(-1deg) scale(1.02);z-index:13}
-.folder.opened .folder-paper.p6{transform:translateY(-30px) rotate(2deg) scale(1.02);z-index:12}
-.folder.opened .folder-paper.p7{transform:translateY(0px) rotate(-1deg) scale(1.02);z-index:11}
+.folder.opened .folder-paper.p1{transform:translateY(-120px) rotate(-5deg) scale(1.02);z-index:15}
+.folder.opened .folder-paper.p2{transform:translateY(-90px) rotate(3deg) scale(1.02);z-index:14}
+.folder.opened .folder-paper.p3{transform:translateY(-60px) rotate(-2deg) scale(1.02);z-index:13}
+.folder.opened .folder-paper.p4{transform:translateY(-30px) rotate(4deg) scale(1.02);z-index:12}
+.folder.opened .folder-paper.p5{transform:translateY(0px) rotate(-1deg) scale(1.02);z-index:11}
 
 /* Folder navigation buttons */
 .folder-nav-btn {
@@ -1033,7 +1029,7 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
   .svc-head h3{font-size:clamp(1.6rem,6vw,2.2rem)}
   .svc-head p{font-size:.84rem}
   .svc-slider-container{max-width:100%;width:100%;padding:0}
-  .svc-slider{display:grid !important;grid-template-columns:1fr 1fr;gap:1rem;overflow-x:visible;scroll-snap-type:none;padding:0;width:100%}
+  .svc-slider{display:grid !important;grid-template-columns:repeat(auto-fit, minmax(min(100%, 130px), 1fr)) !important;gap:1rem;overflow-x:visible;scroll-snap-type:none;padding:0;width:100%}
   .svc-slide{flex:none;min-width:0;width:100%;aspect-ratio:4/3}
   .slider-arrow{display:none !important}
 
@@ -1080,20 +1076,16 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
   .folder-paper::before{height:4px}
   .paper-title{font-size:.9rem;margin-bottom:.1rem}
   .paper-desc{font-size:.68rem;line-height:1.2}
-  .folder-paper.p1{transform:translateY(-21px) scale(.94);z-index:17}
-  .folder-paper.p2{transform:translateY(-17.5px) scale(.95);z-index:16}
-  .folder-paper.p3{transform:translateY(-14px) scale(.96);z-index:15}
-  .folder-paper.p4{transform:translateY(-10.5px) scale(.97);z-index:14}
-  .folder-paper.p5{transform:translateY(-7px) scale(.98);z-index:13}
-  .folder-paper.p6{transform:translateY(-3.5px) scale(.99);z-index:12}
-  .folder-paper.p7{transform:translateY(0) scale(1);z-index:11}
-  .folder.opened .folder-paper.p1{transform:translateY(-110px) rotate(-3deg) scale(1.02)}
-  .folder.opened .folder-paper.p2{transform:translateY(-92px) rotate(2deg) scale(1.02)}
-  .folder.opened .folder-paper.p3{transform:translateY(-74px) rotate(-1deg) scale(1.02)}
-  .folder.opened .folder-paper.p4{transform:translateY(-56px) rotate(2deg) scale(1.02)}
-  .folder.opened .folder-paper.p5{transform:translateY(-38px) rotate(-1deg) scale(1.02)}
-  .folder.opened .folder-paper.p6{transform:translateY(-20px) rotate(1deg) scale(1.02)}
-  .folder.opened .folder-paper.p7{transform:translateY(0) rotate(0deg) scale(1.02)}
+  .folder-paper.p1{transform:translateY(-14px) scale(.96);z-index:15}
+  .folder-paper.p2{transform:translateY(-10.5px) scale(.97);z-index:14}
+  .folder-paper.p3{transform:translateY(-7px) scale(.98);z-index:13}
+  .folder-paper.p4{transform:translateY(-3.5px) scale(.99);z-index:12}
+  .folder-paper.p5{transform:translateY(0) scale(1);z-index:11}
+  .folder.opened .folder-paper.p1{transform:translateY(-80px) rotate(-3deg) scale(1.02)}
+  .folder.opened .folder-paper.p2{transform:translateY(-60px) rotate(2deg) scale(1.02)}
+  .folder.opened .folder-paper.p3{transform:translateY(-40px) rotate(-1deg) scale(1.02)}
+  .folder.opened .folder-paper.p4{transform:translateY(-20px) rotate(2deg) scale(1.02)}
+  .folder.opened .folder-paper.p5{transform:translateY(0) rotate(0deg) scale(1.02)}
   .folder.opened .folder-paper:hover{transform:translateY(-165px) scale(1.05) rotate(0deg) !important}
 
   /* PILL (years section) */
@@ -1101,10 +1093,10 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
   .pill:hover{width:280px}
 
   /* SECTIONS spacing */
-  #years{padding:9rem 5vw 5rem}
-  #work{padding:6rem 5vw;min-height:auto}
+  #years{padding:4rem 5vw 3rem}
+  #work{padding:4rem 5vw;min-height:auto}
   #intent{padding:4rem 5vw}
-  #tools{padding:4rem 5vw}
+  #tools{padding:4rem 5vw;margin-top:0 !important}
   .tools-grid{display:grid;grid-template-columns:1fr;gap:3rem}
   .tools-grid > div:first-child{grid-row:2}
   .tools-grid > div:last-child{grid-row:1}
@@ -1408,44 +1400,14 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
           </div>
         </a>
         
-        <!-- PAPER 5: 2D/3D Animation -->
-        <a href="#services-showcase" data-service="animation" class="folder-paper p5" style="--paper-accent: #ff5252;">
+        <!-- PAPER 5: Security Systems -->
+        <a href="#services-showcase" data-service="ict-services" class="folder-paper p5" style="--paper-accent: #ffb74d;">
           <div class="paper-header">
             <span class="paper-tag">Service 05</span>
-            <span class="paper-emoji">🎬</span>
+            <span class="paper-emoji">🛡️</span>
           </div>
           <div class="paper-body">
-            <h3 class="paper-title">2D/3D Animation</h3>
-            <p class="paper-desc">Premium 2D/3D visual processes, CGI rendering &amp; motion graphics.</p>
-          </div>
-          <div class="paper-footer">
-            <span class="paper-cta">View Projects →</span>
-          </div>
-        </a>
-        
-        <!-- PAPER 6: Drone Services -->
-        <a href="#services-showcase" data-service="drone-services" class="folder-paper p6" style="--paper-accent: #81c784;">
-          <div class="paper-header">
-            <span class="paper-tag">Service 06</span>
-            <span class="paper-emoji">🛸</span>
-          </div>
-          <div class="paper-body">
-            <h3 class="paper-title">Drone Services</h3>
-            <p class="paper-desc">High-altitude cinematic perspectives &amp; mapping.</p>
-          </div>
-          <div class="paper-footer">
-            <span class="paper-cta">View Projects →</span>
-          </div>
-        </a>
-        
-        <!-- PAPER 7: ICT Services -->
-        <a href="#services-showcase" data-service="ict-services" class="folder-paper p7" style="--paper-accent: #ffb74d;">
-          <div class="paper-header">
-            <span class="paper-tag">Service 07</span>
-            <span class="paper-emoji">⚙️</span>
-          </div>
-          <div class="paper-body">
-            <h3 class="paper-title">ICT Services</h3>
+            <h3 class="paper-title">Security Systems</h3>
             <p class="paper-desc">Smart systems integration, CCTV networks, &amp; security infrastructure.</p>
           </div>
           <div class="paper-footer">
@@ -1494,9 +1456,7 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
       <button class="tab-btn" data-tab="live-broadcasts">Live Streaming</button>
       <button class="tab-btn" data-tab="documentaries">Documentaries</button>
       <button class="tab-btn" data-tab="photography">Photography</button>
-      <button class="tab-btn" data-tab="animation">2D/3D Animation</button>
-      <button class="tab-btn" data-tab="drone-services">Drone Services</button>
-      <button class="tab-btn" data-tab="ict-services">ICT Services</button>
+      <button class="tab-btn" data-tab="ict-services">Security Systems</button>
     </div>
   </div>
 
@@ -1515,14 +1475,9 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
         <div class="svc-single-item">
           <div class="video-wrapper" id="corp-video-wrapper">
             <iframe id="featured-corp-iframe" src="https://drive.google.com/file/d/1oV13NyaRV8r2F5glpzpMA590HAgAhi8q/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            <div class="video-thumbnail-overlay" id="corp-thumbnail-overlay" style="background-image: url('corp_thumbnail.png');">
-              <div class="video-play-btn">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-              </div>
-            </div>
           </div>
           <div class="single-item-meta" style="margin-bottom: 2rem;">
-            <h4 id="featured-corp-title">Featured: Corporate Identity &amp; Cinematic Brand Showcase</h4>
+            <h4 id="featured-corp-title">Featured: Asset Nigeria</h4>
             <p id="featured-corp-desc">Premium brand storytelling and cinema-grade corporate productions designed to communicate identity and impact.</p>
           </div>
         </div>
@@ -1537,32 +1492,25 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
         </button>
         <div class="svc-slider" id="corp-videos-slider">
-          <div class="svc-slide video-slide active" data-video-id="1oV13NyaRV8r2F5glpzpMA590HAgAhi8q" data-thumbnail="corp_thumbnail.png" data-title="Featured: Corporate Identity &amp; Cinematic Brand Showcase" data-desc="Premium brand storytelling and cinema-grade corporate productions designed to communicate identity and impact.">
+          <div class="svc-slide video-slide active" data-video-id="1oV13NyaRV8r2F5glpzpMA590HAgAhi8q" data-title="Featured: Asset Nigeria" data-desc="Premium brand storytelling and cinema-grade corporate productions designed to communicate identity and impact.">
             <img src="corp_thumbnail.png" alt="" loading="lazy">
             <div class="slide-video-overlay">
               <span class="slide-video-tag">ACTIVE</span>
-              <span class="slide-video-title">Corporate Identity Reel</span>
+              <span class="slide-video-title">Asset Nigeria</span>
             </div>
           </div>
-          <div class="svc-slide video-slide" data-video-id="1nMxRloUxBkYGIhf2TI4y1A7SSLHltwY5" data-thumbnail="harry1.jpg" data-title="Featured: Terra 1 — Brand Campaign" data-desc="A high-impact cinematic campaign built to deliver dramatic visual storytelling and highlight premium brand values.">
+          <div class="svc-slide video-slide" data-video-id="1nMxRloUxBkYGIhf2TI4y1A7SSLHltwY5" data-title="Featured: Tera digital campaign" data-desc="A high-impact cinematic campaign built to deliver dramatic visual storytelling and highlight premium brand values.">
             <img src="harry1.jpg" alt="" loading="lazy">
             <div class="slide-video-overlay">
               <span class="slide-video-tag">CAMPAIGN</span>
-              <span class="slide-video-title">Terra 1 Film</span>
+              <span class="slide-video-title">Tera digital campaign</span>
             </div>
           </div>
-          <div class="svc-slide video-slide" data-video-id="1aIY9wwvJGMpxdXXy3fQ8sUaW5qcKGrvD" data-thumbnail="harry2.jpg" data-title="Featured: FIDA Nigeria NGO Documentary" data-desc="A cinematic, moving human-interest documentary highlighting community impact and women advocacy causes.">
+          <div class="svc-slide video-slide" data-video-id="1aIY9wwvJGMpxdXXy3fQ8sUaW5qcKGrvD" data-title="Featured: FIDA Nigeria NGO Documentary" data-desc="A cinematic, moving human-interest documentary highlighting community impact and women advocacy causes.">
             <img src="harry2.jpg" alt="" loading="lazy">
             <div class="slide-video-overlay">
               <span class="slide-video-tag">DOCUMENTARY</span>
               <span class="slide-video-title">FIDA NGO Story</span>
-            </div>
-          </div>
-          <div class="svc-slide video-slide" data-video-id="1ZVgA7epyemujV4M8R92oKO4d27AaN_jG" data-thumbnail="harry3.jpg" data-title="Featured: Happily Together — 3D Animation Process" data-desc="A comprehensive showcase of creative 3D design pipelines, character rendering, and animated motion graphics.">
-            <img src="harry3.jpg" alt="" loading="lazy">
-            <div class="slide-video-overlay">
-              <span class="slide-video-tag">ANIMATION</span>
-              <span class="slide-video-title">3D Animation Reel</span>
             </div>
           </div>
         </div>
@@ -1600,13 +1548,26 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
         <p>Directing moving human-interest stories, advocacy films, and documentaries for global NGOs.</p>
       </div>
       <div class="showcase-single-container">
-        <div class="svc-single-item">
-          <div class="video-wrapper">
-            <iframe src="https://drive.google.com/file/d/1L_FD8-gLpligvjAr3_gQfv8wXDzC8y6o/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(1.2rem, 3vw, 2.5rem); max-width: 1200px; margin: 0 auto;">
+          <!-- Documentary 1 -->
+          <div class="svc-single-item">
+            <div class="video-wrapper">
+              <iframe src="https://drive.google.com/file/d/1L_FD8-gLpligvjAr3_gQfv8wXDzC8y6o/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+            <div class="single-item-meta" style="text-align: left;">
+              <h4>Featured: Cinematic NGO Documentary &amp; Human-Interest Story</h4>
+              <p>Moving brand stories, community impact features, and NGO advocacy campaigns designed to capture real human emotion and drive change.</p>
+            </div>
           </div>
-          <div class="single-item-meta">
-            <h4>Featured: Cinematic NGO Documentary &amp; Human-Interest Story</h4>
-            <p>Moving brand stories, community impact features, and NGO advocacy campaigns designed to capture real human emotion and drive change.</p>
+          <!-- Documentary 2 -->
+          <div class="svc-single-item">
+            <div class="video-wrapper">
+              <iframe src="https://drive.google.com/file/d/1aIY9wwvJGMpxdXXy3fQ8sUaW5qcKGrvD/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+            <div class="single-item-meta" style="text-align: left;">
+              <h4>FIDA Nigeria NGO Documentary</h4>
+              <p>A cinematic, moving human-interest documentary highlighting community impact and women advocacy causes in Nigeria.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -1635,118 +1596,47 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
       </div>
     </div>
 
-    <!-- PANEL 5: 2D/3D Animation -->
-    <div class="showcase-panel" id="panel-animation">
-      <div class="svc-head panel-head">
-        <h3>2D &amp; 3D Animation<br>&amp; CGI Rendering</h3>
-        <p>Premium architectural walkthroughs, CGI creative design processes, and concept animations.</p>
-      </div>
-      <div class="showcase-single-container">
-        <div class="svc-single-item">
-          <div class="video-wrapper">
-            <iframe src="https://drive.google.com/file/d/1ZVgA7epyemujV4M8R92oKO4d27AaN_jG/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-          <div class="single-item-meta">
-            <h4>Happily Together — 3D Animation Process</h4>
-            <p>A comprehensive showcase of creative 3D design pipelines, character rendering, and animated motion graphics.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PANEL 6: Drone Services -->
-    <div class="showcase-panel" id="panel-drone-services">
-      <div class="svc-head panel-head">
-        <h3>Drone Services<br>&amp; Aerial Cinematography</h3>
-        <p>Capturing high-altitude cinematic perspectives, site mapping, and creative assets with cinema grade drone output.</p>
-      </div>
-      
-      <!-- Video Campaign Featured Section -->
-      <div class="showcase-single-container" style="margin-bottom: 4rem;">
-        <div class="svc-single-item">
-          <div class="video-wrapper crop-widescreen">
-            <iframe src="https://drive.google.com/file/d/1OYgwHH77jphA3gKV-PUzFr1_hq2oIRfP/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-          <div class="single-item-meta">
-            <h4>Featured: Cinematic Drone Services &amp; Aerial Videography</h4>
-            <p>High-altitude cinematic perspectives, dynamic tracking, and high-fidelity drone capture—custom-cropped to eliminate black letterbox bars.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="svc-slider-container">
-        <div class="svc-head panel-head" style="margin-bottom: 2rem;">
-          <h4 style="font-family: var(--D); font-size: 1.4rem; color: var(--w80);">Aerial Asset Gallery</h4>
-        </div>
-        <button class="slider-arrow prev" aria-label="Previous Slide">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <div class="svc-slider">
-          <div class="svc-slide"><img src="harry3.jpg" alt="" loading="lazy"></div>
-          <div class="svc-slide"><img src="harry2.jpg" alt="" loading="lazy"></div>
-          <div class="svc-slide"><img src="harry4.jpg" alt="" loading="lazy"></div>
-          <div class="svc-slide"><img src="harry1.jpg" alt="" loading="lazy"></div>
-        </div>
-        <button class="slider-arrow next" aria-label="Next Slide">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-      </div>
-    </div>
-
-    <!-- PANEL 7: ICT Services -->
+    <!-- PANEL 5: Security Systems (Renamed from ICT Services) -->
     <div class="showcase-panel" id="panel-ict-services">
       <div class="svc-head panel-head">
-        <h3>ICT Systems<br>&amp; Smart Infrastructure</h3>
+        <h3>Security Systems<br>&amp; Smart Infrastructure</h3>
         <p>Designing, configuring, and deploying complete smart property networks—integrating high-definition CCTV surveillance, intelligent automation, and electric fencing perimeter security under robust unified control systems.</p>
       </div>
 
-      <!-- CCTV Featured Video Section -->
-      <div class="showcase-single-container">
-        <div class="svc-single-item">
-          <div class="video-wrapper" id="cctv-video-wrapper">
-            <iframe id="featured-cctv-iframe" src="https://drive.google.com/file/d/1HTdXxTzTOuepMVq_5lMnr7AvhpqQXE5J/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-          <div class="single-item-meta" style="margin-bottom: 2rem;">
-            <h4 id="featured-cctv-title">Featured: High-Definition IP CCTV Camera Systems &amp; Monitoring Networks</h4>
-            <p id="featured-cctv-desc">Enterprise-grade IP surveillance camera networks configured with remote access, smart analytics, and high-capacity storage calibration.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- CCTV & Smart Systems Videos Slider -->
-      <div class="svc-slider-container" style="margin-top: 1rem; margin-bottom: 4rem;">
-        <div class="svc-head panel-head" style="margin-bottom: 2rem;">
-          <h4 style="font-family: var(--D); font-size: 1.4rem; color: var(--w80);">Smart Systems &amp; Security Highlights</h4>
-        </div>
-        <button class="slider-arrow prev" aria-label="Previous Slide">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <div class="svc-slider" id="cctv-videos-slider">
-          <div class="svc-slide video-slide active" data-video-id="1HTdXxTzTOuepMVq_5lMnr7AvhpqQXE5J" data-title="Featured: High-Definition IP CCTV Camera Systems &amp; Monitoring Networks" data-desc="Enterprise-grade IP surveillance camera networks configured with remote access, smart analytics, and high-capacity storage calibration.">
-            <img src="ict_cctv.png" alt="" loading="lazy">
-            <div class="slide-video-overlay">
-              <span class="slide-video-tag">ACTIVE</span>
-              <span class="slide-video-title">IP CCTV Systems</span>
+      <!-- CCTV & Smart Systems Videos Staggered Layout (No thumbnails, direct videos) -->
+      <div class="showcase-single-container" style="margin-top: 2rem;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(1.2rem, 3vw, 2.5rem); max-width: 1280px; margin: 0 auto;">
+          <!-- Video 1: IP CCTV Systems -->
+          <div class="svc-single-item">
+            <div class="video-wrapper">
+              <iframe src="https://drive.google.com/file/d/1HTdXxTzTOuepMVq_5lMnr7AvhpqQXE5J/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+            <div class="single-item-meta" style="text-align: left;">
+              <h4>High-Definition IP CCTV Camera Systems &amp; Monitoring Networks</h4>
+              <p>Enterprise-grade IP surveillance camera networks configured with remote access, smart analytics, and high-capacity storage calibration.</p>
             </div>
           </div>
-          <div class="svc-slide video-slide" data-video-id="1CmRLNFZJa7YVIATEb49c9CDqqegJvz-K" data-title="Featured: Smart Property Automation &amp; Central Control Integration" data-desc="Smart home systems incorporating automated lighting, climate scenes, intelligent voice control, and unified property dashboard configuration.">
-            <img src="ict_smart.png" alt="" loading="lazy">
-            <div class="slide-video-overlay">
-              <span class="slide-video-tag">AUTOMATION</span>
-              <span class="slide-video-title">Smart Integration</span>
+          <!-- Video 2: Smart Integration -->
+          <div class="svc-single-item">
+            <div class="video-wrapper">
+              <iframe src="https://drive.google.com/file/d/1CmRLNFZJa7YVIATEb49c9CDqqegJvz-K/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+            <div class="single-item-meta" style="text-align: left;">
+              <h4>Smart Property Automation &amp; Central Control Integration</h4>
+              <p>Smart home systems incorporating automated lighting, climate scenes, intelligent voice control, and unified property dashboard configuration.</p>
             </div>
           </div>
-          <div class="svc-slide video-slide" data-video-id="1hdDjHyaX5k8ZokNEYD6KyGtv1HXz_g5A" data-title="Featured: High-Voltage Electric Perimeter Security &amp; Alarms" data-desc="Advanced perimeter security systems featuring high-voltage fencing, active zone alarms, intrusion alerts, and real-time smart app integration.">
-            <img src="ict_fence.png" alt="" loading="lazy">
-            <div class="slide-video-overlay">
-              <span class="slide-video-tag">SECURITY</span>
-              <span class="slide-video-title">Electric Fencing</span>
+          <!-- Video 3: Electric Fencing -->
+          <div class="svc-single-item">
+            <div class="video-wrapper">
+              <iframe src="https://drive.google.com/file/d/1hdDjHyaX5k8ZokNEYD6KyGtv1HXz_g5A/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+            <div class="single-item-meta" style="text-align: left;">
+              <h4>High-Voltage Electric Perimeter Security &amp; Alarms</h4>
+              <p>Advanced perimeter security systems featuring high-voltage fencing, active zone alarms, intrusion alerts, and real-time smart app integration.</p>
             </div>
           </div>
         </div>
-        <button class="slider-arrow next" aria-label="Next Slide">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
       </div>
     </div>
 
@@ -1785,11 +1675,11 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
       </div>
     </div>
     <div class="sr d1">
-      <p class="about-text">I'm <strong>Komo Haruna Dauda</strong> — a multi-disciplinary media director and ICT systems engineer based in Abuja, Nigeria. I specialize in creative cinematic productions and advanced **smart systems integration (CCTV surveillance, automation, and perimeter security)**.</p>
+      <p class="about-text">I'm <strong>Komo Haruna Dauda</strong> — a multi-disciplinary media director and security systems expert based in Abuja, Nigeria. I specialize in creative cinematic productions and advanced **smart systems integration (CCTV surveillance, automation, and perimeter security)**.</p>
       <p class="about-text">From heading <strong>1045 Pixels Studios</strong> and leading communications at <strong>FIDA Nigeria</strong> to designing high-end automated security networks, I've spent 7+ years delivering cinematic films and technical infrastructure.</p>
       <!-- Expandable About Me Content -->
       <div class="about-more-content" id="about-more">
-        <p class="about-text">Driven by a passion for both creative storytelling and advanced technology, I bridge the gap between media art and systems engineering. Whether I'm operating drone systems for aerial cinematography or configuring smart automation networks for high-end properties, my goal is always to deliver precision, reliability, and visual excellence.</p>
+        <p class="about-text">Driven by a passion for both creative storytelling and advanced technology, I bridge the gap between media art and security engineering. My goal is always to deliver precision, reliability, and visual excellence in all creative and technical setups.</p>
         <p class="about-text">My systems engineering expertise covers: designing and installing high-definition IP CCTV networks with secure remote access, programming automated lighting and climate scenes, and engineering high-voltage electric perimeter security with active alarm integrations.</p>
       </div>
       <!-- Read More Button -->
@@ -1918,7 +1808,7 @@ document.addEventListener('mousemove',e=>{
 })();
 
 document.querySelectorAll('a,button,.svc-card,.inst-card,.tool-item,.folder,#photography .svc-head,.lightbox-close,#photography .svc-slide img').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'))});
-addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('gone'),2400));
+addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('gone'),600));
 
 // Dynamic Years Counter Animation
 const yearsHeader = document.querySelector('.years-h');
@@ -2353,8 +2243,7 @@ if (lightbox && lightboxImg && lightboxClose) {
 // DYNAMIC HERO TEXT CYCLER FOR DESKTOP & MOBILE
 const heroRoles = [
   { w1: "Visual", w2: "Storyteller", w3: "&amp; Media", w4: "Director" },
-  { w1: "Smart", w2: "Automation", w3: "&amp; Systems", w4: "Engineer" },
-  { w1: "Cinematic", w2: "Filmmaker", w3: "&amp; Drone", w4: "Pilot" },
+  { w1: "Cinematic", w2: "Filmmaker", w3: "&amp; NGO", w4: "Documentarist" },
   { w1: "Advanced", w2: "Surveillance", w3: "&amp; Security", w4: "Architect" }
 ];
 let roleIndex = 0;
@@ -2386,27 +2275,14 @@ if (heroTitle) {
 }
 
 // FEATURED CORPORATE VIDEO PLAY & CAROUSEL LOGIC
-const corpOverlay = document.getElementById('corp-thumbnail-overlay');
 const corpIframe = document.getElementById('featured-corp-iframe');
 const corpVideoWrapper = document.getElementById('corp-video-wrapper');
 const featuredTitle = document.getElementById('featured-corp-title');
 const featuredDesc = document.getElementById('featured-corp-desc');
 
-if (corpOverlay && corpIframe) {
-  corpOverlay.addEventListener('click', () => {
-    corpOverlay.classList.add('hidden');
-    // Start playback immediately on overlay click
-    const src = corpIframe.src;
-    if (!src.includes('autoplay=1')) {
-      corpIframe.src = src + (src.includes('?') ? '&' : '?') + 'autoplay=1';
-    }
-  });
-}
-
 document.querySelectorAll('#corp-videos-slider .video-slide').forEach(slide => {
   slide.addEventListener('click', () => {
     const videoId = slide.getAttribute('data-video-id');
-    const thumbnail = slide.getAttribute('data-thumbnail');
     const title = slide.getAttribute('data-title');
     const desc = slide.getAttribute('data-desc');
     
@@ -2418,12 +2294,6 @@ document.querySelectorAll('#corp-videos-slider .video-slide').forEach(slide => {
       if (featuredTitle && title) featuredTitle.textContent = title;
       if (featuredDesc && desc) featuredDesc.textContent = desc;
       
-      // Show custom overlay with the new thumbnail
-      if (corpOverlay && thumbnail) {
-        corpOverlay.style.backgroundImage = `url('${thumbnail}')`;
-        corpOverlay.classList.remove('hidden');
-      }
-      
       // Update active state class in carousel slides
       document.querySelectorAll('#corp-videos-slider .video-slide').forEach(s => s.classList.remove('active'));
       slide.classList.add('active');
@@ -2434,41 +2304,6 @@ document.querySelectorAll('#corp-videos-slider .video-slide').forEach(slide => {
         corpVideoWrapper.classList.remove('highlight-focus');
         void corpVideoWrapper.offsetWidth; // trigger reflow
         corpVideoWrapper.classList.add('highlight-focus');
-      }
-    }
-  });
-});
-
-// FEATURED CCTV & SECURITY VIDEO CAROUSEL LOGIC
-const cctvIframe = document.getElementById('featured-cctv-iframe');
-const cctvVideoWrapper = document.getElementById('cctv-video-wrapper');
-const featuredCctvTitle = document.getElementById('featured-cctv-title');
-const featuredCctvDesc = document.getElementById('featured-cctv-desc');
-
-document.querySelectorAll('#cctv-videos-slider .video-slide').forEach(slide => {
-  slide.addEventListener('click', () => {
-    const videoId = slide.getAttribute('data-video-id');
-    const title = slide.getAttribute('data-title');
-    const desc = slide.getAttribute('data-desc');
-    
-    if (cctvIframe && videoId) {
-      // Update iframe source
-      cctvIframe.src = `https://drive.google.com/file/d/${videoId}/preview`;
-      
-      // Update metadata text
-      if (featuredCctvTitle && title) featuredCctvTitle.textContent = title;
-      if (featuredCctvDesc && desc) featuredCctvDesc.textContent = desc;
-      
-      // Update active state class in carousel slides
-      document.querySelectorAll('#cctv-videos-slider .video-slide').forEach(s => s.classList.remove('active'));
-      slide.classList.add('active');
-      
-      // Scroll to video smoothly and trigger focus highlight flash
-      if (cctvVideoWrapper) {
-        cctvVideoWrapper.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        cctvVideoWrapper.classList.remove('highlight-focus');
-        void cctvVideoWrapper.offsetWidth; // trigger reflow
-        cctvVideoWrapper.classList.add('highlight-focus');
       }
     }
   });
