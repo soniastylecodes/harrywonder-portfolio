@@ -12,14 +12,14 @@
 <!-- Open Graph / Facebook / LinkedIn Sharing previews -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://soniastylecodes.github.io/harrywonder-portfolio/">
-<meta property="og:title" content="HarryWonder | Media Director &amp; ICT Systems Engineer">
+<meta property="og:title" content="HarryWonder | Media Director &amp; ICT Expert">
 <meta property="og:description" content="Cinematic video productions, smart home automation, and advanced surveillance systems by Komo Haruna Dauda in Abuja, Nigeria.">
 <meta property="og:image" content="harry2.jpg">
 
 <!-- Twitter Sharing previews -->
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:url" content="https://soniastylecodes.github.io/harrywonder-portfolio/">
-<meta property="twitter:title" content="HarryWonder | Media Director &amp; ICT Systems Engineer">
+<meta property="twitter:title" content="HarryWonder | Media Director &amp; ICT Expert">
 <meta property="twitter:description" content="Cinematic film production &amp; advanced smart property engineering by Haruna Komo.">
 <meta property="twitter:image" content="harry2.jpg">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100%' height='100%' rx='22' fill='%2303080D'/><text x='52%' y='64%' font-family='system-ui, -apple-system, sans-serif' font-weight='900' font-size='44' fill='%23FFFFFF' text-anchor='middle'>H<tspan fill='%2306ADEE'>W</tspan></text></svg>">
@@ -56,21 +56,21 @@ body{background:var(--dark);color:var(--w);font-family:var(--F);font-weight:400;
 body.hov #cur{width:0;height:0;opacity:0}
 body.hov #curo{width:72px;height:72px;background:rgba(6,173,238,.06);border-color:rgba(6,173,238,.25)}
 
-#loader{position:fixed;inset:0;z-index:9000;background:var(--dark);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.6s var(--ease),visibility 0.6s}
+#loader{position:fixed;inset:0;z-index:9000;background:var(--dark);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.3s var(--ease),visibility 0.3s}
 #loader.gone{opacity:0;visibility:hidden;pointer-events:none}
-.l-ring{width:120px;height:120px;border-radius:50%;border:2px solid var(--w12);position:relative;animation:lspin 2.5s linear infinite;margin-bottom:2.5rem}
+.l-ring{width:120px;height:120px;border-radius:50%;border:2px solid var(--w12);position:relative;animation:lspin 1.2s linear infinite;margin-bottom:2.5rem}
 .l-ring::before{content:'';position:absolute;top:-2px;left:50%;width:8px;height:8px;border-radius:50%;background:var(--blue);transform:translateX(-50%);box-shadow:0 0 18px var(--blue),0 0 40px rgba(6,173,238,.4)}
 @keyframes lspin{to{transform:rotate(360deg)}}
 .l-name{overflow:hidden;display:flex;align-items:baseline;gap:0}
 .l-hw{font-family:var(--D);font-weight:800;letter-spacing:-.04em;display:flex}
-.l-hw span{font-size:clamp(2.5rem,6vw,4.5rem);display:inline-block;transform:translateY(110%);animation:lup .8s var(--ease) forwards;color:var(--w)}
+.l-hw span{font-size:clamp(2.5rem,6vw,4.5rem);display:inline-block;transform:translateY(110%);animation:lup 0.4s var(--ease) forwards;color:var(--w)}
 .l-hw span.blue{color:var(--blue)}
-.l-hw span:nth-child(1){animation-delay:.1s}.l-hw span:nth-child(2){animation-delay:.14s}.l-hw span:nth-child(3){animation-delay:.18s}.l-hw span:nth-child(4){animation-delay:.22s}.l-hw span:nth-child(5){animation-delay:.26s}.l-hw span:nth-child(6){animation-delay:.34s}.l-hw span:nth-child(7){animation-delay:.38s}.l-hw span:nth-child(8){animation-delay:.42s}.l-hw span:nth-child(9){animation-delay:.46s}.l-hw span:nth-child(10){animation-delay:.5s}.l-hw span:nth-child(11){animation-delay:.54s}
+.l-hw span:nth-child(1){animation-delay:.05s}.l-hw span:nth-child(2){animation-delay:.07s}.l-hw span:nth-child(3){animation-delay:.09s}.l-hw span:nth-child(4){animation-delay:.11s}.l-hw span:nth-child(5){animation-delay:.13s}.l-hw span:nth-child(6){animation-delay:.17s}.l-hw span:nth-child(7){animation-delay:.19s}.l-hw span:nth-child(8){animation-delay:.21s}.l-hw span:nth-child(9){animation-delay:.23s}.l-hw span:nth-child(10){animation-delay:.25s}.l-hw span:nth-child(11){animation-delay:.27s}
 @keyframes lup{to{transform:translateY(0)}}
-.l-sub{font-size:.65rem;letter-spacing:.35em;text-transform:uppercase;color:var(--blue);margin-top:1rem;opacity:0;animation:lfade .6s var(--ease) .7s forwards}
+.l-sub{font-size:.65rem;letter-spacing:.35em;text-transform:uppercase;color:var(--blue);margin-top:1rem;opacity:0;animation:lfade 0.3s var(--ease) .35s forwards}
 @keyframes lfade{to{opacity:1}}
 .l-bar{width:200px;height:1px;background:var(--w06);overflow:hidden;margin-top:1.5rem}
-.l-fill{height:100%;background:var(--blue);width:0;animation:lbar 0.5s var(--ease2) .1s forwards;box-shadow:0 0 10px var(--blue)}
+.l-fill{height:100%;background:var(--blue);width:0;animation:lbar 0.3s var(--ease2) .05s forwards;box-shadow:0 0 10px var(--blue)}
 @keyframes lbar{to{width:100%}}
 
 nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:1.5rem 3vw;pointer-events:none;mix-blend-mode:difference;border-bottom:1px solid transparent;transition:padding 0.4s var(--ease), background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease}
@@ -349,7 +349,7 @@ nav *{pointer-events:all}
   border: 1px solid var(--w12);
   background: var(--dark2);
   box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
   transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease), transform 0.3s var(--ease);
 }
 .video-wrapper iframe {
@@ -1261,6 +1261,19 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
   <div class="l-sub">Visual Storyteller</div>
   <div class="l-bar"><div class="l-fill"></div></div>
 </div>
+<script>
+  (function() {
+    var loader = document.getElementById('loader');
+    var dismiss = function() {
+      if (loader && !loader.classList.contains('gone')) {
+        loader.classList.add('gone');
+      }
+    };
+    setTimeout(dismiss, 1200);
+    window.addEventListener('load', dismiss);
+    document.addEventListener('DOMContentLoaded', dismiss);
+  })();
+</script>
 
 <nav>
   <a href="#" class="nav-logo">Harry<span class="hw">Wonder</span></a>
@@ -1477,29 +1490,17 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
             <div class="video-wrapper">
               <iframe src="https://drive.google.com/file/d/1oV13NyaRV8r2F5glpzpMA590HAgAhi8q/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
-            <div class="single-item-meta" style="text-align: left;">
-              <h4>Clap Product Launch</h4>
-              <p>Premium brand storytelling and cinema-grade corporate productions designed to communicate identity and impact.</p>
-            </div>
           </div>
           <!-- Video 2: Corporate Video 2 -->
           <div class="svc-single-item">
             <div class="video-wrapper">
               <iframe src="https://drive.google.com/file/d/145_dUuWMIWHwLM3qXpzolCUu5bI0hw0h/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
-            <div class="single-item-meta" style="text-align: left;">
-              <h4>Corporate Showcase II</h4>
-              <p>Cinematic corporate highlights and event storytelling for institutional partners.</p>
-            </div>
           </div>
           <!-- Video 3: Corporate Video 3 -->
           <div class="svc-single-item">
             <div class="video-wrapper">
               <iframe src="https://drive.google.com/file/d/1UAzCmUhr3xFgUKCo2888eIDBj9Ec5f4e/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            </div>
-            <div class="single-item-meta" style="text-align: left;">
-              <h4>Corporate Highlights III</h4>
-              <p>Cinema-grade corporate production highlighting brand message and organizational value.</p>
             </div>
           </div>
         </div>
@@ -1514,29 +1515,17 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
             <div class="video-wrapper">
               <iframe src="https://drive.google.com/file/d/1nMxRloUxBkYGIhf2TI4y1A7SSLHltwY5/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
-            <div class="single-item-meta" style="text-align: left;">
-              <h4>Tera digital campaign</h4>
-              <p>A high-impact cinematic campaign built to deliver dramatic visual storytelling and highlight premium brand values.</p>
-            </div>
           </div>
           <!-- Video 2: Campaign Video 2 -->
           <div class="svc-single-item">
             <div class="video-wrapper">
               <iframe src="https://drive.google.com/file/d/13UHcJcTW-v0ZzFmi1FMYr1MXUv9OXGfI/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
-            <div class="single-item-meta" style="text-align: left;">
-              <h4>Digital Campaign Showcase</h4>
-              <p>Dynamic visual storytelling designed for reach, audience engagement, and campaign conversion.</p>
-            </div>
           </div>
           <!-- Video 3: Campaign Video 3 -->
           <div class="svc-single-item">
             <div class="video-wrapper">
               <iframe src="https://drive.google.com/file/d/1PylZnRnBsrcF70Q2YyARFtQPuuhZrl07/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            </div>
-            <div class="single-item-meta" style="text-align: left;">
-              <h4>Creative Campaign Highlights</h4>
-              <p>Cinematic marketing and visual strategy configured to communicate brand movement.</p>
             </div>
           </div>
         </div>
@@ -1556,10 +1545,6 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
           <div class="video-wrapper">
             <iframe src="https://drive.google.com/file/d/1sVxNpey8HLi4VFlvL6WIYppnT4f7qUfp/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           </div>
-          <div class="single-item-meta">
-            <h4>Featured: Multi-Camera Hybrid Livestream &amp; Broadcast Reel</h4>
-            <p>Directing high-definition hybrid events, church broadcasts, and corporate summits with cinema-grade multi-cam setup.</p>
-          </div>
         </div>
       </div>
     </div>
@@ -1577,19 +1562,11 @@ footer:hover .ft-bg-image{transform:translate3d(0,-18px,0) scale(1.15) rotate(-1
             <div class="video-wrapper">
               <iframe src="https://drive.google.com/file/d/1L_FD8-gLpligvjAr3_gQfv8wXDzC8y6o/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
-            <div class="single-item-meta" style="text-align: left;">
-              <h4>Abraham Story</h4>
-              <p>Moving brand stories, community impact features, and NGO advocacy campaigns designed to capture real human emotion and drive change.</p>
-            </div>
           </div>
           <!-- Documentary 2 -->
           <div class="svc-single-item">
             <div class="video-wrapper">
               <iframe src="https://drive.google.com/file/d/1aIY9wwvJGMpxdXXy3fQ8sUaW5qcKGrvD/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            </div>
-            <div class="single-item-meta" style="text-align: left;">
-              <h4>ACET Nigeria</h4>
-              <p>A cinematic, moving human-interest documentary highlighting community impact and health advocacy causes in Nigeria.</p>
             </div>
           </div>
         </div>
